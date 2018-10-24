@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TenderDimensionBars from '../TenderDimensionBars';
+import TenderDimensionBars from './TenderDimensionBars';
 
 class Tenders extends Component {
 
