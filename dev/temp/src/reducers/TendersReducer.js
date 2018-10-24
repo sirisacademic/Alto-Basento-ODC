@@ -84,7 +84,8 @@ export default function(state = INITIAL_STATE, action) {
                 newState.tendersList.filters = [...newState.tendersList.filters, action.payload];
             
             // update the filter function of the dimension by:
-            var keys = _(newState.tendersList.filters, ['category', action.payload.category])
+            var keys = _(newState.tendersList.filters)
+                .filter(['category', action.payload.category])
                 .map('key')
                 .value();
             if(keys.length == 0)
@@ -93,6 +94,7 @@ export default function(state = INITIAL_STATE, action) {
                 newState.tendersList.dimensions[action.payload.category].filter(function(key) {
                     return _.indexOf(keys, key) != -1;
                 });
+            
             return newState;
 
         default:

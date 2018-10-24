@@ -15,9 +15,6 @@ class TenderDimensionBars extends Component {
 
     render() {
         const data = this.props.data.sort((a, b) => (b.value - a.value));
-        /*console.log(
-            JSON.stringify(data, null, "    ")
-        );*/
         return (
             <div className='TenderDimensionBars'>
                 {

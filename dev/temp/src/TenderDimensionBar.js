@@ -45,6 +45,7 @@ class TenderDimensionBar extends Component {
             .attr('y', 0)
             .attr('height', this.props.size[1])
             .attr('width', d => xScale(d))
+            .classed('selected', this.props.data.selected)
         d3.select(node)
             .append('text')
             .attr('alignment-baseline', 'middle')
