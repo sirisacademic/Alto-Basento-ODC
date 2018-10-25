@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import TendersContainer from './containers/TendersContainer';
+import FilterTagsContainer from './containers/FilterTagsContainer';
 
-class App extends Component {
-  constructor(props) {
-    super(props);    
-  }
-
-  render() {
-    return (
-      <TendersContainer></TendersContainer>
-    );    
-  };  
-}
-
+const App  = () => (
+  <div>
+    <TendersContainer></TendersContainer>
+    <FilterTagsContainer></FilterTagsContainer>
+  </div>
+)
 export default App;

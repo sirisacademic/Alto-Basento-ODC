@@ -2,12 +2,10 @@ import crossfilter from 'crossfilter2';
 import _ from 'lodash';
 import {
     ADD_FILTER,
+    REMOVE_FILTER,
     FETCH_ALL_TENDERS,
     FETCH_ALL_TENDERS_SUCCESS
 } from '../actions/index.js';
-import {
-    DIMENSIONS
-} from '../constants/constants'
 
 let cf
 const INITIAL_STATE = {
@@ -32,7 +30,9 @@ const INITIAL_STATE = {
 
 
 export default function(state = INITIAL_STATE, action) {
-    let newState;
+    let newState, 
+        index;
+    
     switch(action.type) {
 
         // start fetching all tenders and flag the state
@@ -73,7 +73,7 @@ export default function(state = INITIAL_STATE, action) {
                 }
             };
             // update the list of filters
-            let index = state.tendersList.filters.findIndex((el) => {
+            index = state.tendersList.filters.findIndex((el) => {
                 return el.category == action.payload.category && el.key == action.payload.key;
             });
             if(index != -1) {
@@ -94,7 +94,32 @@ export default function(state = INITIAL_STATE, action) {
                 newState.tendersList.dimensions[action.payload.category].filter(function(key) {
                     return _.indexOf(keys, key) != -1;
                 });
-            
+            return newState;
+
+        case REMOVE_FILTER:
+            newState =  { 
+                ...state, 
+                tendersList: {
+                    ...state.tendersList                    
+                }
+            };
+            // update the list of filters
+            index = state.tendersList.filters.findIndex((el) => {
+                return el.key == action.payload.key;
+            });
+            let filter = newState.tendersList.filters.splice(index, 1)[0];
+            newState.tendersList.filters = [...newState.tendersList.filters];
+            // update the filter function of the dimension by:
+            var keys = _(newState.tendersList.filters)
+                .filter(['category', filter.category])
+                .map('key')
+                .value();
+            if(keys.length == 0)
+                newState.tendersList.dimensions[filter.category].filterAll();
+            else
+                newState.tendersList.dimensions[filter.category].filter(function(key) {
+                    return _.indexOf(keys, key) != -1;
+                });
             return newState;
 
         default:

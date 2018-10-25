@@ -33,7 +33,7 @@ class TenderDimensionBar extends Component {
 
         d3.select(node)
             .on('click', function(d) {
-                that.props.onclick({
+                that.props.onClickTender({
                     category: that.props.category,
                     key : that.props.data.key
                 });

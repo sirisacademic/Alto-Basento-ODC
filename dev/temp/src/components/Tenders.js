@@ -17,17 +17,17 @@ class Tenders extends Component {
                 <TenderDimensionBars
                     category={'tipo_appalto_dimension'}
                     data={this.props.tendersByDimension.tipo_appalto} 
-                    onclick={this.props.click}>
+                    onClickTender={this.props.onClickTender}>
                 </TenderDimensionBars>
                 <TenderDimensionBars
                     category={'tipo_intervento_dimension'}
                     data={this.props.tendersByDimension.tipo_intervento} 
-                    onclick={this.props.onclick}>
+                    onClickTender={this.props.onClickTender}>
                 </TenderDimensionBars>
                 <TenderDimensionBars
                     category={'comune_gara_dimension'}
                     data={this.props.tendersByDimension.comune_gara}
-                    onclick={this.props.onclick}>
+                    onClickTender={this.props.onClickTender}>
                 </TenderDimensionBars>
             </div>
         );

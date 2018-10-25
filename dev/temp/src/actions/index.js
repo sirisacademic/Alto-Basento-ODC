@@ -3,6 +3,7 @@ import data from '../data/garadata.csv';
 
 
 export const ADD_FILTER = 'ADD_FILTER';
+export const REMOVE_FILTER = 'REMOVE_FILTER';
 export const FETCH_ALL_TENDERS = 'FETCH_ALL_TENDERS';
 export const FETCH_ALL_TENDERS_SUCCESS = 'FETCH_ALL_TENDERS_SUCCESS';
 export const FETCH_ALL_TENDERS_FAILURE = 'FETCH_ALL_TENDERS_FAILURE';
@@ -42,5 +43,10 @@ export const fetchAllTendersFailure = (error) => ({
 
 export const addFilter = (filter) => ({
     type: ADD_FILTER,
+    payload: filter
+});
+
+export const removeFilter = (filter) => ({
+    type: REMOVE_FILTER,
     payload: filter
 });

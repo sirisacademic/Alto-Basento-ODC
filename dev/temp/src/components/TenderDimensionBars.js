@@ -19,7 +19,7 @@ class TenderDimensionBars extends Component {
             <div className='TenderDimensionBars'>
                 {
                     data.map(
-                        (d, index) => <TenderDimensionBar category={this.props.category} key={index} data={d} size={[200, 25]} onclick={this.props.onclick}></TenderDimensionBar>
+                        (d, index) => <TenderDimensionBar category={this.props.category} key={index} data={d} size={[200, 25]} onClickTender={this.props.onClickTender}></TenderDimensionBar>
                     )
                 }
             </div>

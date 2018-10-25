@@ -38,9 +38,7 @@ const mapDispatchToProps = (dispatch) => {
                     );
                 });
         },
-        onclick: (obj) => {
-            dispatch(addFilter(obj));
-        }
+        onClickTender: (obj) => dispatch(addFilter(obj))
     }
 }
 
