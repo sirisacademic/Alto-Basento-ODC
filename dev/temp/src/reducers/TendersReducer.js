@@ -29,7 +29,7 @@ const INITIAL_STATE = {
 };
 
 
-export default function(state = INITIAL_STATE, action) {
+const tenders = (state = INITIAL_STATE, action) => {
     let newState, 
         index;
     
@@ -126,3 +126,5 @@ export default function(state = INITIAL_STATE, action) {
             return state;
     }
 }
+
+export default tenders;

@@ -1,7 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
+import HeaderMenu from '../presentation/header/HeaderMenu';
 import HomeContainer from '../containers/HomeContainer';
+import TenderContainer from '../containers/tenders/TenderContainer';
+import Footer from '../presentation/footer/Footer';
 
 
 const Root = ({ store }) => (
@@ -10,9 +14,16 @@ const Root = ({ store }) => (
     // without passing it explicitly
     <Provider store={store}>
         <Router>
-            <Route path="/" component={HomeContainer} />
+            <div>
+                <HeaderMenu/>
+                <Container>
+                    <Route exact path="/" component={HomeContainer} />
+                    <Route path="/tender/:id" component={TenderContainer} />
+                </Container>
+                <Footer/>
+            </div>
         </Router>
     </Provider>
 )
 
-export default Root
+export default Root;

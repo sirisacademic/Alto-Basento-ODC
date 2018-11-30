@@ -1,3 +1,50 @@
+body {
+    background-color: #ECEEFC;
+    min-height: 100vh;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    .ui.menu {
+        .item {
+            &.header {
+                align-items: baseline;
+                flex-direction: column;
+                text-transform: uppercase;                
+                span.subheader {                    
+                    font-size: .8rem;
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
+    .home-container {
+        .home-view-container {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: flex-start;
+    
+            height: 80vh;        
+            width: 70vw;
+            margin: auto;
+            margin-top: 7em;
+            .home-view-figures {
+                margin-bottom: 7em;
+            }
+
+            header {
+                text-align: center;
+                .claim {
+                    font-size: 3rem;            
+                }
+            }
+        }        
+    }    
+}
+
+
+
+
 .TenderDimensionFilter {
     display: flex;
     flex-direction: row;

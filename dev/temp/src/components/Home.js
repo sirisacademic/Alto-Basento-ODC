@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Search } from 'semantic-ui-react';
+import HomeInfoBlocks from './HomeInfoBlocks';
+import { 
+    Search, 
+    Grid,
+    Container
+} from 'semantic-ui-react';
 import _ from 'lodash';
 
 class Home extends Component {
@@ -60,15 +65,50 @@ class Home extends Component {
         if(this.props.tenders.length == 0)
             return <div>Loading...</div>
 
+        var formattedSpending = new Intl.NumberFormat(
+            'de-DE', 
+            {
+                style : 'currency', 
+                currency : 'EUR',
+                minimumFractionDigits : 0
+            })
+            .format(Math.round(this.props.stats.spending));
+
         return (
-            <div className=''>
-                <Search category
-                    loading={isLoading}
-                    onSearchChange={this.handleSearchChange}
-                    results={results}
-                    value={value}
-                />
-            </div>
+            <Container className='home-container'>
+                <Container className='home-view-container'>
+                    <Grid className='home-view-figures' columns={3} divided>
+                        <Grid.Row>
+                            <Grid.Column textAlign="center">
+                                <h1>{this.props.stats.numberOfTenders}</h1>
+                                <p>public tenders</p>
+                            </Grid.Column>
+                            <Grid.Column textAlign="center">
+                                <h1> {formattedSpending}</h1>
+                                <p>spend in public contracts</p>
+                            </Grid.Column>
+                            <Grid.Column textAlign="center">
+                                <h1>{this.props.stats.numberOfProviders}</h1>
+                                <p>providers</p>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                    <header>
+                        <p className='claim'>
+                        Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open
+                        </p>
+                        <div>
+                            <Search category
+                                loading={isLoading}
+                                onSearchChange={this.handleSearchChange}
+                                results={results}
+                                value={value}
+                            />
+                        </div>
+                    </header>
+                </Container>                
+                <HomeInfoBlocks/>
+            </Container>            
         );
     }
 }

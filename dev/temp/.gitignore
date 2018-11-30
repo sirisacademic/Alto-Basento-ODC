@@ -19,3 +19,24 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# the project uses semantic-ui and its react integration,
+# semantic-ui-react. The look&feel of the site its done
+# by creating a custom theme from the default theme of
+# semantic-ui.
+# Here just add to versioning the files modified in order
+# to create a custom theme and the contents of the
+# dist folder
+# Instructions about how to create a custom theme here:
+# http://g14n.info/2016/11/react-semantic-customized/
+
+/semantic-ui/semantic.json
+/semantic-ui/node_modules/
+/semantic-ui/semantic/tasks
+/semantic-ui/semantic/gulpfile.js
+/semantic-ui/semantic/src/*
+!/semantic-ui/semantic/src/theme.config
+!/semantic-ui/semantic/src/themes/opendatabasento
+/semantic-ui/semantic/dist/*
+!/semantic-ui/semantic/dist/semantic.min.css
+!/semantic-ui/semantic/dist/themes/opendatabasento
