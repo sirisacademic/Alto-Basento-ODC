@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import Home from '../components/Home';
 import _ from 'lodash';
-import Constants from '../constants/constants';
 import {
     fetchAllTenders,
     fetchAllTendersSuccess
@@ -17,6 +16,7 @@ const mapStateToProps = (state) => {
     return {
         // adapt the tenders to a format more suitable
         // for the Search Category component
+/*        
         'tenders' : _.reduce(
                 Constants.SEARCHABLE_PROPERTIES,
                 (memo, propertyPath) => {
@@ -40,7 +40,9 @@ const mapStateToProps = (state) => {
                 },
                 {}
             ),
-        
+*/        
+        'tenders' : tenders,
+
         // summarize basic stats
         'stats' : {
             // total number of tenders

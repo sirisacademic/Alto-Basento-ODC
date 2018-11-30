@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Constants from '../constants/constants';
+import Utils from '../Utils';
 import HomeInfoBlocks from './HomeInfoBlocks';
 import { 
     Search, 
@@ -29,62 +31,68 @@ class Home extends Component {
         this.props.fetchAllTenders();
     }
 
-
-
-    handleSearchChange = (e, { value }) => {
-        this.setState({ isLoading: true, value })
-
+    handleSearchChange = (e, {value}) => {
+        this.setState({ isLoading: true, value });
         setTimeout(() => {
             if (this.state.value.length < 1) return this.setState({ isLoading: false, results: [], value: '' })
 
-            const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-            const isMatch = result => re.test(result.title)
-
-            const filteredResults = _.reduce(
+            // look through the searchable properties to
+            // find the search text
+            const re = new RegExp(_.escapeRegExp(this.state.value), 'i')            
+            let filteredResults = _.filter(
                 this.props.tenders,
-                (memo, data, name) => {
-                    const results = _.filter(data.results, isMatch)
-                    if (results.length) memo[name] = { name, results } // eslint-disable-line no-param-reassign
+                (tender) => {
+                    return _.reduce(
+                        Constants.SEARCHABLE_PROPERTIES,
+                        function(memo, prop) {
+                            return memo || re.test(_.get(tender, prop));
+                        },
+                        false
+                    )
+                }
+            );
+            
+            //
+            // convert the filtered results to an array of
+            // Seach.Result properties
+            let resultProps = _.map(
+                filteredResults,
+                (r) => {
+                    return {
+                        title : r.organizationReference.legalName,
+                        description : r.description,
+                        price : Utils.formatCurrency(r.value.amount),
+                        id : r.id
+                    }
+                }
+            );
 
-                    return memo
-                },
-                {},
-            )
             this.setState({
                 isLoading: false,
-                results: filteredResults,
-            })
+                results: resultProps
+            });
         }, 300)
-    }
-
+    };
 
 
     render() {
         const { isLoading, value, results } = this.state;
 
+
         if(this.props.tenders.length == 0)
             return <div>Loading...</div>
-
-        var formattedSpending = new Intl.NumberFormat(
-            'de-DE', 
-            {
-                style : 'currency', 
-                currency : 'EUR',
-                minimumFractionDigits : 0
-            })
-            .format(Math.round(this.props.stats.spending));
 
         return (
             <Container className='home-container'>
                 <Container className='home-view-container'>
-                    <Grid className='home-view-figures' columns={3} divided>
+                    <Grid className='figures' columns={3} divided>
                         <Grid.Row>
                             <Grid.Column textAlign="center">
                                 <h1>{this.props.stats.numberOfTenders}</h1>
                                 <p>public tenders</p>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <h1> {formattedSpending}</h1>
+                                <h1> {Utils.formatCurrency(Math.round(this.props.stats.spending))}</h1>
                                 <p>spend in public contracts</p>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
@@ -98,8 +106,9 @@ class Home extends Component {
                         Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open
                         </p>
                         <div>
-                            <Search category
+                            <Search
                                 loading={isLoading}
+                                minCharacters={3}
                                 onSearchChange={this.handleSearchChange}
                                 results={results}
                                 value={value}
