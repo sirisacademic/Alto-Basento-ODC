@@ -74,6 +74,9 @@ class Home extends Component {
         }, 300)
     };
 
+    handleSearchResultClick = (event, data) => {
+        console.log(event, data);
+    }
 
     render() {
         const { isLoading, value, results } = this.state;
@@ -112,6 +115,7 @@ class Home extends Component {
                                 onSearchChange={this.handleSearchChange}
                                 results={results}
                                 value={value}
+                                onResultSelect={this.handleSearchResultClick}
                             />
                         </div>
                     </header>
