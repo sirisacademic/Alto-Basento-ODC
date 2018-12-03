@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TenderDimensionBars from './TenderDimensionBars';
+import { Constants } from '../constants/constants';
 
 class Tenders extends Component {
 
@@ -16,17 +17,17 @@ class Tenders extends Component {
            <div className='TenderDimensionFilter'>
                 <TenderDimensionBars
                     category={'tipo_appalto_dimension'}
-                    data={this.props.tendersByDimension.tipo_appalto} 
+                    data={this.props.tendersByDimension[Constants.TIPO_APPALTO]} 
                     onClickTender={this.props.onClickTender}>
                 </TenderDimensionBars>
                 <TenderDimensionBars
                     category={'tipo_intervento_dimension'}
-                    data={this.props.tendersByDimension.tipo_intervento} 
+                    data={this.props.tendersByDimension[Constants.TIPO_INTERVENTO]} 
                     onClickTender={this.props.onClickTender}>
                 </TenderDimensionBars>
                 <TenderDimensionBars
                     category={'comune_gara_dimension'}
-                    data={this.props.tendersByDimension.comune_gara}
+                    data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
                     onClickTender={this.props.onClickTender}>
                 </TenderDimensionBars>
             </div>

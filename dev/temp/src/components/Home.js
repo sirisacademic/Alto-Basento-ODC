@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Constants from '../constants/constants';
+import { Constants } from '../constants/constants';
 import Utils from '../Utils';
 import HomeInfoBlocks from './HomeInfoBlocks';
 import { 
     Search, 
     Grid,
-    Container
+    Container,
+    Button
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 class Home extends Component {
@@ -59,6 +61,9 @@ class Home extends Component {
                 filteredResults,
                 (r) => {
                     return {
+                        // unique key is needed by React
+                        // https://reactjs.org/docs/lists-and-keys.html#keys
+                        key: r.id,
                         title : r.organizationReference.legalName,
                         description : r.description,
                         price : Utils.formatCurrency(r.value.amount),
@@ -74,19 +79,22 @@ class Home extends Component {
         }, 300)
     };
 
+
+
     handleSearchResultClick = (event, data) => {
-        console.log(event, data);
+        this.props.history.push('/tender/' + data.result.id);
     }
+
+
 
     render() {
         const { isLoading, value, results } = this.state;
-
 
         if(this.props.tenders.length == 0)
             return <div>Loading...</div>
 
         return (
-            <Container className='home-container'>
+            <Container className='main-container'>
                 <Container className='home-view-container'>
                     <Grid className='figures' columns={3} divided>
                         <Grid.Row>
@@ -108,16 +116,21 @@ class Home extends Component {
                         <p className='claim'>
                         Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open
                         </p>
-                        <div>
-                            <Search
-                                loading={isLoading}
-                                minCharacters={3}
-                                onSearchChange={this.handleSearchChange}
-                                results={results}
-                                value={value}
-                                onResultSelect={this.handleSearchResultClick}
-                            />
-                        </div>
+                        <Search
+                            loading={isLoading}
+                            minCharacters={3}
+                            onSearchChange={this.handleSearchChange}
+                            results={results}
+                            value={value}
+                            onResultSelect={this.handleSearchResultClick}
+                        />
+                        <Button 
+                            as={Link}
+                            to='/tenders'
+                            primary 
+                            circular="true"
+                            size="large">Explore
+                        </Button>
                     </header>
                 </Container>                
                 <HomeInfoBlocks/>

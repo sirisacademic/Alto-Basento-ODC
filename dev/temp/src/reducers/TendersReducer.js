@@ -6,6 +6,7 @@ import {
     FETCH_ALL_TENDERS,
     FETCH_ALL_TENDERS_SUCCESS
 } from '../actions/index.js';
+import { Constants } from '../constants/constants';
 
 let cf
 const INITIAL_STATE = {
@@ -60,9 +61,9 @@ const tenders = (state = INITIAL_STATE, action) => {
                     cf: crossfilter(action.payload)
                 }
             };
-            newState.tendersList.dimensions.tipo_appalto_dimension = newState.tendersList.cf.dimension(d => d.tipo_appalto);
-            newState.tendersList.dimensions.tipo_intervento_dimension = newState.tendersList.cf.dimension(d => d.tipo_intervento);
-            newState.tendersList.dimensions.comune_gara_dimension = newState.tendersList.cf.dimension(d => d.comune_gara);
+            newState.tendersList.dimensions.tipo_appalto_dimension = newState.tendersList.cf.dimension(d => d[Constants.TIPO_APPALTO]);
+            newState.tendersList.dimensions.tipo_intervento_dimension = newState.tendersList.cf.dimension(d => d[Constants.TIPO_INTERVENTO]);
+            newState.tendersList.dimensions.comune_gara_dimension = newState.tendersList.cf.dimension(d => d[Constants.COMUNE_GARE]);
             return newState;
         
         case ADD_FILTER:

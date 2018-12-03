@@ -1,12 +1,22 @@
-const Constants = {
-    TIPO_APPALTO : 'procurementMethod', //'tipo_appalto',
-    TIPO_INTERVENTO : 'tipoIntervento', //'tipo_intervento',
-    COMUNE_GARE : 'municipality', //'comune_gara',
-    ABSTRACT_PROGETTO : 'description', //'abstract_progetto',
-    NOME_IMPRESA : 'organizationReference.legalName', //'nome_impresa'
-}
+let TIPO_APPALTO = 'procurementMethod', //'tipo_appalto',
+    TIPO_INTERVENTO = 'tipoIntervento', //'tipo_intervento',
+    COMUNE_GARE = 'municipality', //'comune_gara',
+    ABSTRACT_PROGETTO = 'description', //'abstract_progetto',
+    NOME_IMPRESA = 'organizationReference.legalName'; //'nome_impresa';
 
-Constants.SEARCHABLE_PROPERTIES = [Constants.NOME_IMPRESA, Constants.ABSTRACT_PROGETTO, Constants.COMUNE_GARE];
-Constants.DIMENSIONS = [Constants.TIPO_APPALTO, Constants.TIPO_INTERVENTO, Constants.COMUNE_GARE];
-
-export default Constants;
+export const Constants = {
+    TIPO_APPALTO : TIPO_APPALTO,
+    TIPO_INTERVENTO: TIPO_INTERVENTO,
+    COMUNE_GARE : COMUNE_GARE,
+    ABSTRACT_PROGETTO : ABSTRACT_PROGETTO,
+    NOME_IMPRESA : NOME_IMPRESA,
+    SEARCHABLE_PROPERTIES : [
+        NOME_IMPRESA,         
+        ABSTRACT_PROGETTO,
+        COMUNE_GARE],
+    DIMENSIONS : [
+        TIPO_APPALTO, 
+        TIPO_INTERVENTO, 
+        COMUNE_GARE
+    ]
+};

@@ -5,8 +5,8 @@ import { Container } from 'semantic-ui-react';
 import HeaderMenu from '../presentation/header/HeaderMenu';
 import HomeContainer from '../containers/HomeContainer';
 import TenderContainer from '../containers/tenders/TenderContainer';
+import TendersContainer from '../containers/TendersContainer';
 import Footer from '../presentation/footer/Footer';
-
 
 const Root = ({ store }) => (
     // Provider make the store available
@@ -18,6 +18,7 @@ const Root = ({ store }) => (
                 <HeaderMenu/>
                 <Container>
                     <Route exact path="/" component={HomeContainer} />
+                    <Route exact path='/tenders' component={TendersContainer} />
                     <Route path="/tender/:id" component={TenderContainer} />
                 </Container>
                 <Footer/>
