@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { Card } from 'semantic-ui-react'
+import { 
+    Card,
+    Icon
+} from 'semantic-ui-react'
+import * as d3 from 'd3';
 
 class TenderCards extends Component {
 
@@ -11,11 +15,18 @@ class TenderCards extends Component {
                 {
                     this.props.tenders.map(
                         (d, index) =>
-                            <Card key={index}>
+                            <Card key={index}
+                                href={'/tender/' + d.id}>
                                 <Card.Content>
-                                    <Card.Header>{d.spesa_categoria}</Card.Header>
-                                    <Card.Meta>{d.nome_impresa}</Card.Meta>
-                                    <Card.Description>{d.abstract_progetto}</Card.Description>
+                                    <Card.Header>{d.organizationReference.legalName}</Card.Header>
+                                    <Card.Meta>{d3.format("$,")(d.value.amount)}</Card.Meta>
+                                    <Card.Description>{d.description}</Card.Description>
+                                </Card.Content>
+                                <Card.Content extra>
+                                    <a>
+                                        <Icon name='map marker' />
+                                        {d.municipality}
+                                    </a>
                                 </Card.Content>
                             </Card>
                     )

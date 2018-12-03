@@ -11,6 +11,7 @@ class TenderDimensionBar extends Component {
             left: 0
         };
         this.createBar = this.createBar.bind(this);
+        
     }
 
     componentDidMount() {
@@ -23,11 +24,13 @@ class TenderDimensionBar extends Component {
 
     createBar() {        
         var that = this;
+        
         const maxX = 100;
         const node = this.node;
+        const width = node.getBoundingClientRect().width;
         const xScale = d3.scaleLinear()
             .domain([0, maxX])
-            .range([0, this.props.size[0] - this.margins.right]);
+            .range([0, width - this.margins.right]);
         
         d3.select(node).selectAll('*').remove();
 
@@ -43,7 +46,7 @@ class TenderDimensionBar extends Component {
             .style('fill', '#fe9922')
             .attr('x', 0)
             .attr('y', 0)
-            .attr('height', this.props.size[1])
+            .attr('height', this.props.height)
             .attr('width', d => xScale(d))
             .classed('selected', this.props.data.selected)
         d3.select(node)
@@ -52,27 +55,36 @@ class TenderDimensionBar extends Component {
             .attr('class', 'key')
             .text(this.props.data.key)
             .attr('x', 5)
-            .attr('y', (this.props.size[1] / 2));
+            .attr('y', (this.props.height / 2));
         d3.select(node)
             .append('text')
             .attr('alignment-baseline', 'middle')
             .attr('class', 'value')
             .text(this.props.data.value)
-            .attr('x', this.props.size[0])
-            .attr('y', (this.props.size[1] / 2));
+            .attr('x', width)
+            .attr('y', (this.props.height / 2));
         d3.select(node)
             .append('line')
             .attr('x1', 0)
-            .attr('x2', this.props.size[0])
-            .attr('y1', this.props.size[1] - 2)
-            .attr('y2', this.props.size[1] - 2)
+            .attr('x2', width)
+            .attr('y1', this.props.height - 2)
+            .attr('y2', this.props.height - 2)
         
+    }
+
+    refCallback = node => {
+        this.node = node;
+        // set the width of the svg once the element
+        // is attached to the DOM and we are able to
+        // measure its size
+        d3.select(this.node)
+            .attr('width', node.getBoundingClientRect().width);
     }
 
     render() {
         return (
             <div className='TenderDimensionBar'>
-                <svg ref={node => this.node = node} width={500} height={this.props.size[1]}></svg>
+                <svg ref={this.refCallback} height={this.props.height}></svg>
             </div>
         );
     }

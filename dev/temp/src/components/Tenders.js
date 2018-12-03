@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TenderDimensionBars from './TenderDimensionBars';
 import { Constants } from '../constants/constants';
+import { Container, Grid } from 'semantic-ui-react';
 
 class Tenders extends Component {
 
@@ -14,23 +15,31 @@ class Tenders extends Component {
             return <div>Loading...</div>
 
         return (
-           <div className='TenderDimensionFilter'>
-                <TenderDimensionBars
-                    category={'tipo_appalto_dimension'}
-                    data={this.props.tendersByDimension[Constants.TIPO_APPALTO]} 
-                    onClickTender={this.props.onClickTender}>
-                </TenderDimensionBars>
-                <TenderDimensionBars
-                    category={'tipo_intervento_dimension'}
-                    data={this.props.tendersByDimension[Constants.TIPO_INTERVENTO]} 
-                    onClickTender={this.props.onClickTender}>
-                </TenderDimensionBars>
-                <TenderDimensionBars
-                    category={'comune_gara_dimension'}
-                    data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
-                    onClickTender={this.props.onClickTender}>
-                </TenderDimensionBars>
-            </div>
+            <Container className='main-container'>
+                <Grid columns={3}>
+                    <Grid.Column>
+                        <TenderDimensionBars
+                            category={'tipo_appalto_dimension'}
+                            data={this.props.tendersByDimension[Constants.TIPO_APPALTO]} 
+                            onClickTender={this.props.onClickTender}>
+                        </TenderDimensionBars>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <TenderDimensionBars
+                            category={'tipo_intervento_dimension'}
+                            data={this.props.tendersByDimension[Constants.TIPO_INTERVENTO]} 
+                            onClickTender={this.props.onClickTender}>
+                        </TenderDimensionBars>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <TenderDimensionBars
+                            category={'comune_gara_dimension'}
+                            data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
+                            onClickTender={this.props.onClickTender}>
+                        </TenderDimensionBars>
+                    </Grid.Column>
+                </Grid>
+            </Container>
         );
     }
 }
