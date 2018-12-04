@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Header, Divider, Grid, GridColumn, GridRow, Icon, Label } from 'semantic-ui-react';
+import { 
+    Header, 
+    Divider, 
+    Grid, 
+    GridColumn, 
+    GridRow, 
+    Icon, 
+    Label,
+    Container 
+} from 'semantic-ui-react';
 import * as d3 from 'd3';
 
 class Tender extends Component {
@@ -17,7 +26,7 @@ class Tender extends Component {
             tenderDate =  new Date(tender.contractPeriod.startDate);
 
         return (
-            <div>
+            <Container className='main-container'>
                 <Header as='h1'>
                     {tender.description}
                     </Header>
@@ -65,7 +74,7 @@ class Tender extends Component {
 
                     </GridColumn>
                 </Grid>
-            </div>           
+            </Container>           
         );
     }
 }

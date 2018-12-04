@@ -8,10 +8,8 @@ import * as d3 from 'd3';
 class TenderCards extends Component {
 
     render() {
-        console.log("CARDS");
-        console.log(this.props.tenders);
         return (
-            <Card.Group>
+            <Card.Group itemsPerRow={4}>
                 {
                     this.props.tenders.map(
                         (d, index) =>

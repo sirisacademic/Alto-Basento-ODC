@@ -43,10 +43,12 @@ class TenderDimensionBar extends Component {
             })
             .append('rect')
             .data([this.props.data.value])
-            .style('fill', '#fe9922')
+            .style('fill', (this.props.data.selected)?
+                'rgb(145, 219, 253)' : 'rgb(105, 255, 218)'
+            )
             .attr('x', 0)
             .attr('y', 0)
-            .attr('height', this.props.height)
+            .attr('height', this.props.height - 1)
             .attr('width', d => xScale(d))
             .classed('selected', this.props.data.selected)
         d3.select(node)
@@ -55,20 +57,22 @@ class TenderDimensionBar extends Component {
             .attr('class', 'key')
             .text(this.props.data.key)
             .attr('x', 5)
-            .attr('y', (this.props.height / 2));
+            .attr('y', (this.props.height / 2) + 1)
+            .classed('selected', this.props.data.selected);
         d3.select(node)
             .append('text')
             .attr('alignment-baseline', 'middle')
             .attr('class', 'value')
             .text(this.props.data.value)
             .attr('x', width)
-            .attr('y', (this.props.height / 2));
+            .attr('y', (this.props.height / 2))
+            .classed('selected', this.props.data.selected);
         d3.select(node)
             .append('line')
             .attr('x1', 0)
             .attr('x2', width)
-            .attr('y1', this.props.height - 2)
-            .attr('y2', this.props.height - 2)
+            .attr('y1', this.props.height)
+            .attr('y2', this.props.height)
         
     }
 

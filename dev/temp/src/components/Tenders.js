@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TenderDimensionBars from './TenderDimensionBars';
 import { Constants } from '../constants/constants';
-import { Container, Grid } from 'semantic-ui-react';
+import { Container, Grid, Header } from 'semantic-ui-react';
 
 class Tenders extends Component {
 
@@ -16,6 +16,15 @@ class Tenders extends Component {
 
         return (
             <Container className='main-container'>
+                <Grid columns={2}>
+                    <Grid.Column>
+                        <Header as='h1'>{this.props.tenders.length}</Header>
+                        <span>public tenders</span>
+                    </Grid.Column>
+                    <Grid.Column>
+                        
+                    </Grid.Column>
+                </Grid>
                 <Grid columns={3}>
                     <Grid.Column>
                         <TenderDimensionBars

@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
         };
     else {
         let obj = {
+            tenders: state.tenders.tendersList.tenders,
             tendersByDimension : {}
         };
         obj.tendersByDimension[Constants.TIPO_APPALTO] = state.tenders.tendersList.dimensions.tipo_appalto_dimension.group().all();

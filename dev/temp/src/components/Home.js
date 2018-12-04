@@ -6,7 +6,8 @@ import {
     Search, 
     Grid,
     Container,
-    Button
+    Button,
+    Header
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
@@ -99,39 +100,52 @@ class Home extends Component {
                     <Grid className='figures' columns={3} divided>
                         <Grid.Row>
                             <Grid.Column textAlign="center">
-                                <h1>{this.props.stats.numberOfTenders}</h1>
+                                <h1 className='figure'>{this.props.stats.numberOfTenders}</h1>
                                 <p>public tenders</p>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <h1> {Utils.formatCurrency(Math.round(this.props.stats.spending))}</h1>
+                                <h1 className='figure'> {Utils.formatCurrency(Math.round(this.props.stats.spending))}</h1>
                                 <p>spend in public contracts</p>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <h1>{this.props.stats.numberOfProviders}</h1>
+                                <h1 className='figure'>{this.props.stats.numberOfProviders}</h1>
                                 <p>providers</p>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
-                    <header>
-                        <p className='claim'>
-                        Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open
-                        </p>
-                        <Search
-                            loading={isLoading}
-                            minCharacters={3}
-                            onSearchChange={this.handleSearchChange}
-                            results={results}
-                            value={value}
-                            onResultSelect={this.handleSearchResultClick}
-                        />
-                        <Button 
-                            as={Link}
-                            to='/tenders'
-                            primary 
-                            circular="true"
-                            size="large">Explore
-                        </Button>
-                    </header>
+
+                    <Grid className='claim' centered columns={1} textAlign='center'>
+                            <p className='claim'>
+                            Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open
+                            </p>
+                    </Grid>
+
+                    <Grid className='figures' columns={2} divided>
+                        <Grid.Row>
+                            <Grid.Column textAlign="center">
+                            <p>Search public tenders or providers:</p>
+                            <Search
+                                loading={isLoading}
+                                minCharacters={3}
+                                onSearchChange={this.handleSearchChange}
+                                results={results}
+                                value={value}
+                                size='large'
+                                onResultSelect={this.handleSearchResultClick}
+                            />
+                            </Grid.Column>
+                            <Grid.Column textAlign="center">
+                            <p>Or browse through all the data:</p>
+                            <Button 
+                                as={Link}
+                                to='/tenders'
+                                primary 
+                                circular="true"
+                                size="large">Explore
+                            </Button>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
                 </Container>                
                 <HomeInfoBlocks/>
             </Container>            
