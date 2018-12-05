@@ -1,6 +1,5 @@
-import * as d3 from 'd3';
-import data from '../data/garadata.csv';
 import axios from 'axios';
+
 
 
 export const ADD_FILTER = 'ADD_FILTER';
@@ -14,6 +13,10 @@ export const FETCH_ALL_TENDERS_FAILURE = 'FETCH_ALL_TENDERS_FAILURE';
 export const FETCH_TENDER_BY_ID = 'FETCH_TENDER_BY_ID';
 export const FETCH_TENDER_BY_ID_SUCCESS = 'FETCH_TENDER_BY_ID_SUCCESS';
 export const FETCH_TENDER_BY_ID_FAILURE = 'FETCH_TENDER_BY_ID_FAILURE';
+
+export const FETCH_COMPANY_BY_ID = 'FETCH_COMPANY_BY_ID';
+export const FETCH_COMPANY_BY_ID_SUCCESS = 'FETCH_COMPANY_BY_ID_SUCCESS';
+export const FETCH_COMPANY_BY_ID_FAILURE = 'FETCH_COMPANY_BY_ID_FAILURE';
 
 
 
@@ -74,6 +77,36 @@ export const fetchTenderByIDFailure = (error) => ({
     payload: error
 });
 
+
+
+// ---------------------------------------------
+// company fetching actions
+
+export const fetchCompanyByID = (id) => {
+    return function(dispatch) {
+        return axios.get(
+            'http://localhost:8080/company/' + id
+        )
+        .then(
+            function(response) {
+                return response.data;
+            },
+            function(error) {
+                console.log("error", error);
+            }
+        );
+    };
+};
+
+export const fetchCompanyByIDSuccess = (company) => ({
+    type: FETCH_COMPANY_BY_ID_SUCCESS,
+    payload: company
+});
+
+export const fetchCompanyByIDFailure = (error) => ({
+    type: FETCH_COMPANY_BY_ID_FAILURE,
+    payload: error
+});
 
 
 

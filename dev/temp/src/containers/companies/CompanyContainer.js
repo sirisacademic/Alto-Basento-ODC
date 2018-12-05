@@ -1,24 +1,24 @@
 import { connect } from 'react-redux';
-import Tender from '../../components/tenders/Tender';
+import Company from '../../components/companies/Company';
 import {
-    fetchTenderByID,
-    fetchTenderByIDSuccess
+    fetchCompanyByID,
+    fetchCompanyByIDSuccess
 } from '../../actions/index'
 
 const mapStateToProps = (state, ownProps) => {
     // pass tender ID to be loaded or
     // the loaded tender object    
-    return (state.tender.loading)?
-        { tenderID : ownProps.match.params.id } : 
-        { tender : state.tender.tender };
+    return (state.company.loading)?
+        { companyID : ownProps.match.params.id } : 
+        { company : state.company.company };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchTenderByID: (id) => {
-            dispatch(fetchTenderByID(id)).then((response) => {
+        fetchCompanyByID: (id) => {
+            dispatch(fetchCompanyByID(id)).then((response) => {
                     dispatch(
-                        fetchTenderByIDSuccess(response)
+                        fetchCompanyByIDSuccess(response)
                     );
                 });
         }
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Tender);
+)(Company);

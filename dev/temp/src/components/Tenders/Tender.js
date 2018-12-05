@@ -61,15 +61,15 @@ class Tender extends Component {
             <Container className='main-container'>
                 <Header as='h1'>
                     {tender.description}
-                    </Header>
+                </Header>
                 <Label as='a' color='grey' image>
                     Identifier
                     <Label.Detail>{tender.id}</Label.Detail>
                 </Label>
                 <Divider/>
                 
-                <Grid columns='2'>
-                    <Grid.Column>
+                <Grid columns='2'>                    
+                    <Grid.Column>                        
                         <p style={{ fontSize: '4em', fontWeight: '300', marginBottom:'0'}}>
                             {d3.format("$,")(tender.value.amount)}
                         </p>        
