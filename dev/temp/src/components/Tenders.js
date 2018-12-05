@@ -16,16 +16,16 @@ class Tenders extends Component {
 
         return (
             <Container className='main-container'>
-                <Grid columns={2}>
+                <Grid columns={2} className='tenders-header'>
                     <Grid.Column>
                         <Header as='h1'>{this.props.tenders.length}</Header>
                         <span>public tenders</span>
                     </Grid.Column>
                     <Grid.Column>
-                        
+
                     </Grid.Column>
                 </Grid>
-                <Grid columns={3}>
+                <Grid columns={4}>
                     <Grid.Column>
                         <TenderDimensionBars
                             category={'tipo_appalto_dimension'}
@@ -44,6 +44,13 @@ class Tenders extends Component {
                         <TenderDimensionBars
                             category={'comune_gara_dimension'}
                             data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
+                            onClickTender={this.props.onClickTender}>
+                        </TenderDimensionBars>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <TenderDimensionBars
+                            category={'anno_dimension'}
+                            data={this.props.tendersByDimension[Constants.ANNO]}
                             onClickTender={this.props.onClickTender}>
                         </TenderDimensionBars>
                     </Grid.Column>

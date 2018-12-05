@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
+import { 
+    Button, 
+    Icon,
+    Container
+} from 'semantic-ui-react';
 
 class FilterTags extends Component {
 
     render() {
         return (
-            <div className='FilterTags'>
+            <Container>
                 {
                     this.props.filters.map(
-                        (d, index) => 
-                            <div className='FilterTag' key={index}>
-                                <button className='ui icon right labeled button' role='button'>
-                                    {d.key}
-                                    <i aria-hidden='true' className='right close icon' onClick={()=> this.props.onClickTag(d)}/>
-                                </button>
-                            </div>
+                        (d, index) =>      
+                            <Button icon    
+                                key={index}
+                                size='mini'
+                                labelPosition='left'
+                                onClick={()=> this.props.onClickTag(d)}>
+                                <Icon name='close'/>
+                                {d.key}
+                            </Button>
                     )
                 }
-            </div>
+                {(this.props.filters.length > 0) &&
+                    <Button basic 
+                        size='mini'
+                        onClick={()=> this.props.onClearTags()}>
+                        <strong>Clear all</strong>
+                    </Button>
+                }
+            </Container>
         );
     }
 }

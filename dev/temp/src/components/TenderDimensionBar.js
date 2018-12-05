@@ -82,7 +82,7 @@ class TenderDimensionBar extends Component {
         // is attached to the DOM and we are able to
         // measure its size
         d3.select(this.node)
-            .attr('width', node.getBoundingClientRect().width);
+            .attr('width', node.parentElement.getBoundingClientRect().width - 5);
     }
 
     render() {

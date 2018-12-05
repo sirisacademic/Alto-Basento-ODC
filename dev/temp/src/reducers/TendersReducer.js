@@ -3,6 +3,7 @@ import _ from 'lodash';
 import {
     ADD_FILTER,
     REMOVE_FILTER,
+    REMOVE_ALL_FILTERS,
     FETCH_ALL_TENDERS,
     FETCH_ALL_TENDERS_SUCCESS
 } from '../actions/index.js';
@@ -64,8 +65,9 @@ const tenders = (state = INITIAL_STATE, action) => {
             newState.tendersList.dimensions.tipo_appalto_dimension = newState.tendersList.cf.dimension(d => d[Constants.TIPO_APPALTO]);
             newState.tendersList.dimensions.tipo_intervento_dimension = newState.tendersList.cf.dimension(d => d[Constants.TIPO_INTERVENTO]);
             newState.tendersList.dimensions.comune_gara_dimension = newState.tendersList.cf.dimension(d => d[Constants.COMUNE_GARE]);
+            newState.tendersList.dimensions.anno_dimension = newState.tendersList.cf.dimension(d => new Date(_.get(d, Constants.ANNO)).getFullYear());
             return newState;
-        
+
         case ADD_FILTER:
             newState =  { 
                 ...state, 
@@ -94,7 +96,8 @@ const tenders = (state = INITIAL_STATE, action) => {
             else
                 newState.tendersList.dimensions[action.payload.category].filter(function(key) {
                     return _.indexOf(keys, key) != -1;
-                });
+                });                
+
             return newState;
 
         case REMOVE_FILTER:
@@ -121,6 +124,20 @@ const tenders = (state = INITIAL_STATE, action) => {
                 newState.tendersList.dimensions[filter.category].filter(function(key) {
                     return _.indexOf(keys, key) != -1;
                 });
+            return newState;
+
+        case REMOVE_ALL_FILTERS:
+            newState =  { 
+                ...state, 
+                tendersList: {
+                    ...state.tendersList                    
+                }
+            };
+            // clear filter and reset crossfilter dimensions
+            newState.tendersList.filters = [];
+            _.forOwn(newState.tendersList.dimensions, (val, key) => {
+                newState.tendersList.dimensions[key].filterAll();
+            });
             return newState;
 
         default:

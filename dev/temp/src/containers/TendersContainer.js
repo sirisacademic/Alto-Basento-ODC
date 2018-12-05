@@ -16,12 +16,14 @@ const mapStateToProps = (state) => {
         };
     else {
         let obj = {
-            tenders: state.tenders.tendersList.tenders,
+            tenders: state.tenders.tendersList.cf.allFiltered(),
             tendersByDimension : {}
         };
+
         obj.tendersByDimension[Constants.TIPO_APPALTO] = state.tenders.tendersList.dimensions.tipo_appalto_dimension.group().all();
         obj.tendersByDimension[Constants.TIPO_INTERVENTO] = state.tenders.tendersList.dimensions.tipo_intervento_dimension.group().all();
         obj.tendersByDimension[Constants.COMUNE_GARE] = state.tenders.tendersList.dimensions.comune_gara_dimension.group().all();
+        obj.tendersByDimension[Constants.ANNO] = state.tenders.tendersList.dimensions.anno_dimension.group().all();
 
         // add state of 'selected' to each item of the dimension
         Constants.DIMENSIONS.forEach(dimension => {

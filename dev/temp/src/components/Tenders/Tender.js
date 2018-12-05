@@ -3,13 +3,15 @@ import {
     Header, 
     Divider, 
     Grid, 
-    GridColumn, 
-    GridRow, 
-    Icon, 
     Label,
-    Container 
+    Container,
+    Feed,
+    Table
 } from 'semantic-ui-react';
+
 import * as d3 from 'd3';
+import _ from 'lodash';
+
 
 class Tender extends Component {
 
@@ -23,7 +25,37 @@ class Tender extends Component {
             return <div>Loading...</div>
 
         let tender = this.props.tender,
-            tenderDate =  new Date(tender.contractPeriod.startDate);
+            tenderDate =  new Date(tender.contractPeriod.startDate),
+            parties = _([
+                    {   name : tender.organizationReference.legalName,
+                        percentage : tender.percentageRibasso,
+                        winner: true
+                    },
+                    ...tender.candidates
+                ])
+                .sortBy('percentage')
+                .reverse()
+                .value();
+        
+        // color scale by saving percentage
+        var colorScale = d3.scaleLinear()
+            .range(['#d8eae0', '#7decaf'])            
+            .domain(d3.extent(parties, p => p.percentage))
+            .interpolate(d3.interpolateRgb);
+
+        // render the cell based on 
+        // candidate status
+        let cellRendererCost = (party) => {
+            var p = d3.format(".0%")(party.percentage/100); 
+            return (party.winner)?
+                <Table.Cell><Label color='teal' ribbon>Winner</Label><strong>{p}</strong></Table.Cell> : 
+                <Table.Cell>{p}</Table.Cell>
+        };
+        let cellRendererName = (party) => (
+            (party.winner)?
+                <Table.Cell><strong>{party.name}</strong></Table.Cell> : 
+                <Table.Cell>{party.name}</Table.Cell>
+        );
 
         return (
             <Container className='main-container'>
@@ -34,45 +66,64 @@ class Tender extends Component {
                     Identifier
                     <Label.Detail>{tender.id}</Label.Detail>
                 </Label>
-                <Divider></Divider>
+                <Divider/>
                 
-                <Grid>
-                    <GridColumn width='4'>
-                        <p style={{ fontSize: '4em', fontWeight: '300'}}>
+                <Grid columns='2'>
+                    <Grid.Column>
+                        <p style={{ fontSize: '4em', fontWeight: '300', marginBottom:'0'}}>
                             {d3.format("$,")(tender.value.amount)}
-                        </p>
-                    </GridColumn>
-                    <GridColumn width='12'>
-                        <p>
-                            {tender.description}
-                        </p>
-                    </GridColumn>
-                </Grid>
-                
-                <Grid>
-                    <GridColumn width='10'>
-                        <GridRow>
-                            <Header as='h3'>
-                                <Icon name='building'/> 
-                                <Header.Content>{tender.organizationReference.legalName}
-                                    <Header.Subheader>
-                                        <Icon name='map marker alternate' />{tender.municipality}
-                                    </Header.Subheader>
-                                </Header.Content>
-                            </Header>
-                        </GridRow>
-                        <GridRow>
-                            <Header as='h3'>
-                                    <Icon name='calendar outline'/> 
-                                    <Header.Content>{tenderDate.getDate()} / {tenderDate.getMonth() + 1} / {tenderDate.getFullYear()}
-                                        <Header.Subheader>Data di assegnazione appalto</Header.Subheader>
-                                    </Header.Content>
-                            </Header>
-                        </GridRow>
-                    </GridColumn>
-                    <GridColumn width='6'>
+                        </p>        
+                        <Feed>
+                            <Feed.Event
+                                icon='building' 
+                                date='Awarded company:'
+                                summary={
+                                    tender.organizationReference.legalName + 
+                                    ' - ' + 
+                                    tender.organizationReference.address.municipality + 
+                                    ',' + tender.organizationReference.address.province + 
+                                    ' (' + 
+                                    tender.organizationReference.address.region + ' )'}/>
+                            <Feed.Event 
+                                icon='map marker alternate' 
+                                date='Tender municipality:' 
+                                summary={tender.municipality} />
+                            <Feed.Event 
+                                icon='calendar outline' 
+                                date='Starting date:' 
+                                summary={
+                                    tenderDate.getDate() + 
+                                    '/' + 
+                                    tenderDate.getMonth() + 1 + 
+                                    '/' + 
+                                    tenderDate.getFullYear() + 
+                                    ' (' + tender.contractPeriod.duration + ' days)'} />
+                        </Feed>
+                    </Grid.Column>
 
-                    </GridColumn>
+                    <Grid.Column>
+                        <Table celled>
+                            <Table.Header>
+                                <Table.Row>
+                                <Table.HeaderCell>Saving Rate</Table.HeaderCell>
+                                <Table.HeaderCell>Company</Table.HeaderCell>
+                                </Table.Row>
+                            </Table.Header>
+                            <Table.Body>
+                                {
+                                    parties.map(
+                                        (d, index) => 
+                                        <Table.Row
+                                            key={index}
+                                            style={{ backgroundColor: colorScale(d.percentage) }}>
+                                            {cellRendererCost(d)}                                            
+                                            {cellRendererName(d)}
+                                        </Table.Row>
+                                    )
+                                }
+                            </Table.Body>
+                        </Table>
+                    </Grid.Column>                 
                 </Grid>
             </Container>           
         );

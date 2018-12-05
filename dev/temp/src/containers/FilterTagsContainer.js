@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { removeFilter } from '../actions/index';
+import { 
+    removeFilter,
+    removeAllFilters
+} from '../actions/index';
 import FilterTags from '../components/FilterTags';
 
 const mapStateToProps = (state) => {
@@ -8,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClickTag: (obj) => dispatch(removeFilter(obj))
+        onClickTag: (obj) => dispatch(removeFilter(obj)),
+        onClearTags: () => dispatch(removeAllFilters())
     }
 }
 
