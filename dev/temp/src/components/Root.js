@@ -8,6 +8,7 @@ import TenderContainer from '../containers/tenders/TenderContainer';
 import CompanyContainer from '../containers/companies/CompanyContainer';
 import TenderBrowser from '../components/TenderBrowser';
 import Footer from '../presentation/footer/Footer';
+import DataHome from '../components/data/DataHome';
 
 const Root = ({ store }) => (
     // Provider make the store available
@@ -22,6 +23,7 @@ const Root = ({ store }) => (
                     <Route exact path='/tenders' component={TenderBrowser} />
                     <Route path="/tender/:id" component={TenderContainer} />
                     <Route path="/company/:id" component={CompanyContainer} />
+                    <Route exact path="/data" component={DataHome} />
                 </Container>
                 <Footer/>
             </div>

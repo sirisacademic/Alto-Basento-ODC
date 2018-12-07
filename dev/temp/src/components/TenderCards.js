@@ -25,10 +25,8 @@ class TenderCards extends Component {
                                     <Card.Description>{d.description}</Card.Description>
                                 </Card.Content>
                                 <Card.Content extra>
-                                    <a>
-                                        <Icon name='map marker' />
-                                        {d.municipality}
-                                    </a>
+                                    <Icon name='map marker' />
+                                    {d.municipality}
                                     <Button href={'/tender/' + d.id} content='+ info' floated='right' size='mini'/>
                                 </Card.Content>
                             </Card>

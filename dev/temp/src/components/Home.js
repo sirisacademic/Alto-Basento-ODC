@@ -7,7 +7,7 @@ import {
     Grid,
     Container,
     Button,
-    Header
+    Statistic
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
@@ -97,19 +97,25 @@ class Home extends Component {
         return (
             <Container className='main-container'>
                 <Container className='home-view-container'>
-                    <Grid className='figures' columns={3} divided>
+                    <Grid columns={3} divided>
                         <Grid.Row>
                             <Grid.Column textAlign="center">
-                                <h1 className='figure'>{this.props.stats.numberOfTenders}</h1>
-                                <p>public tenders</p>
+                                <Statistic>
+                                    <Statistic.Value>{this.props.stats.numberOfTenders}</Statistic.Value>
+                                    <Statistic.Label>public tenders</Statistic.Label>
+                                </Statistic>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <h1 className='figure'> {Utils.formatCurrency(Math.round(this.props.stats.spending))}</h1>
-                                <p>spend in public contracts</p>
+                                <Statistic>
+                                    <Statistic.Value>{Utils.formatCurrency(Math.round(this.props.stats.spending))}</Statistic.Value>
+                                    <Statistic.Label>spent in public contracts</Statistic.Label>
+                                </Statistic>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <h1 className='figure'>{this.props.stats.numberOfProviders}</h1>
-                                <p>providers</p>
+                                <Statistic>
+                                    <Statistic.Value>{this.props.stats.numberOfProviders}</Statistic.Value>
+                                    <Statistic.Label>providers</Statistic.Label>
+                                </Statistic>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

@@ -19,6 +19,7 @@ body {
         }
     }
     .main-container {
+        min-height: 80vh;
         .tenders-header {
             background-color: #e3e6ef;
             padding: 10px;
@@ -32,25 +33,17 @@ body {
     
             height: 80vh;        
             width: 80vw;
-            margin: auto;            
-        }        
-        .figures {
-            .figure {
-                color: #5b5f69;
-                font-size: 4rem;
-                font-weight: 200;
-                margin: 0;
+            margin: auto;
+            .claim {
+                margin-top: 1em;
+                margin-bottom: 1em;
             }
-        }
-        .claim {
-            margin-top: 1em;
-            margin-bottom: 1em;
-        }
 
-        text-align: center;
-        .claim {
-            font-size: 3rem;            
-        }
+            text-align: center;
+            .claim {
+                font-size: 3rem;            
+            }
+        }        
     }    
 }
 
@@ -90,4 +83,10 @@ body {
 .ui.cards >.card .meta.price {
     font-size: 1em;
     color: #21ba45 !important;
+}
+
+
+pre {
+    font-size: 0.9em;
+    max-height: 50vh;
 }

@@ -3,14 +3,13 @@ import {
     Header, 
     Divider, 
     Grid, 
-    Label,
     Container,
     Feed,
-    Table
+    Statistic
 } from 'semantic-ui-react';
 import Utils from '../../Utils';
-import * as d3 from 'd3';
 import _ from 'lodash';
+import TenderCards from '../TenderCards';
 
 
 class Company extends Component {
@@ -24,30 +23,47 @@ class Company extends Component {
         if(this.props.companyID)
             return <div>Loading...</div>
 
-        let {tender, org, stats} = this.props.company;
+        let {tenders, org, stats} = this.props.company;
 
         return (
             <Container className='main-container'>
                 <Header as='h1'>
                     {org.legalName}
                 </Header>
+                <Feed>
+                    <Feed.Event 
+                        icon='map marker alternate' 
+                        date='Company municipality:' 
+                        summary={
+                            org.address.municipality + 
+                            ', ' + org.address.province + 
+                            ' (' + 
+                            org.address.region + ' )'} />
+                </Feed>
                 <Divider/>
-                <Grid className='figures' columns={3} divided>
+                <Grid columns={3} divided>
                     <Grid.Row>
                         <Grid.Column textAlign="center">
-                            <h1 className='figure'>{stats.count}</h1>
-                            <p>public tenders</p>
+                            <Statistic>
+                                <Statistic.Value>{stats.count}</Statistic.Value>
+                                <Statistic.Label>public tenders</Statistic.Label>
+                            </Statistic>
                         </Grid.Column>
                         <Grid.Column textAlign="center">
-                            <h1 className='figure'> {Utils.formatCurrency(Math.round(stats.sum))}</h1>
-                            <p>totala amount</p>
+                            <Statistic>
+                                <Statistic.Value>{Utils.formatCurrency(Math.round(stats.sum))}</Statistic.Value>
+                                <Statistic.Label>total amount</Statistic.Label>
+                            </Statistic>
                         </Grid.Column>
                         <Grid.Column textAlign="center">
-                            <h1 className='figure'>{stats.average}</h1>
-                            <p>Average of tender saving</p>
+                            <Statistic>
+                                <Statistic.Value>{Math.round(stats.average)}%</Statistic.Value>
+                                <Statistic.Label>Average of tender saving</Statistic.Label>
+                            </Statistic>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
+                <TenderCards tenders={tenders}></TenderCards>
             </Container>
         );
     }

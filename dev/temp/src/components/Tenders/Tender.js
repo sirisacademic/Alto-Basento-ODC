@@ -6,7 +6,8 @@ import {
     Label,
     Container,
     Feed,
-    Table
+    Table,
+    Icon
 } from 'semantic-ui-react';
 
 import * as d3 from 'd3';
@@ -74,16 +75,27 @@ class Tender extends Component {
                             {d3.format("$,")(tender.value.amount)}
                         </p>        
                         <Feed>
-                            <Feed.Event
-                                icon='building' 
-                                date='Awarded company:'
-                                summary={
-                                    tender.organizationReference.legalName + 
-                                    ' - ' + 
-                                    tender.organizationReference.address.municipality + 
-                                    ',' + tender.organizationReference.address.province + 
-                                    ' (' + 
-                                    tender.organizationReference.address.region + ' )'}/>
+                            <Feed.Event>
+                                <Feed.Label>
+                                    <Icon name='building'/>
+                                </Feed.Label>
+                                <Feed.Content>
+                                    <Feed.Date>
+                                        Awarded company:
+                                    </Feed.Date>
+                                    <Feed.Summary>
+                                        <a href={'/company/' + tender.organizationReference.legalName}>
+                                            {tender.organizationReference.legalName }
+                                        </a> {
+                                            ' - ' + 
+                                            tender.organizationReference.address.municipality + 
+                                            ',' + tender.organizationReference.address.province + 
+                                            ' (' + 
+                                            tender.organizationReference.address.region + ' )'
+                                            }
+                                    </Feed.Summary>
+                                </Feed.Content>
+                            </Feed.Event>                            
                             <Feed.Event 
                                 icon='map marker alternate' 
                                 date='Tender municipality:' 
@@ -105,8 +117,8 @@ class Tender extends Component {
                         <Table celled>
                             <Table.Header>
                                 <Table.Row>
-                                <Table.HeaderCell>Saving Rate</Table.HeaderCell>
-                                <Table.HeaderCell>Company</Table.HeaderCell>
+                                <Table.HeaderCell width={4}>Saving Rate</Table.HeaderCell>
+                                <Table.HeaderCell width={12}>Company</Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
                             <Table.Body>
