@@ -24,6 +24,7 @@ const Root = ({ store }) => (
                     <Route path="/tender/:id" component={TenderContainer} />
                     <Route path="/company/:id" component={CompanyContainer} />
                     <Route exact path="/data" component={DataHome} />
+                    <Route exact path="/data/:subsection" component={DataHome} />
                 </Container>
                 <Footer/>
             </div>

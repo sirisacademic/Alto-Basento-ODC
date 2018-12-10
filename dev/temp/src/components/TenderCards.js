@@ -20,7 +20,9 @@ class TenderCards extends Component {
                         (d, index) =>
                             <Card key={index}>
                                 <Card.Content>
-                                    <Card.Header>{d.organizationReference.legalName}</Card.Header>
+                                    <Card.Header href={'/company/' + d.organizationReference.legalName}>
+                                        {d.organizationReference.legalName}
+                                    </Card.Header>
                                     <Card.Meta className='price'>{d3.format("$,")(d.value.amount)}</Card.Meta>
                                     <Card.Description>{d.description}</Card.Description>
                                 </Card.Content>

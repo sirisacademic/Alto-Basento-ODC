@@ -14,9 +14,10 @@ import {
     API_RESPONSE_TENDER,
     API_RESPONSE_COMPANY
  } from './DataApiResponses.js';
+import { isNull } from 'util';
 
 class DataHome extends Component {
-    
+
     render() {
 
         const panes = [
@@ -145,7 +146,8 @@ class DataHome extends Component {
 
         return (
             <Container className='main-container'>
-                <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+                <Tab menu={{ secondary: true, pointing: true }} 
+                    panes={panes} />
             </Container>
         );
     }

@@ -14,27 +14,15 @@ const HeaderMenu = () => (
           <span>Centrale Unica di Committenza</span>
           <span className='subheader'>dell’Area Programma Basento Bradano Camastra</span>
         </Menu.Item>
-        <Menu.Item as='a'>
+        <Menu.Item as={Link} to='/'>
             Home
         </Menu.Item>
-
-        <Dropdown item simple text='Dropdown'>
-          <Dropdown.Menu>
-            <Dropdown.Item>List Item</Dropdown.Item>
-            <Dropdown.Item>List Item</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Header>Header Item</Dropdown.Header>
-            <Dropdown.Item>
-              <i className='dropdown icon' />
-              <span className='text'>Submenu</span>
-              <Dropdown.Menu>
-                <Dropdown.Item>List Item</Dropdown.Item>
-                <Dropdown.Item>List Item</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown.Item>
-            <Dropdown.Item>List Item</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <Menu.Item as={Link} to='/tenders'>
+            Explore
+        </Menu.Item>
+        <Menu.Item as={Link} to='/data'>
+            The Data
+        </Menu.Item>
       </Container>
     </Menu>    
   </div>
