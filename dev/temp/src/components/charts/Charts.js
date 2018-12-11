@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import SavingByCategory from './SavingByCategory';
+import VegaChart from './VegaChart';
+import {
+    specSavingByCategory,
+    specRankByAmount
+} from './VegaSpecifications';
 
 class Charts extends Component {
 
@@ -15,7 +19,16 @@ class Charts extends Component {
         console.log(stats);
 
         return (
-            <SavingByCategory data={stats.savingByCategory}></SavingByCategory>
+            <div>
+                <VegaChart
+                    data={stats.savingByCategory}
+                    spec={specSavingByCategory}>
+                </VegaChart>
+                <VegaChart
+                    data={stats.rankByAmount}
+                    spec={specRankByAmount}>
+                </VegaChart>
+            </div>            
         );
     }
 }

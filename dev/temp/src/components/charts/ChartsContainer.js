@@ -13,11 +13,18 @@ const mapStateToProps = (state) => {
 
     if(props.tenders.length > 0) {
         
-        // create data to populate scatterplot average saving / average amount, per categories
+        // data to populate scatterplot average saving / average amount, per categories
         props.stats.savingByCategory = dl.groupby(Constants.TIPO_INTERVENTO)
                             .summarize([
                                 { name: 'percentageRibasso', ops: ['average'], as: ['average_ribasso']},
                                 { name: 'value.amount', ops:['average', 'sum'], as: ['average_amount', 'sum_amount']}
+                            ])
+                            .execute(props.tenders);
+
+        // data to rank companies by amount
+        props.stats.rankByAmount = dl.groupby(Constants.NOME_IMPRESA)
+                            .summarize([
+                                { name: 'value.amount', ops: ['sum'], as: ['sum_amount']}
                             ])
                             .execute(props.tenders);
     };
