@@ -10,8 +10,6 @@ const mapStateToProps = (state) => {
         tenders: (state.tenders.tendersList.cf == null)?    [] : state.tenders.tendersList.cf.allFiltered(),
         stats : {} 
     };
-    console.log("charts container");
-    console.log(props.tenders);
 
     if(props.tenders.length > 0) {
         

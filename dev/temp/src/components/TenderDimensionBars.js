@@ -21,7 +21,7 @@ class TenderDimensionBars extends Component {
         const data = this.props.data.sort((a, b) => (b.value - a.value));
         return (
             <div>
-                <Header as='h3'>
+                <Header as='h5'>
                     <Header.Content>
                         {
                             this.props.category == 'tipo_appalto_dimension' ? 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import VegaChart from './VegaChart';
+import { 
+    Grid, Container
+  } from 'semantic-ui-react';
 import {
     specSavingByCategory,
     specRankByAmount,
@@ -17,19 +20,22 @@ class Charts extends Component {
         if(tenders.length == 0)
             return <div></div>
         
-        console.log('CHARTS: ');
-        console.log(stats);
-
         return (
-            <div>
-                <VegaChart
-                    data={stats.savingByCategory}
-                    spec={specSavingByCategory}>
-                </VegaChart>
-                <VegaChart
-                    data={stats.rankByAmount}
-                    spec={specRankByAmount}>
-                </VegaChart>
+            <Container>
+                <Grid columns={2}>
+                    <Grid.Column>
+                        <VegaChart
+                            data={stats.savingByCategory}
+                            spec={specSavingByCategory}>
+                        </VegaChart>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <VegaChart
+                            data={stats.rankByAmount}
+                            spec={specRankByAmount}>
+                        </VegaChart>
+                    </Grid.Column>
+                </Grid>           
                 <VegaChart
                     data={stats.orgsByMunicipality}
                     spec={specOrgsByMunicipality}>
@@ -37,8 +43,8 @@ class Charts extends Component {
                 <VegaChart
                     data={stats.tendersTimeline}
                     spec={specTendersTimeline}>
-                </VegaChart>
-            </div>            
+                </VegaChart>     
+            </Container>
         );
     }
 }

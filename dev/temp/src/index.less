@@ -25,13 +25,9 @@ body {
             }
         }
     }
-    .main-container {
+    .rootContainer {
         margin-top: 50px;
-        min-height: 80vh;
-        .tenders-header {
-            background-color: #e3e6ef;
-            padding: 10px;
-        }
+
         .home-view-container {
             padding-top: 4em;            
             background: linear-gradient(rgba(25,42,86,1),rgba(242,242,247,0.8)),url(./images/home-bg.jpg) center center no-repeat fixed;
@@ -68,8 +64,24 @@ body {
                 color: rgba(0, 0, 0, 0.9) !important;
                 text-shadow: 1px 0 3px rgba(255, 255, 255, 0.8);
             }
-        }        
+        }  
+    }
+
+    .main-container {
+        .tenders-header {
+            background-color: #e3e6ef;
+            padding: 10px;
+            padding-top: 2rem;
+        }              
     }    
+}
+
+
+.container-tab-results {
+    margin-top: 5rem;
+    .ui.menu {
+        justify-content: center;
+    }
 }
 
 .TenderDimensionBars:last-child {
