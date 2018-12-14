@@ -100,19 +100,19 @@ class Home extends Component {
                     <Grid columns={3} divided>
                         <Grid.Row>
                             <Grid.Column textAlign="center">
-                                <Statistic>
+                                <Statistic className='statistic-home'>
                                     <Statistic.Value>{this.props.stats.numberOfTenders}</Statistic.Value>
                                     <Statistic.Label>public tenders</Statistic.Label>
                                 </Statistic>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <Statistic>
+                                <Statistic className='statistic-home'>
                                     <Statistic.Value>{Utils.formatCurrency(Math.round(this.props.stats.spending))}</Statistic.Value>
                                     <Statistic.Label>spent in public contracts</Statistic.Label>
                                 </Statistic>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                                <Statistic>
+                                <Statistic className='statistic-home'>
                                     <Statistic.Value>{this.props.stats.numberOfProviders}</Statistic.Value>
                                     <Statistic.Label>providers</Statistic.Label>
                                 </Statistic>
@@ -126,7 +126,7 @@ class Home extends Component {
                             </p>
                     </Grid>
 
-                    <Grid className='figures' columns={2} divided>
+                    <Grid className='search' columns={2} divided>
                         <Grid.Row>
                             <Grid.Column textAlign="center">
                             <p>Search public tenders or providers:</p>

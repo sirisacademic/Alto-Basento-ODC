@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import VegaChart from './VegaChart';
 import {
     specSavingByCategory,
-    specRankByAmount
+    specRankByAmount,
+    specOrgsByMunicipality,
+    specTendersTimeline
 } from './VegaSpecifications';
 
 class Charts extends Component {
@@ -27,6 +29,14 @@ class Charts extends Component {
                 <VegaChart
                     data={stats.rankByAmount}
                     spec={specRankByAmount}>
+                </VegaChart>
+                <VegaChart
+                    data={stats.orgsByMunicipality}
+                    spec={specOrgsByMunicipality}>
+                </VegaChart>
+                <VegaChart
+                    data={stats.tendersTimeline}
+                    spec={specTendersTimeline}>
                 </VegaChart>
             </div>            
         );

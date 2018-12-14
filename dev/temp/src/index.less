@@ -1,3 +1,10 @@
+// mixins 
+.texts-landing {
+    color: rgba(255, 255, 255, .9) !important;
+    text-shadow: 1px 0 3px rgba(0,0,0,.8);
+}
+
+
 body {
     background-color: #ECEEFC;
     min-height: 100vh;
@@ -19,21 +26,24 @@ body {
         }
     }
     .main-container {
+        margin-top: 50px;
         min-height: 80vh;
         .tenders-header {
             background-color: #e3e6ef;
             padding: 10px;
         }
-
-        margin-top: 7em;
         .home-view-container {
+            padding-top: 4em;            
+            background: linear-gradient(rgba(25,42,86,1),rgba(242,242,247,0.8)),url(./images/home-bg.jpg) center center no-repeat fixed;
+            background-size: auto;
             display: flex !important;
             flex-direction: column;
             justify-content: flex-start;
     
-            height: 80vh;        
+            height: 70vh;        
             width: 80vw;
             margin: auto;
+
             .claim {
                 margin-top: 1em;
                 margin-bottom: 1em;
@@ -42,6 +52,21 @@ body {
             text-align: center;
             .claim {
                 font-size: 3rem;            
+                .texts-landing();
+                width: 90%;
+            }
+
+            .statistic-home {                
+                .value, .label {
+                    .texts-landing();
+                }
+            }
+
+            .search p {
+                .texts-landing();
+                font-size: 1.3rem;
+                color: rgba(0, 0, 0, 0.9) !important;
+                text-shadow: 1px 0 3px rgba(255, 255, 255, 0.8);
             }
         }        
     }    

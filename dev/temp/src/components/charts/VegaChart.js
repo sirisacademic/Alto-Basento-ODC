@@ -20,11 +20,11 @@ class VegaChartSavingByCategory extends Component {
         const { data, spec } = this.props;
         spec.data[0].values = data;
 
-        return new vega.View(vega.parse(spec))
+        let view = new vega.View(vega.parse(spec))
             .renderer('svg')
             .initialize(this.chart)
             .run();
-
+        return view;
     }
 
     // dummy render method that creates the container vega draws inside

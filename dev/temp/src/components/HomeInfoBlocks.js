@@ -8,6 +8,7 @@ class HomeInfoBlocks extends Component {
     constructor(props) {        
         super(props);
         this.state = {
+            marginTop: '4em',
             marginBottom: '5em'
         }
     };
@@ -15,7 +16,7 @@ class HomeInfoBlocks extends Component {
     render() {
         return(
             <Container>
-                <Container style={{ marginBottom: this.state.marginBottom }}>
+                <Container style={{ marginBottom: this.state.marginBottom, marginTop: this.state.marginTop }}>
                     <h2>Open Contracting. Open Government</h2>
                     <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
