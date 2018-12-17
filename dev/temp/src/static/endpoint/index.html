@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenBasento SPARQL endpoint</title>
+    <link href='https://cdn.jsdelivr.net/yasgui/2.6.1/yasgui.min.css' rel='stylesheet' type='text/css'/>
+    <style>
+      /** uncomment this if you'd like to hide the endpoint selector
+      .yasgui .endpointText {display:none !important;}
+      **/
+    </style>
+  </head>
+  <body style="background-color:none;">    
+	  <div id='yasgui'></div>
+    <div id="hidden_form" style="display:none">
+      <form id='siris_csv_form' method='post' action='#' target='_blank'>
+        <textarea id='query' name='query' rows="10" cols="10"></textarea>
+        <input id='acceptParam' name='acceptParam' value='csv'>
+        <input id='format' name='format' value='csv'>
+        <input type='submit' value='Submit'>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/yasgui/2.6.1/yasgui.min.js'></script>
+    <script type="text/javascript">
+      var endpoint = 'http://ec2-54-72-36-123.eu-west-1.compute.amazonaws.com:8890/sparql';
+      YASGUI.defaults.catalogueEndpoints = [
+          {endpoint: endpoint, title: 'OpenBasento'}
+        ];
+      YASGUI.defaults.yasqe.sparql.endpoint = endpoint;
+      YASGUI.defaults.yasqe.collapsePrefixesOnLoad = false;
+	    var yasgui = YASGUI(document.getElementById("yasgui"), {
+        persistencyPrefix: false
+      });
+
+      var executeQueryAndDownloadCSV = function() {
+        $(".siris_exec_csv").remove();
+        $(".yasr_header").append("<button class='siris_exec_csv'>Execute & Download CSV</button>");
+        $(".siris_exec_csv").on("click", function() {
+          var endpoint = yasgui.current().yasqe.getOption("sparql").endpoint;
+          var query = yasgui.current().yasqe.getValue();
+          $("#siris_csv_form").attr("action", endpoint);
+          $("#siris_csv_form").find("#query").val(query);
+          $("#siris_csv_form").trigger("submit");
+        });
+        $(".yasr_downloadIcon").hide();
+      };
+      executeQueryAndDownloadCSV();
+
+      $("a[role='addTab']").on("click", function() {
+        executeQueryAndDownloadCSV();
+      });
+    </script>
+  </body>
+</html>

@@ -9,38 +9,13 @@ import {
 const mapStateToProps = (state) => {
     let tenders = state.tenders.tendersList.tenders;
     
-    if(tenders.length == 0)
+    if(tenders.length === 0)
         return { tenders : [] };        
 
 
     return {
         // adapt the tenders to a format more suitable
-        // for the Search Category component
-/*        
-        'tenders' : _.reduce(
-                Constants.SEARCHABLE_PROPERTIES,
-                (memo, propertyPath) => {
-
-                    // if the property to get is deeper than one level,
-                    // save it with the deepest property name
-                    let prop = (propertyPath.lastIndexOf('.') != -1)?
-                        propertyPath.slice(propertyPath.lastIndexOf('.') + 1) : 
-                        propertyPath;
-
-                    if(!memo[prop])
-                        memo[prop] = { 'name' : prop, 'results' : [] };
-                    
-                    memo[prop].results = _(tenders)
-                        .uniqBy(prop)
-                        .map((d) => { 
-                            return { 'title' : _.get(d, prop), 'id' : d.id}; 
-                        })
-                        .value();
-                    return memo;
-                },
-                {}
-            ),
-*/        
+        // for the Search Category component       
         'tenders' : tenders,
 
         // summarize basic stats

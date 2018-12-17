@@ -8,8 +8,8 @@ import {
     Statistic
 } from 'semantic-ui-react';
 import Utils from '../../Utils';
-import _ from 'lodash';
 import TenderCards from '../TenderCards';
+import Preloader from '../../presentation/preloader/Preloader';
 
 
 class Company extends Component {
@@ -21,7 +21,7 @@ class Company extends Component {
 
     render() {
         if(this.props.companyID)
-            return <div>Loading...</div>
+            return <Preloader/>
 
         let {tenders, org, stats} = this.props.company;
 
@@ -33,7 +33,7 @@ class Company extends Component {
                 <Feed>
                     <Feed.Event 
                         icon='map marker alternate' 
-                        date='Company municipality:' 
+                        date='Municipality:' 
                         summary={
                             org.address.municipality + 
                             ', ' + org.address.province + 

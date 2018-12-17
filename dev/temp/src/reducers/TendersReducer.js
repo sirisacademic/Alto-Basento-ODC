@@ -9,7 +9,6 @@ import {
 } from '../actions/index.js';
 import { Constants } from '../constants/constants';
 
-let cf
 const INITIAL_STATE = {
     tendersList : {
         // list of tenders
@@ -33,7 +32,8 @@ const INITIAL_STATE = {
 
 const tenders = (state = INITIAL_STATE, action) => {
     let newState, 
-        index;
+        index,
+        keys;
     
     switch(action.type) {
 
@@ -77,9 +77,9 @@ const tenders = (state = INITIAL_STATE, action) => {
             };
             // update the list of filters
             index = state.tendersList.filters.findIndex((el) => {
-                return el.category == action.payload.category && el.key == action.payload.key;
+                return el.category === action.payload.category && el.key === action.payload.key;
             });
-            if(index != -1) {
+            if(index !== -1) {
                 newState.tendersList.filters.splice(index, 1);
                 newState.tendersList.filters = [...newState.tendersList.filters];
             }
@@ -87,15 +87,15 @@ const tenders = (state = INITIAL_STATE, action) => {
                 newState.tendersList.filters = [...newState.tendersList.filters, action.payload];
             
             // update the filter function of the dimension by:
-            var keys = _(newState.tendersList.filters)
+            keys = _(newState.tendersList.filters)
                 .filter(['category', action.payload.category])
                 .map('key')
                 .value();
-            if(keys.length == 0)
+            if(keys.length === 0)
                 newState.tendersList.dimensions[action.payload.category].filterAll();
             else
                 newState.tendersList.dimensions[action.payload.category].filter(function(key) {
-                    return _.indexOf(keys, key) != -1;
+                    return _.indexOf(keys, key) !== -1;
                 });                
 
             return newState;
@@ -109,20 +109,20 @@ const tenders = (state = INITIAL_STATE, action) => {
             };
             // update the list of filters
             index = state.tendersList.filters.findIndex((el) => {
-                return el.key == action.payload.key;
+                return el.key === action.payload.key;
             });
             let filter = newState.tendersList.filters.splice(index, 1)[0];
             newState.tendersList.filters = [...newState.tendersList.filters];
             // update the filter function of the dimension by:
-            var keys = _(newState.tendersList.filters)
+            keys = _(newState.tendersList.filters)
                 .filter(['category', filter.category])
                 .map('key')
                 .value();
-            if(keys.length == 0)
+            if(keys.length === 0)
                 newState.tendersList.dimensions[filter.category].filterAll();
             else
                 newState.tendersList.dimensions[filter.category].filter(function(key) {
-                    return _.indexOf(keys, key) != -1;
+                    return _.indexOf(keys, key) !== -1;
                 });
             return newState;
 

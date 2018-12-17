@@ -4,7 +4,8 @@ import {
     Tab,
     Header,
     Segment,
-    Grid
+    Grid,
+    Button
 } from 'semantic-ui-react';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -14,8 +15,8 @@ import {
     API_RESPONSE_TENDER,
     API_RESPONSE_COMPANY
  } from './DataApiResponses.js';
-import { isNull } from 'util';
-
+import Iframe from 'react-iframe';
+ 
 class DataHome extends Component {
 
     render() {
@@ -46,7 +47,7 @@ class DataHome extends Component {
                             Open Contracting Data Standard
                         </Header>
                         <p>
-                            The response of the API follows the <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank'><strong>Open Contracting Data Standard</strong></a> (OCDS), which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users. 
+                            The response of the API follows the <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank' rel="noopener noreferrer"><strong>Open Contracting Data Standard</strong></a> (OCDS), which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users. 
                         </p>
                         <Header as='h3'>
                             Available Resources for Alto Basento API
@@ -56,7 +57,7 @@ class DataHome extends Component {
                                 GET /tenders/all
                             </Header>
                             <p>
-                                Returns all the available tenders. The response is a JSON array, containing a collection of tenders instances. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>
+                                Returns all the available tenders. The response is a JSON array, containing a collection of tenders instances. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank' rel="noopener noreferrer">tender section's JSON schema.</a>
                             </p>
                             <Segment.Group>
                                 <Segment>
@@ -79,7 +80,7 @@ class DataHome extends Component {
                                 {"GET /tender/{tender_id}"}
                             </Header>
                             <p>
-                                Get information about a specific tender. The response is a JSON array, containing a tender instance. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>
+                                Get information about a specific tender. The response is a JSON array, containing a tender instance. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank' rel="noopener noreferrer">tender section's JSON schema.</a>
                             </p>
                             <Segment.Group>
                                 <Segment>
@@ -109,7 +110,7 @@ class DataHome extends Component {
                                 {"GET /company/{company_id}"}
                             </Header>
                             <p>
-                                Get information about a specific company. The response is a JSON array, containing a Company instance. The data structure of a Company instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>
+                                Get information about a specific company. The response is a JSON array, containing a Company instance. The data structure of a Company instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank' rel="noopener noreferrer">tender section's JSON schema.</a>
                             </p>
                             <Segment.Group>
                                 <Segment>
@@ -138,8 +139,14 @@ class DataHome extends Component {
             },
             {   menuItem: 'SPARQL',
                 render: () => 
-                    <Tab.Pane basic attached={false}>
-                        Tab 3 Content
+                    <Tab.Pane basic attached={false} style={{height: '200vh'}}>
+                        <p>Get information on whatever. Get information on whatever. Get information on whatever. Get information on whatever Get information on whatever. Get information on whatever. Get information on whatever. Get information on whatever</p>
+                        <Button href="https://s3-eu-west-1.amazonaws.com/openbasento-ontology/doc/index.html">Ontology Documentation</Button>
+                        <Segment style={{height: '200vh'}}>
+                            <Iframe url="http://sirislab.com/lab/cuc/endpoint/index.html"
+                                width="98%"
+                                height="100%"/>
+                        </Segment>
                     </Tab.Pane> 
             },
         ];

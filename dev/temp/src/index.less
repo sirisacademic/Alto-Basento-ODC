@@ -1,3 +1,7 @@
+// some vars
+@color-bar-hover: rgba(25, 42, 86, 0.8);
+@color-bar: rgb(105, 255, 218);
+
 // mixins 
 .texts-landing {
     color: rgba(255, 255, 255, .9) !important;
@@ -26,8 +30,11 @@ body {
         }
     }
     .rootContainer {
-        margin-top: 50px;
-
+        margin-top: 57px;
+        .main-container {
+            padding-top: 2rem;
+            min-height: 60vh;
+        }
         .home-view-container {
             padding-top: 4em;            
             background: linear-gradient(rgba(25,42,86,1),rgba(242,242,247,0.8)),url(./images/home-bg.jpg) center center no-repeat fixed;
@@ -36,7 +43,6 @@ body {
             flex-direction: column;
             justify-content: flex-start;
     
-            height: 70vh;        
             width: 80vw;
             margin: auto;
 
@@ -68,6 +74,7 @@ body {
     }
 
     .main-container {
+        margin-bottom: 3rem;
         .tenders-header {
             background-color: #e3e6ef;
             padding: 10px;
@@ -78,7 +85,6 @@ body {
 
 
 .container-tab-results {
-    margin-top: 5rem;
     .ui.menu {
         justify-content: center;
     }

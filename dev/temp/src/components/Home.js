@@ -11,6 +11,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import Preloader from '../presentation/preloader/Preloader';
 
 class Home extends Component {
 
@@ -91,9 +92,9 @@ class Home extends Component {
     render() {
         const { isLoading, value, results } = this.state;
 
-        if(this.props.tenders.length == 0)
-            return <div>Loading...</div>
-
+        if(this.props.tenders.length === 0)
+            return <Preloader/>
+        
         return (
             <Container className='main-container'>
                 <Container className='home-view-container'>
@@ -146,7 +147,7 @@ class Home extends Component {
                                 as={Link}
                                 to='/tenders'
                                 primary 
-                                circular="true"
+                                circular={true}
                                 size="large">Explore
                             </Button>
                             </Grid.Column>

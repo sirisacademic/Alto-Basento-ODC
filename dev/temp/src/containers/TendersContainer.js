@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
         // add state of 'selected' to each item of the dimension
         Constants.DIMENSIONS.forEach(dimension => {
             obj.tendersByDimension[dimension].forEach(item => {
-                item.selected = _.find(state.tenders.tendersList.filters, ['key', item.key]) != undefined;   
+                item.selected = _.find(state.tenders.tendersList.filters, ['key', item.key]) !== undefined;   
             });
         });
         return obj;

@@ -1,11 +1,12 @@
 import topojson from '../../static/basilicata_map.topo.json'
 
+// some specific settings like data, title,
+// width/height, and padding are set dynamically
+// by the React Component rendering the vega
+// specification
 export const specSavingByCategory = {
     "$schema": "https://vega.github.io/schema/vega/v4.json",
-    "width": 200,
-    "height": 200,
-    "padding": 5,
-  
+    "autosize" : "fit",
     "data": [
       {
         "name": "source",
@@ -47,17 +48,21 @@ export const specSavingByCategory = {
       {
         "scale": "x",
         "grid": true,
+        "gridDash" : [2, 2],
         "domain": false,
         "orient": "bottom",
         "tickCount": 5,
-        "title": "Average ribasaso"
+        "title": "Average ribasaso",
+        "titlePadding" : 15,
+        "format" : "%"
       },
       {
         "scale": "y",
         "grid": true,
+        "gridDash" : [2, 2],
         "domain": false,
         "orient": "left",
-        "titlePadding": 5,
+        "titlePadding": 15,
         "title": "Average amount"
       }
     ],
@@ -86,10 +91,14 @@ export const specSavingByCategory = {
 
 export const specRankByAmount = {
     "$schema": "https://vega.github.io/schema/vega/v4.json",
-    "width": 200,
-    "height": 200,
+    "autosize" : "fit",
     "padding": 5,
-  
+    "signals" : [
+      {
+        "name" : "baseline",
+        "value" : "middle"
+      }
+    ],
     "data": [
       {
         "name": "source",
@@ -143,12 +152,20 @@ export const specRankByAmount = {
       {
         "scale": "x",
         "orient": "bottom",
-        "format": "$,d",
-        "tickCount": 5
+        "format": "$,.2r",
+        "tickCount": 3,
+        "tickExtra" : false,
+        "grid": true,
+        "gridDash" : [2, 2],
+        "title": "Total amount",
+        "titlePadding" : 15,
       },
       {
         "scale": "y",
-        "orient": "left"
+        "orient": "left",
+        "labels" : false,
+        "domain" : false,
+        "ticks" : false
       }
     ],
   
@@ -158,7 +175,7 @@ export const specRankByAmount = {
         "from": {"data": "source"},
         "encode": {
           "update": {
-            "x": {"scale": "x", "value": 0},
+            "x": {  "value": 2 },
             "x2" : {
                 "scale" : "x",
                 "field" : "sum_amount"
@@ -170,24 +187,58 @@ export const specRankByAmount = {
             "height": {
                 "scale": "y",
                 "band" : 1
+            },
+            "fill" : {
+              "value" : "rgb(105, 255, 218)"
+            },
+            "stroke" : {
+              "value" : "rgb(95, 204, 177)"
+            },
+            "strokeWidth" : {
+              "value" : 0.5
             }
+          },
+          "hover" : {
+            "fillOpacity" : 0.7
           }
         }
+      },
+      {
+        "type" : "text",
+        "from" : {
+          "data" : "source"
+        },
+        "encode" : {
+          "enter" : {
+            "text" : {
+              "field": "[organizationReference.legalName]"
+            },
+            "x" : {
+              "value" : 10
+            },
+            "y" : {
+              "scale" : "y",
+              "field": "[organizationReference.legalName]",
+              "band" : 0.5
+            },
+            "baseline" : {
+              "value" : "middle"
+            }
+          }
+        }        
       }
     ]
   };
 
 export const specOrgsByMunicipality = {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 900,
-  "height": 560,
+  "autosize" : "fit",
   "padding": {
     "top": 25,
     "left": 0,
     "right": 0,
     "bottom": 0
   },
-  "autosize": "none",
   "data": [
     {
         "name" : "data",
@@ -301,9 +352,7 @@ export const specOrgsByMunicipality = {
 
 export const specTendersTimeline = {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 800,
-  "height": 500,
-  "padding": 15,
+  "autosize" : "fit",
   "data" : [
     {      
       "name" : "data",

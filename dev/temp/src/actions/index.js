@@ -30,7 +30,7 @@ export const fetchAllTenders = () => {
         )
         .then(
             function(response) {
-                console.log("///////////");
+                console.log("// Fetch all tenders: /////////");
                 console.log(response.data);
                 return response.data;
             },

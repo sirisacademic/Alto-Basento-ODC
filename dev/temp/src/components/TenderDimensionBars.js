@@ -24,11 +24,11 @@ class TenderDimensionBars extends Component {
                 <Header as='h5'>
                     <Header.Content>
                         {
-                            this.props.category == 'tipo_appalto_dimension' ? 
+                            this.props.category === 'tipo_appalto_dimension' ? 
                                 'Contract type ' : 
-                            this.props.category == 'tipo_intervento_dimension' ? 
+                            this.props.category === 'tipo_intervento_dimension' ? 
                                 'Category ' : 
-                            this.props.category == 'anno_dimension' ? 
+                            this.props.category === 'anno_dimension' ? 
                                 'Starting year ' : 'Municipality '
                         }
                         <Icon name='search' size='small' color='grey'/>

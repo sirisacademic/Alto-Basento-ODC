@@ -7,11 +7,14 @@ import {
     Container,
     Feed,
     Table,
-    Icon
+    Icon,
+    Statistic
 } from 'semantic-ui-react';
 
+import Utils from '../../Utils';
 import * as d3 from 'd3';
 import _ from 'lodash';
+import Preloader from '../../presentation/preloader/Preloader';
 
 
 class Tender extends Component {
@@ -23,7 +26,7 @@ class Tender extends Component {
 
     render() {
         if(this.props.tenderID)
-            return <div>Loading...</div>
+            return <Preloader/>
 
         let tender = this.props.tender,
             tenderDate =  new Date(tender.contractPeriod.startDate),
@@ -71,9 +74,9 @@ class Tender extends Component {
                 
                 <Grid columns='2'>                    
                     <Grid.Column>                        
-                        <p style={{ fontSize: '4em', fontWeight: '300', marginBottom:'0'}}>
-                            {d3.format("$,")(tender.value.amount)}
-                        </p>        
+                        <Statistic>                            
+                            <Statistic.Value>{Utils.formatCurrency(Math.round(tender.value.amount))}</Statistic.Value>
+                        </Statistic>      
                         <Feed>
                             <Feed.Event>
                                 <Feed.Label>
