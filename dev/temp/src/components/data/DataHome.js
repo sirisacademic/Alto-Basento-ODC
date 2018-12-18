@@ -141,7 +141,7 @@ class DataHome extends Component {
                 render: () => 
                     <Tab.Pane basic attached={false} style={{height: '200vh'}}>
                         <p>Get information on whatever. Get information on whatever. Get information on whatever. Get information on whatever Get information on whatever. Get information on whatever. Get information on whatever. Get information on whatever</p>
-                        <Button href="https://s3-eu-west-1.amazonaws.com/openbasento-ontology/doc/index.html">Ontology Documentation</Button>
+                        <Button target="_blank" href="https://s3-eu-west-1.amazonaws.com/openbasento-ontology/doc/index.html">Ontology Documentation</Button>
                         <Segment style={{height: '200vh'}}>
                             <Iframe url="http://sirislab.com/lab/cuc/endpoint/index.html"
                                 width="98%"
@@ -152,7 +152,7 @@ class DataHome extends Component {
         ];
 
         return (
-            <Container className='main-container'>
+            <Container className='main-container' style={{paddingTop: '2em'}}>
                 <Tab menu={{ secondary: true, pointing: true }} 
                     panes={panes} />
             </Container>

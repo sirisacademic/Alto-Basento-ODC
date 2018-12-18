@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as vega from 'vega';
+var vegaTooltip = require('vega-tooltip/build/vega-tooltip');
 
 
 class VegaChartSavingByCategory extends Component {
@@ -13,7 +14,7 @@ class VegaChartSavingByCategory extends Component {
     }
 
     renderVega() {
-        const { data, spec } = this.props;
+        const { data, spec, clickListener, height } = this.props;
         
         // inject some dynamic settings to
         // the vega specification 
@@ -29,7 +30,7 @@ class VegaChartSavingByCategory extends Component {
         // within the given width, height and padding values).
         // When we have a restricted with, this is the property more suitable
         spec.width = this.node.getBoundingClientRect().width;
-        spec.height = 400;
+        spec.height = height || 400;
         spec.padding = {
             top: 60,
             left: 50,
@@ -37,15 +38,27 @@ class VegaChartSavingByCategory extends Component {
             bottom: 10
         };
         
-        new vega.View(vega.parse(spec))
-            .renderer('svg')
-            .initialize(this.node)
-            .run();
+        // create the Vega view
+        let view = new vega.View(vega.parse(spec))
+                .renderer('svg')
+                .tooltip(
+                    (new vegaTooltip.Handler({theme: 'dark'})).call
+                )
+                .initialize(this.node);
+        
+        // add interactions, if any
+        if(clickListener)
+            view.addEventListener('click', clickListener);
+        
+        // run the view
+        view.run();
     }
+
 
     refCallback = node => {
         this.node = node;
     }
+
 
     // dummy render method that creates the container vega draws inside
     render() {

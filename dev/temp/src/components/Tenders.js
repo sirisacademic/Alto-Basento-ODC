@@ -109,7 +109,7 @@ class Tenders extends Component {
                         </Statistic>
                     </Grid.Column>
                     <Grid.Column style={{paddingLeft: '5rem'}}>
-                        <p style={{marginBottom: '5px'}}>Search for a specific tender:</p>
+                        <p style={{marginBottom: '5px', fontWeight: 'bold' }}>Search for a specific tender:</p>
                         <Search loading={isLoading}
                                 minCharacters={3}
                                 onSearchChange={this.handleSearchChange}

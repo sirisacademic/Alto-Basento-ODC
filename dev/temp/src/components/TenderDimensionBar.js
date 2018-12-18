@@ -77,6 +77,8 @@ class TenderDimensionBar extends Component {
     }
 
     refCallback = node => {
+        if(!node) return;
+        
         this.node = node;
         // set the width of the svg once the element
         // is attached to the DOM and we are able to

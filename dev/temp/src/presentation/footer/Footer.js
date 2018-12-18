@@ -16,7 +16,7 @@ const Footer = () => (
           <Grid.Row columns={3}>
             <Grid.Column>
               <Header inverted as='h4' content='Developed by:' />
-              <Image src='/images/logo-siris.png' size='small'/>
+              <Image src='/images/logo-siris.png' size='small' href='http://www.sirisacademic.com' target='_blank' />
             </Grid.Column>
             <Grid.Column>
               <Header inverted as='h4' content='With the support of:' />

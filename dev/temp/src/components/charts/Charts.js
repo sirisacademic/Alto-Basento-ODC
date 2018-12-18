@@ -7,8 +7,11 @@ import {
     specSavingByCategory,
     specRankByAmount,
     specOrgsByMunicipality,
-    specTendersTimeline
+    specTendersTimeline,
+    specFlowOrgMunicipality
 } from './VegaSpecifications';
+import { Constants } from '../../constants/constants';
+import { withRouter} from 'react-router-dom';
 
 class Charts extends Component {
 
@@ -22,6 +25,16 @@ class Charts extends Component {
         
         return (
             <Container>
+                <Grid columns={1}>
+                    <Grid.Column>
+                        <VegaChart
+                            title='Flows Organizations and municipalities'
+                            data={stats.flowOrgMunicipality}
+                            spec={specFlowOrgMunicipality}
+                            height={1000}>
+                        </VegaChart>
+                    </Grid.Column>
+                </Grid>
                 <Grid columns={2}>
                     <Grid.Row>
                         <Grid.Column>
@@ -35,7 +48,15 @@ class Charts extends Component {
                             <VegaChart
                                 title='Rank by total amount'
                                 data={stats.rankByAmount}
-                                spec={specRankByAmount}>
+                                spec={specRankByAmount}
+                                clickListener={(event, item) => {
+                                    if(item && item.datum)
+                                        this.props.history.push('/company/' + item.datum[Constants.NOME_IMPRESA]);
+                                }}
+                                hoverListener={(event, item) => {
+                                    if(item && item.datum)
+                                        console.log("hover: ", item);
+                                }}>                                
                             </VegaChart>
                         </Grid.Column>
                     </Grid.Row>       
@@ -51,7 +72,11 @@ class Charts extends Component {
                             <VegaChart
                                 title='Timeline of tenders'
                                 data={stats.tendersTimeline}
-                                spec={specTendersTimeline}>
+                                spec={specTendersTimeline}
+                                clickListener={(event, item) => {
+                                    if(item && item.datum)
+                                        this.props.history.push('/tender/' + item.datum.tenderId);
+                                }}>
                             </VegaChart>     
                     </Grid.Column>
                     </Grid.Row>             
@@ -61,4 +86,5 @@ class Charts extends Component {
     }
 }
 
-export default Charts;
+
+export default withRouter(Charts);

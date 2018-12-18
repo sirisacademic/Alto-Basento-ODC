@@ -13,24 +13,59 @@ const mapStateToProps = (state) => {
 
     if(props.tenders.length > 0) {
         
+        // data to populate the Sankey diagram: counts between municipalities
+        // and organization
+        props.stats.flowOrgMunicipality = dl.groupby([Constants.NOME_IMPRESA, Constants.COMUNE_GARE])
+            .summarize([
+                {
+                    name : 'value.amount',
+                    ops : ['sum'],
+                    as : ['sum_amount']
+                }
+            ])
+            .execute(props.tenders);
+
         // data to populate scatterplot average saving / average amount, per categories
         props.stats.savingByCategory = dl.groupby(Constants.TIPO_INTERVENTO)
                             .summarize([
-                                { name: 'percentageRibasso', ops: ['average'], as: ['average_ribasso']},
-                                { name: 'value.amount', ops:['average', 'sum'], as: ['average_amount', 'sum_amount']}
+                                {  
+                                    name: 'percentageRibasso', 
+                                    ops: ['average'],
+                                    as: ['average_ribasso']
+                                },
+                                {   
+                                    name: 'value.amount', 
+                                    ops:['average', 'sum'],
+                                    as: ['average_amount', 'sum_amount']
+                                }
                             ])
                             .execute(props.tenders);
 
         // data to rank companies by amount
         props.stats.rankByAmount = dl.groupby(Constants.NOME_IMPRESA)
                             .summarize([
-                                { name: 'value.amount', ops: ['sum'], as: ['sum_amount']}
+                                {
+                                    name: 'value.amount', 
+                                    ops: ['sum'], 
+                                    as: ['sum_amount']
+                                }
                             ])
                             .execute(props.tenders);
 
         // data to populate the map (tenders by municipality)
         props.stats.orgsByMunicipality = dl.groupby(Constants.COMUNE_IMPRESA)
-            .count()
+            .summarize([
+                {
+                    name : Constants.NOME_IMPRESA,
+                    ops : ['distinct'],
+                    as : ['distinct_org']
+                },
+                {
+                    name : 'id',
+                    ops : ['distinct'],
+                    as: ['distinct_id']
+                }
+            ])
             .execute(props.tenders);
 
         // data to populate the timeline
@@ -51,6 +86,13 @@ const mapStateToProps = (state) => {
                                         .add(contractPeriod.duration, 'day')
                                         .toDate().getTime();
                                 contractPeriod.percentageRibasso = +tender.percentageRibasso;
+
+                                // add the tender id: the bar will be linkable
+                                contractPeriod.tenderId = tender.id;
+
+                                // add tender short name for the tooltip
+                                contractPeriod.tenderName = _.truncate(tender.description, {length: 20})
+
                                 return contractPeriod;
                             })
                             .value();        
