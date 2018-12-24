@@ -97,7 +97,7 @@ class Tenders extends Component {
         if(this.props.tendersByDimension === false || this.props.tendersByDimension === undefined)
             return <Preloader/>
 
-        let statisticSize = 'tiny',
+        let statisticSize = 'small',
             statisticColor = 'black';
         return (
             <Container className='main-container'>

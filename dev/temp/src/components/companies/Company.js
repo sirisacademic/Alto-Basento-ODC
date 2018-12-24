@@ -40,7 +40,6 @@ class Company extends Component {
                             ' (' + 
                             org.address.region + ' )'} />
                 </Feed>
-                <Divider/>
                 <Grid columns={3} divided>
                     <Grid.Row>
                         <Grid.Column textAlign="center">
@@ -63,6 +62,7 @@ class Company extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
+                <Divider/>
                 <TenderCards tenders={tenders}></TenderCards>
             </Container>
         );

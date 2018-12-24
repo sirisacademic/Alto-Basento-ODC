@@ -96,7 +96,7 @@ class Home extends Component {
             return <Preloader/>
         
         return (
-            <Container className='main-container'>
+            <div>
                 <Container className='home-view-container'>
                     <Grid columns={3} divided>
                         <Grid.Row>
@@ -155,7 +155,7 @@ class Home extends Component {
                     </Grid>
                 </Container>                
                 <HomeInfoBlocks/>
-            </Container>            
+            </div>            
         );
     }
 }
