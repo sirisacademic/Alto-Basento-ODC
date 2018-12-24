@@ -5,8 +5,9 @@ import TenderCardsContainer from '../containers/TenderCardsContainer';
 import { 
   Tab,
   Menu,
-  Header,
-  Container
+  Container,
+  Button,
+  Icon
 } from 'semantic-ui-react';
 import ChartsContainer from './charts/ChartsContainer';
 
@@ -14,7 +15,9 @@ const panes = [
   {
     menuItem: (
       <Menu.Item key='tenders'>
-        <Header as ='h3'>Tenders</Header>
+        <Button primary >
+          <Icon name='file'/>List of tenders
+        </Button>
       </Menu.Item>
     ), 
     render: () => <TenderCardsContainer></TenderCardsContainer>
@@ -22,7 +25,9 @@ const panes = [
   {
     menuItem: (
       <Menu.Item key='charts'>
-        <Header as ='h3'>Charts</Header>
+          <Button primary>
+            <Icon name='chart bar outline'/>Visualizations            
+          </Button>
       </Menu.Item>
     ),
     render: () => <ChartsContainer></ChartsContainer>

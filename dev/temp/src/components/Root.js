@@ -18,7 +18,7 @@ const Root = ({ store }) => (
         <Router>
             <div>
                 <HeaderMenu/>
-                <Container className="rootContainer">
+                <Container>
                     <Route exact path="/" component={HomeContainer} />
                     <Route exact path='/tenders' component={TenderBrowser} />
                     <Route path="/tender/:id" component={TenderContainer} />

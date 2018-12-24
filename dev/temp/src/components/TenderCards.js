@@ -3,7 +3,6 @@ import {
     Card,
     Container,
     Icon,
-    Header,
     Button
 } from 'semantic-ui-react'
 import * as d3 from 'd3';
@@ -13,7 +12,6 @@ class TenderCards extends Component {
     render() {
         return (
             <Container>
-                <Header as='h3'>Results:</Header>
                 <Card.Group itemsPerRow={4}>
                 {
                     this.props.tenders.map(

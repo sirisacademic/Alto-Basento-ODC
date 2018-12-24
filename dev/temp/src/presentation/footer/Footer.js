@@ -30,6 +30,7 @@ const Footer = () => (
               </List>
             </Grid.Column>
             <Grid.Column>
+              <Header inverted as='h4' content='Links:' />
               <List link inverted>
                 <List.Item as='a' href='/'>Home</List.Item>
                 <List.Item as='a' href='/tenders'>Explore</List.Item>

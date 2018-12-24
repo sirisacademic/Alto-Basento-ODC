@@ -7,16 +7,14 @@ import {
     Grid, 
     Search,
     Statistic, 
-    Header,
-    Divider
+    Divider,
+    Segment
 } from 'semantic-ui-react';
 import _ from 'lodash';
 import Preloader from '../presentation/preloader/Preloader';
 import FilterTagsContainer from '../containers/FilterTagsContainer';
 
 class Tenders extends Component {
-
-
 
     constructor(props) {
         super(props);
@@ -99,61 +97,82 @@ class Tenders extends Component {
         if(this.props.tendersByDimension === false || this.props.tendersByDimension === undefined)
             return <Preloader/>
 
+        let statisticSize = 'tiny',
+            statisticColor = 'black';
         return (
             <Container className='main-container'>
-                <Grid columns={2} divided className='tenders-header'>
+            <Segment style={{marginTop: '67px', marginBottom: '50px'}}>
+                <Grid columns={3} divided>
+                    <Grid.Row>
+                        <Grid.Column textAlign="center">
+                            <Statistic size={statisticSize} color={statisticColor}>
+                                <Statistic.Value>{this.props.stats.numberOfTenders}</Statistic.Value>
+                                <Statistic.Label>public tenders</Statistic.Label>
+                            </Statistic>
+                        </Grid.Column>
+                        <Grid.Column textAlign="center">
+                            <Statistic size={statisticSize} color={statisticColor}>
+                                <Statistic.Value>{Utils.formatCurrency(Math.round(this.props.stats.spending))}</Statistic.Value>
+                                <Statistic.Label>spent in public contracts</Statistic.Label>
+                            </Statistic>
+                        </Grid.Column>
+                        <Grid.Column textAlign="center">
+                            <Statistic size={statisticSize} color={statisticColor}>
+                                <Statistic.Value>{this.props.stats.numberOfProviders}</Statistic.Value>
+                                <Statistic.Label>providers</Statistic.Label>
+                            </Statistic>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+                </Segment>
+                <Grid columns={2}>
                     <Grid.Column width={3}>
-                        <Statistic className='statistic-home'>
-                            <Statistic.Value>{this.props.tenders.length}</Statistic.Value>
-                            <Statistic.Label>public tenders</Statistic.Label>
-                        </Statistic>
-                    </Grid.Column>
-                    <Grid.Column style={{paddingLeft: '5rem'}}>
-                        <p style={{marginBottom: '5px', fontWeight: 'bold' }}>Search for a specific tender:</p>
+                        <p>Search for a specific tender:</p>
+                        <Divider/>
                         <Search loading={isLoading}
                                 minCharacters={3}
                                 onSearchChange={this.handleSearchChange}
                                 results={results}
                                 value={value}
-                                size='big'
+                                size='small'
                                 onResultSelect={this.handleSearchResultClick}/>
                     </Grid.Column>
+                    <Grid.Column width={13}>
+                        <p>Search by filterin by properties:</p>
+                        <Divider/>
+                        <Grid columns={4} style={{marginTop: '1rem'}}>
+                            <Grid.Column>
+                                <TenderDimensionBars
+                                    category={'tipo_appalto_dimension'}
+                                    data={this.props.tendersByDimension[Constants.TIPO_APPALTO]} 
+                                    onClickTender={this.props.onClickTender}>
+                                </TenderDimensionBars>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <TenderDimensionBars
+                                    category={'tipo_intervento_dimension'}
+                                    data={this.props.tendersByDimension[Constants.TIPO_INTERVENTO]} 
+                                    onClickTender={this.props.onClickTender}>
+                                </TenderDimensionBars>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <TenderDimensionBars
+                                    category={'comune_gara_dimension'}
+                                    data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
+                                    onClickTender={this.props.onClickTender}>
+                                </TenderDimensionBars>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <TenderDimensionBars
+                                    category={'anno_dimension'}
+                                    data={this.props.tendersByDimension[Constants.ANNO]}
+                                    onClickTender={this.props.onClickTender}>
+                                </TenderDimensionBars>
+                            </Grid.Column>
+                        </Grid>
+                        <FilterTagsContainer></FilterTagsContainer>
+                    </Grid.Column>
                 </Grid>
-                <Header as="h5" style={{marginTop: '4rem'}}>
-                    Search by filtering by properties:
-                </Header>
-                <Divider></Divider>
-                <Grid columns={4} style={{marginTop: '1rem'}}>
-                    <Grid.Column>
-                        <TenderDimensionBars
-                            category={'tipo_appalto_dimension'}
-                            data={this.props.tendersByDimension[Constants.TIPO_APPALTO]} 
-                            onClickTender={this.props.onClickTender}>
-                        </TenderDimensionBars>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <TenderDimensionBars
-                            category={'tipo_intervento_dimension'}
-                            data={this.props.tendersByDimension[Constants.TIPO_INTERVENTO]} 
-                            onClickTender={this.props.onClickTender}>
-                        </TenderDimensionBars>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <TenderDimensionBars
-                            category={'comune_gara_dimension'}
-                            data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
-                            onClickTender={this.props.onClickTender}>
-                        </TenderDimensionBars>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <TenderDimensionBars
-                            category={'anno_dimension'}
-                            data={this.props.tendersByDimension[Constants.ANNO]}
-                            onClickTender={this.props.onClickTender}>
-                        </TenderDimensionBars>
-                    </Grid.Column>
-                </Grid>
-                <FilterTagsContainer></FilterTagsContainer>
             </Container>
         );
     }

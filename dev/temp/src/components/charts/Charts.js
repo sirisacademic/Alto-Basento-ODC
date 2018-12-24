@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import VegaChart from './VegaChart';
 import { 
-    Grid, Container
+    Grid, Container, Segment
   } from 'semantic-ui-react';
 import {
     specSavingByCategory,
@@ -25,62 +25,66 @@ class Charts extends Component {
         
         return (
             <Container>
-                <Grid columns={1}>
-                    <Grid.Column>
+                <Segment>
                         <VegaChart
                             title='Flows Organizations and municipalities'
                             data={stats.flowOrgMunicipality}
                             spec={specFlowOrgMunicipality}
                             height={1000}>
-                        </VegaChart>
-                    </Grid.Column>
-                </Grid>
-                <Grid columns={2}>
-                    <Grid.Row>
-                        <Grid.Column>
-                            <VegaChart
-                                title='Percentage of saving per category'
-                                data={stats.savingByCategory}
-                                spec={specSavingByCategory}>
-                            </VegaChart>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <VegaChart
-                                title='Rank by total amount'
-                                data={stats.rankByAmount}
-                                spec={specRankByAmount}
-                                clickListener={(event, item) => {
-                                    if(item && item.datum)
-                                        this.props.history.push('/company/' + item.datum[Constants.NOME_IMPRESA]);
-                                }}
-                                hoverListener={(event, item) => {
-                                    if(item && item.datum)
-                                        console.log("hover: ", item);
-                                }}>                                
-                            </VegaChart>
-                        </Grid.Column>
-                    </Grid.Row>       
-                    <Grid.Row>
-                    <Grid.Column>
-                        <VegaChart
-                            title='Geographical origin of the companies'
-                            data={stats.orgsByMunicipality}
-                            spec={specOrgsByMunicipality}>
-                        </VegaChart>
-                    </Grid.Column>
-                    <Grid.Column>
-                            <VegaChart
-                                title='Timeline of tenders'
-                                data={stats.tendersTimeline}
-                                spec={specTendersTimeline}
-                                clickListener={(event, item) => {
-                                    if(item && item.datum)
-                                        this.props.history.push('/tender/' + item.datum.tenderId);
-                                }}>
-                            </VegaChart>     
-                    </Grid.Column>
-                    </Grid.Row>             
-                </Grid>                           
+                        </VegaChart>               
+                </Segment>
+                <Segment>
+                    <Grid columns={2}>
+                        <Grid.Row>
+                            <Grid.Column>
+                                <VegaChart
+                                    title='Percentage of saving per category'
+                                    data={stats.savingByCategory}
+                                    spec={specSavingByCategory}>
+                                </VegaChart>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <VegaChart
+                                    title='Rank by total amount'
+                                    data={stats.rankByAmount}
+                                    spec={specRankByAmount}
+                                    clickListener={(event, item) => {
+                                        if(item && item.datum)
+                                            this.props.history.push('/company/' + item.datum[Constants.NOME_IMPRESA]);
+                                    }}
+                                    hoverListener={(event, item) => {
+                                        if(item && item.datum)
+                                            console.log("hover: ", item);
+                                    }}>                                
+                                </VegaChart>
+                            </Grid.Column>
+                        </Grid.Row>       
+                    </Grid>
+                </Segment>
+                <Segment>
+                    <Grid columns={2}>
+                        <Grid.Row>
+                            <Grid.Column>
+                                <VegaChart
+                                    title='Geographical origin of the companies'
+                                    data={stats.orgsByMunicipality}
+                                    spec={specOrgsByMunicipality}>
+                                </VegaChart>
+                            </Grid.Column>
+                            <Grid.Column>
+                                    <VegaChart
+                                        title='Timeline of tenders'
+                                        data={stats.tendersTimeline}
+                                        spec={specTendersTimeline}
+                                        clickListener={(event, item) => {
+                                            if(item && item.datum)
+                                                this.props.history.push('/tender/' + item.datum.tenderId);
+                                        }}>
+                                    </VegaChart>     
+                            </Grid.Column>
+                        </Grid.Row>             
+                    </Grid> 
+                </Segment>                          
             </Container>
         );
     }

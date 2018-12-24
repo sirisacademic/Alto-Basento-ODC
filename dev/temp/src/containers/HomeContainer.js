@@ -1,47 +1,26 @@
 import { connect } from 'react-redux';
 import Home from '../components/Home';
-import _ from 'lodash';
 import {
     fetchAllTenders,
     fetchAllTendersSuccess
 } from '../actions/index'
 
+import { getStatsFromTenders } from '../utils/stats';
+
 const mapStateToProps = (state) => {
-    let tenders = state.tenders.tendersList.tenders;
-    
-    if(tenders.length === 0)
-        return { tenders : [] };        
+    let tenders = state.tenders.tendersList.tenders;    
+    return (tenders.length === 0)?
+        { 
+            tenders : [] 
+        } : 
+        {
+            // adapt the tenders to a format more suitable
+            // for the Search Category component       
+            'tenders' : tenders,
 
-
-    return {
-        // adapt the tenders to a format more suitable
-        // for the Search Category component       
-        'tenders' : tenders,
-
-        // summarize basic stats
-        'stats' : {
-            // total number of tenders
-            numberOfTenders : 
-                tenders.length,
-
-            // total accumulated spending
-            spending: 
-                _.reduce(
-                    tenders, 
-                    function(result, tender) {
-                        return tender.value.amount + result;
-                    }, 
-                0),
-
-            // number of different providers
-            numberOfProviders : 
-                _.uniqBy(
-                    tenders, 
-                    function(tender) { 
-                        return tender.organizationReference.legalName;
-                    }).length
-        }
-    };
+            // summarize basic stats
+            'stats' : getStatsFromTenders(tenders)
+        };
 };
 
 const mapDispatchToProps = (dispatch) => {

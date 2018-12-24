@@ -7,6 +7,7 @@ import {
 } from '../actions/index'
 import { Constants } from '../constants/constants';
 import _ from 'lodash';
+import { getStatsFromTenders } from '../utils/stats';
 
 const mapStateToProps = (state) => {
 
@@ -17,8 +18,10 @@ const mapStateToProps = (state) => {
     else {
         let obj = {
             tenders: state.tenders.tendersList.cf.allFiltered(),
-            tendersByDimension : {}
+            tendersByDimension : {}            
         };
+
+        obj.stats = getStatsFromTenders(obj.tenders);
 
         obj.tendersByDimension[Constants.TIPO_APPALTO] = state.tenders.tendersList.dimensions.tipo_appalto_dimension.group().all();
         obj.tendersByDimension[Constants.TIPO_INTERVENTO] = state.tenders.tendersList.dimensions.tipo_intervento_dimension.group().all();
