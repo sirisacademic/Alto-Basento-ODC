@@ -44,7 +44,7 @@ class TenderDimensionBar extends Component {
             .append('rect')
             .data([this.props.data.value])
             .style('fill', (this.props.data.selected)?
-                'rgba(25, 42, 86, 0.8)' : '#F3795C'//'rgb(105, 255, 218)'
+                'rgba(25, 42, 86, 0.8)' : '#F3795C'
             )
             .attr('x', 0)
             .attr('y', 0)

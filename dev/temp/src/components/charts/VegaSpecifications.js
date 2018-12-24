@@ -6,14 +6,12 @@ import topojson from '../../static/basilicata_map.topo.json'
 // specification
 export const specSavingByCategory = {
     "$schema": "https://vega.github.io/schema/vega/v4.json",
-    "autosize" : "fit",
     "data": [
       {
         "name": "source",
         "values" : []
       }
     ],
-  
     "scales": [
       {
         "name": "x",
@@ -91,8 +89,6 @@ export const specSavingByCategory = {
 
 export const specRankByAmount = {
     "$schema": "https://vega.github.io/schema/vega/v4.json",
-    "autosize" : "fit",
-    "padding": 5,
     "signals" : [
       {
         "name" : "baseline",
@@ -176,10 +172,13 @@ export const specRankByAmount = {
         "encode": {
           "enter" : {
             "fill" : {
-              "value" : "rgb(105, 255, 218)"
+              "value" : "#192a56"
+            },
+            "fillOpacity" : {
+              "value" : 0.25
             },
             "stroke" : {
-              "value" : "rgb(95, 204, 177)"
+              "value" : "#192a56"
             },
             "strokeWidth" : {
               "value" : 0.5
@@ -207,8 +206,8 @@ export const specRankByAmount = {
             }
           },
           "hover" : {
-            "fill" : {
-              "value" : "red"
+            "fillOpacity" : {
+              "value" : 0.7
             }
           }
         }
@@ -242,13 +241,6 @@ export const specRankByAmount = {
 
 export const specOrgsByMunicipality = {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "autosize" : "fit",
-  "padding": {
-    "top": 25,
-    "left": 0,
-    "right": 0,
-    "bottom": 0
-  },
   "data": [
     {
         "name" : "data",
@@ -365,7 +357,6 @@ export const specOrgsByMunicipality = {
 
 export const specTendersTimeline = {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "autosize" : "fit",
   "data" : [
     {      
       "name" : "data",
@@ -446,8 +437,6 @@ export const specTendersTimeline = {
 
 export const specFlowOrgMunicipality = {
   "$schema": "https://vega.github.io/schema/vega/v3.0.json",
-  "height": 2000,
-  "width": 700,
   "data": [
     {
       "name": "rawData",
@@ -812,15 +801,15 @@ export const specFlowOrgMunicipality = {
             "field": "scaledY1"
           },
           "fillOpacity": {
-            "value": 0.6
+            "value": 0.7
           },
           "tooltip": {
             "signal": "datum.grpId + '   ' + format(datum.total, ',.0f') + '   (' + format(datum.percentage, '.1%') + ')'"
           }
         },
         "hover": {
-          "fillOpacity": {
-            "value": 1
+          "fill": {
+            "value": 'rgba(25, 42, 86, 0.8)'
           }
         }
       }

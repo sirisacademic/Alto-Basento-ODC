@@ -30,12 +30,13 @@ class VegaChartSavingByCategory extends Component {
         // within the given width, height and padding values).
         // When we have a restricted with, this is the property more suitable
         spec.width = this.node.getBoundingClientRect().width;
+        spec.autosize = 'fit';
         spec.height = height || 400;
         spec.padding = {
-            top: 60,
-            left: 50,
-            right: 50,
-            bottom: 10
+            top: 20,
+            left: 0,
+            right: 0,
+            bottom: 20
         };
         
         // create the Vega view
