@@ -21,8 +21,6 @@ class VegaChartSavingByCategory extends Component {
         spec.data[0].values = data;
         spec.title = {
             text : this.props.title,
-            fontSize : 16,
-            fontWeight: 'bold',
             offset: 20
         }
         // vega specs have its 'autosize' property to 'fit' (automatically adjust
@@ -38,7 +36,22 @@ class VegaChartSavingByCategory extends Component {
             right: 0,
             bottom: 20
         };
-        
+        // apply custom visual based on the web design
+        let font = "'IBM+Plex+Sans','Helvetica Neue',Arial,Helvetica,sans-serif";
+        spec.config = {            
+            title : {
+                font : font,
+                fontSize : 22,
+                fontWeight : 300
+            },
+            text : {
+                font : font
+            },
+            axis : {
+                titleFont : font,
+                labelFont : font
+            }
+        }
         // create the Vega view
         let view = new vega.View(vega.parse(spec))
                 .renderer('svg')

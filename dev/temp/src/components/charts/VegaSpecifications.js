@@ -707,12 +707,6 @@ export const specFlowOrgMunicipality = {
       },
       "encode": {
         "enter": {
-          "stroke": {
-            "value": "#000"
-          },
-          "strokeWidth": {
-            "value": 1
-          },
           "width": {
             "scale": "x",
             "band": 1
@@ -787,6 +781,15 @@ export const specFlowOrgMunicipality = {
           "width": {
             "scale": "x",
             "band": 1
+          },
+          "stroke": {
+            "value": "#fff"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "strokeOpacity" : {
+            "value" : 0.7
           }
         },
         "update": {
