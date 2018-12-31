@@ -41,9 +41,6 @@ class Tender extends Component {
                 .reverse()
                 .value();
 
-console.log('parties:');
-console.log(parties);
-
         // color scale by saving percentage
         var colorScale = d3.scaleLinear()
             .range(['#d8eae0', '#7decaf'])            
@@ -120,7 +117,8 @@ console.log(parties);
                     </Grid.Column>
 
                     <Grid.Column>
-                        <Table celled>
+                        { 
+                            tender.candidates.length > 1 && <Table celled>
                             <Table.Header>
                                 <Table.Row>
                                 <Table.HeaderCell width={4}>Saving Rate</Table.HeaderCell>
@@ -140,7 +138,8 @@ console.log(parties);
                                     )
                                 }
                             </Table.Body>
-                        </Table>
+                            </Table>
+                        }
                     </Grid.Column>                 
                 </Grid>
             </Container>           
