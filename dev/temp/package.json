@@ -9,6 +9,7 @@
     "d3": "^5.7.0",
     "d3-request": "^1.0.6",
     "datalib": "^1.9.2",
+    "dotenv": "^6.2.0",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "react": "^16.5.0",
@@ -16,7 +17,7 @@
     "react-iframe": "^1.3.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^2.0.0",
     "react-syntax-highlighter": "^10.1.2",
     "react-tooltip": "^3.9.0",
     "redux": "^4.0.0",
@@ -26,9 +27,15 @@
     "vega-tooltip": "^0.14.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_API_ENDPOINT=http://localhost:8080 react-scripts start",
+    "build": "REACT_APP_API_ENDPOINT=http://openbasento.unics.cloud/api react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

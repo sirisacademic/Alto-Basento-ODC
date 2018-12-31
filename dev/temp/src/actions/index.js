@@ -31,7 +31,7 @@ let fixCandidates = tender => {
 export const fetchAllTenders = () => {
     return function(dispatch) {
         return axios.get(
-            'http://localhost:8080/all'
+            process.env.REACT_APP_API_ENDPOINT + '/all'
         )
         .then(
             function(response) {
@@ -60,7 +60,7 @@ export const fetchAllTendersFailure = (error) => ({
 export const fetchTenderByID = (id) => {
     return function(dispatch) {
         return axios.get(
-            'http://localhost:8080/tender/' + id
+            process.env.REACT_APP_API_ENDPOINT + '/tender/' + id
         )
         .then(
             function(response) {
@@ -92,7 +92,7 @@ export const fetchTenderByIDFailure = (error) => ({
 export const fetchCompanyByID = (id) => {
     return function(dispatch) {
         return axios.get(
-            'http://localhost:8080/company/' + id
+            process.env.REACT_APP_API_ENDPOINT +  '/company/' + id
         )
         .then(
             function(response) {
