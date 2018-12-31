@@ -29,7 +29,8 @@ const mapStateToProps = (state) => {
         props.stats.savingByCategory = dl.groupby(Constants.TIPO_INTERVENTO)
                             .summarize([
                                 {  
-                                    name: 'percentageRibasso', 
+                                    name: 'percentageRibasso',
+                                    get : tender => _.find(tender.awardCriteriaDetails, ['name', 'Percentuale Ribasso']).value,
                                     ops: ['average'],
                                     as: ['average_ribasso']
                                 },
@@ -39,7 +40,9 @@ const mapStateToProps = (state) => {
                                     as: ['average_amount', 'sum_amount']
                                 }
                             ])
-                            .execute(props.tenders);
+                            .execute(
+                                _.filter(props.tenders, tender => tender.supplier.legalName !== 'Deserta')
+                            );
 
         // data to rank companies by amount
         props.stats.rankByAmount = dl.groupby(Constants.NOME_IMPRESA)
@@ -70,7 +73,8 @@ const mapStateToProps = (state) => {
 
         // data to populate the timeline
         props.stats.tendersTimeline = _(props.tenders)
-                            .map((tender) => {
+                            .filter(t => t.supplier.legalName !== 'Deserta')
+                            .map(tender => {
                                 let contractPeriod = {...tender.contractPeriod, ...tender.value};
                                 contractPeriod.startDate = new Date(contractPeriod.startDate).getTime();
 
@@ -85,7 +89,8 @@ const mapStateToProps = (state) => {
                                     contractPeriod.endDate = moment(contractPeriod.startDate)
                                         .add(contractPeriod.duration, 'day')
                                         .toDate().getTime();
-                                contractPeriod.percentageRibasso = +tender.percentageRibasso;
+                                        
+                                contractPeriod.percentageRibasso = +_.find(tender.awardCriteriaDetails, ['name', 'Percentuale Ribasso']).value;
 
                                 // add the tender id: the bar will be linkable
                                 contractPeriod.tenderId = tender.id;
