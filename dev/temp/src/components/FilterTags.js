@@ -24,7 +24,7 @@ class FilterTags extends Component {
                     )
                 }
                 {(this.props.filters.length > 0) &&
-                    <Button basic 
+                    <Button 
                         size='mini'
                         onClick={()=> this.props.onClearTags()}>
                         <strong>Clear all</strong>

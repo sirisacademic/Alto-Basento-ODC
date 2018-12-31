@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-
+import _ from 'lodash';
 
 export const ADD_FILTER = 'ADD_FILTER';
 export const REMOVE_FILTER = 'REMOVE_FILTER';

@@ -19,7 +19,7 @@ import Preloader from '../../presentation/preloader/Preloader';
 
 class Tender extends Component {
 
-    // get all the tenders
+    // get the tender by Id
     componentDidMount() {
         this.props.fetchTenderByID(this.props.tenderID);
     }
@@ -40,7 +40,10 @@ class Tender extends Component {
                 .sortBy('percentage')
                 .reverse()
                 .value();
-        
+
+console.log('parties:');
+console.log(parties);
+
         // color scale by saving percentage
         var colorScale = d3.scaleLinear()
             .range(['#d8eae0', '#7decaf'])            
@@ -67,7 +70,7 @@ class Tender extends Component {
                     {tender.description}
                 </Header>
                 <Label as='a' color='grey' image>
-                    Identifier
+                    Tender ID
                     <Label.Detail>{tender.id}</Label.Detail>
                 </Label>
                 <Divider/>
@@ -92,7 +95,7 @@ class Tender extends Component {
                                         </a> {
                                             ' - ' + 
                                             tender.organizationReference.address.municipality + 
-                                            ',' + tender.organizationReference.address.province + 
+                                            ', ' + tender.organizationReference.address.province + 
                                             ' (' + 
                                             tender.organizationReference.address.region + ' )'
                                             }
