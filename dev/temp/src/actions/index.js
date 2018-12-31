@@ -18,6 +18,12 @@ export const FETCH_COMPANY_BY_ID_SUCCESS = 'FETCH_COMPANY_BY_ID_SUCCESS';
 export const FETCH_COMPANY_BY_ID_FAILURE = 'FETCH_COMPANY_BY_ID_FAILURE';
 
 
+let fixCandidates = tender => {
+    tender.candidates = _.filter(tender.candidates, candidate => candidate.name !== "");
+    return tender;
+}
+
+
 
 // ---------------------------------------------
 // tender fetching actions
@@ -29,6 +35,7 @@ export const fetchAllTenders = () => {
         )
         .then(
             function(response) {
+                response.data.forEach(fixCandidates);
                 console.log("// Fetch all tenders: /////////");
                 console.log(response.data);
                 return response.data;
@@ -57,6 +64,7 @@ export const fetchTenderByID = (id) => {
         )
         .then(
             function(response) {
+                fixCandidates(response.data);
                 return response.data;
             },
             function(error) {
