@@ -2,7 +2,7 @@ export const API_RESPONSE_ALL = `[{
     id: "6767364D6D",
     description: "Gestione del servizio di trasporto pubblico locale",
     status: "nessun contenzionso",
-    organizationReference: {
+    supplier: {
         legalName: "Autolinee Caivano",
         address: {
             region: "Basilicata",
@@ -46,7 +46,7 @@ export const API_RESPONSE_ALL = `[{
     id: "66246019AD",
     description: "Servizio di refezione scolastica ",
     status: "nessun contenzionso",
-    organizationReference: {
+    supplier: {
         legalName: "P&C Consorzio Stabile arl",
         address: {
             region: "Basilicata",
@@ -91,7 +91,7 @@ export const API_RESPONSE_ALL = `[{
     description: "Ristrutturazione ed adeguamento tecnologico della palestra dell istituto comprensivo "
     G.Faggella "",
     status: "nessun contenzionso",
-    organizationReference: {
+    supplier: {
         legalName: "Pepice Nicola",
         address: {
             region: "Basilicata",
@@ -170,7 +170,7 @@ export const API_RESPONSE_ALL = `[{
     id: "702481658C",
     description: "Lavori di edilizia scolastica per la demolizione della scuola materna in località Cappelluccia con ricostruzione della stessa",
     status: "nessun contezioso",
-    organizationReference: {
+    supplier: {
         legalName: "F.lli Martoccia",
         address: {
             region: "Basilicata",
@@ -276,7 +276,7 @@ export const API_RESPONSE_TENDER = `{
     id: "6767364D6D",
     description: "Gestione del servizio di trasporto pubblico locale",
     status: "nessun contenzionso",
-    organizationReference: {
+    supplier: {
         legalName: "Autolinee Caivano",
         address: {
             region: "Basilicata",
@@ -321,7 +321,7 @@ export const API_RESPONSE_COMPANY = `[{
     id: "6767364D6D",
     description: "Gestione del servizio di trasporto pubblico locale",
     status: "nessun contenzionso",
-    organizationReference: {
+    supplier: {
         legalName: "Autolinee Caivano",
         address: {
             region: "Basilicata",

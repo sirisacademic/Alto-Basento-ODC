@@ -19,7 +19,7 @@ const company = (state = {}, action) => {
                 company: {
                     tenders: action.payload,
                     // all these tenders share the same org, so just pick one
-                    org: _.first(action.payload).organizationReference,
+                    org: _.first(action.payload).supplier,
                     // do some basic stats
                     stats : dl.groupby()
                         .summarize([
