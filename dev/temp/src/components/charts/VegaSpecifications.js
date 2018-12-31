@@ -137,7 +137,7 @@ export const specRankByAmount = {
         "type": "band",
         "domain": {
             "data": "source", 
-            "field": "[organizationReference.legalName]"
+            "field": "[supplier.legalName]"
         },
         "range": "height",
         "padding": 0.1
@@ -198,7 +198,7 @@ export const specRankByAmount = {
             },
             "y": {
                 "scale": "y", 
-                "field": "[organizationReference.legalName]"
+                "field": "[supplier.legalName]"
             },
             "height": {
                 "scale": "y",
@@ -220,14 +220,14 @@ export const specRankByAmount = {
         "encode" : {
           "enter" : {
             "text" : {
-              "field": "[organizationReference.legalName]"
+              "field": "[supplier.legalName]"
             },
             "x" : {
               "value" : 10
             },
             "y" : {
               "scale" : "y",
-              "field": "[organizationReference.legalName]",
+              "field": "[supplier.legalName]",
               "band" : 0.5
             },
             "baseline" : {
@@ -257,7 +257,7 @@ export const specOrgsByMunicipality = {
           {
               "type": "lookup",
               "from" : "data", 
-              "key" : "organizationReference\\.address\\.municipality",
+              "key" : "supplier\\.address\\.municipality",
               "fields" : ["properties.\\NAME_3"],
               "values" : ["distinct_org", "distinct_id"],
               "as" : ["distinct_org", "distinct_id"],
@@ -444,7 +444,7 @@ export const specFlowOrgMunicipality = {
       "transform": [
         {
           "type": "formula",
-          "expr": "datum['organizationReference.legalName']",
+          "expr": "datum['supplier.legalName']",
           "as": "stk1"
         },
         {

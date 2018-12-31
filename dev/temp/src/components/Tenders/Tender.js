@@ -31,8 +31,8 @@ class Tender extends Component {
         let tender = this.props.tender,
             tenderDate =  new Date(tender.contractPeriod.startDate),
             parties = _([
-                    {   name : tender.organizationReference.legalName,
-                        percentage : tender.percentageRibasso,
+                    {   name : tender.supplier.legalName,
+                        percentage : _.find(tender.awardCriteriaDetails, ['name','Percentuale Ribasso']).value,
                         winner: true
                     },
                     ...tender.candidates
@@ -87,14 +87,14 @@ class Tender extends Component {
                                         Awarded company:
                                     </Feed.Date>
                                     <Feed.Summary>
-                                        <a href={'/company/' + tender.organizationReference.legalName}>
-                                            {tender.organizationReference.legalName }
+                                        <a href={'/company/' + tender.supplier.legalName}>
+                                            {tender.supplier.legalName }
                                         </a> {
                                             ' - ' + 
-                                            tender.organizationReference.address.municipality + 
-                                            ', ' + tender.organizationReference.address.province + 
+                                            tender.supplier.address.municipality + 
+                                            ', ' + tender.supplier.address.province + 
                                             ' (' + 
-                                            tender.organizationReference.address.region + ' )'
+                                            tender.supplier.address.region + ' )'
                                             }
                                     </Feed.Summary>
                                 </Feed.Content>

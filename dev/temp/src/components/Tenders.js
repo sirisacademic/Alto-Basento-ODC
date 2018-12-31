@@ -68,7 +68,7 @@ class Tenders extends Component {
                         // unique key is needed by React
                         // https://reactjs.org/docs/lists-and-keys.html#keys
                         key: r.id,
-                        title : r.organizationReference.legalName,
+                        title : r.supplier.legalName,
                         description : r.description,
                         price : Utils.formatCurrency(r.value.amount),
                         id : r.id

@@ -2,9 +2,9 @@ let TIPO_APPALTO = 'procurementMethod', //'tipo_appalto',
     TIPO_INTERVENTO = 'tipoIntervento', //'tipo_intervento',
     COMUNE_GARE = 'municipality', //'comune_gara',
     ABSTRACT_PROGETTO = 'description', //'abstract_progetto',
-    NOME_IMPRESA = 'organizationReference.legalName', //'nome_impresa';
-    PROVINCE_IMPRESA = 'organizationReference.address.province',    //provincia_impresa,
-    COMUNE_IMPRESA =  'organizationReference.address.municipality', //municipality
+    NOME_IMPRESA = 'supplier.legalName', //'nome_impresa';
+    PROVINCE_IMPRESA = 'supplier.address.province',    //provincia_impresa,
+    COMUNE_IMPRESA =  'supplier.address.municipality', //municipality
     ANNO = 'contractPeriod.startDate';
 
 export const Constants = {

@@ -21,7 +21,7 @@ export const getStatsFromTenders = (tenders) => {
             _.uniqBy(
                 tenders, 
                 function(tender) { 
-                    return tender.organizationReference.legalName;
+                    return tender.supplier.legalName;
                 }).length
     }
 };
