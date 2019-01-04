@@ -1,0 +1,80 @@
+{
+  "header" : {
+    "home" : [
+      "Home",
+      "Home"
+    ],
+    "explore" : [
+      "Explore",
+      "Splora"
+    ],
+    "data" : [
+      "The data",
+      "I dati"
+    ]
+  },
+  "home" : {
+    "stats" : {
+      "tenders" : [
+        "public tenders",
+        "pubblici gare"
+      ],
+      "spending" : [
+        "spent in public contracts",
+        "spesa in pubblici gare"
+      ],
+      "providers" : [
+        "providers",
+        "imprese"
+      ]
+    },
+    "claim" : [
+      "Search and explore all the public tenders from the Centrale Unica di Commitenza through this portal",
+      "Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open"
+    ],
+    "search" : [
+      "Search public tenders or providers:",
+      "Splora pubblici appalti e imprese"
+    ],
+    "explore" : [
+      "Or browse through all the data",
+      "Or browse through all the data"
+    ],
+    "button" : [
+      "Explore",
+      "Splora"
+    ],
+    "introContent" : {
+      "openGov" : {
+        "title" : [
+          "Open Contracting. Open Government",
+          "Contractto aperto. Governo aperto"
+        ],
+        "content" : [
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.",
+          "[italian version]"
+        ]
+      },
+      "semanticWeb" : {
+        "title" : [
+          "Open data 5-star through semantic web",
+          "Il web semantico...."
+        ],
+        "content" : [
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.",
+          "[italian version]"
+        ]
+      },
+      "api" : {
+        "title" : [
+          "The data API",
+          "I dati API"
+        ],
+        "content" : [
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.",
+          "[italian version]"
+        ]
+      }
+    }
+  }
+}

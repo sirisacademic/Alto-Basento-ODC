@@ -12,6 +12,10 @@ import {
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import Preloader from '../presentation/preloader/Preloader';
+import { 
+    withLocalize,
+    Translate 
+} from 'react-localize-redux';
 
 class Home extends Component {
 
@@ -29,8 +33,6 @@ class Home extends Component {
         this.handleSearchChange = this.handleSearchChange.bind(this);
     }
 
-
-    
     componentDidMount() {
         this.props.fetchAllTenders();
     }
@@ -103,19 +105,25 @@ class Home extends Component {
                             <Grid.Column textAlign="center">
                                 <Statistic className='statistic-home'>
                                     <Statistic.Value>{this.props.stats.numberOfTenders}</Statistic.Value>
-                                    <Statistic.Label>public tenders</Statistic.Label>
+                                    <Statistic.Label>
+                                        <Translate id='home.stats.tenders'/>
+                                    </Statistic.Label>
                                 </Statistic>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
                                 <Statistic className='statistic-home'>
                                     <Statistic.Value>{Utils.formatCurrency(Math.round(this.props.stats.spending))}</Statistic.Value>
-                                    <Statistic.Label>spent in public contracts</Statistic.Label>
+                                    <Statistic.Label>
+                                        <Translate id='home.stats.spending'/>
+                                    </Statistic.Label>
                                 </Statistic>
                             </Grid.Column>
                             <Grid.Column textAlign="center">
                                 <Statistic className='statistic-home'>
                                     <Statistic.Value>{this.props.stats.numberOfProviders}</Statistic.Value>
-                                    <Statistic.Label>providers</Statistic.Label>
+                                    <Statistic.Label>
+                                        <Translate id='home.stats.providers'/>
+                                    </Statistic.Label>
                                 </Statistic>
                             </Grid.Column>
                         </Grid.Row>
@@ -123,7 +131,7 @@ class Home extends Component {
 
                     <Grid className='claim' centered columns={1} textAlign='center'>
                             <p className='claim'>
-                            Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open
+                                <Translate id='home.claim'/>
                             </p>
                     </Grid>
 
@@ -160,4 +168,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default withLocalize(Home);
