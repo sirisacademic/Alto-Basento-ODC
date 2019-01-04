@@ -138,7 +138,9 @@ class Home extends Component {
                     <Grid className='search' columns={2} divided>
                         <Grid.Row>
                             <Grid.Column textAlign="center">
-                            <p>Search public tenders or providers:</p>
+                            <p>
+                                <Translate id='home.search'/>
+                            </p>
                             <Search
                                 loading={isLoading}
                                 minCharacters={3}
@@ -150,13 +152,16 @@ class Home extends Component {
                             />
                             </Grid.Column>
                             <Grid.Column textAlign="center">
-                            <p>Or browse through all the data:</p>
+                            <p>
+                                <Translate id='home.explore'/>
+                            </p>
                             <Button 
                                 as={Link}
                                 to='/tenders'
                                 primary 
                                 circular={true}
-                                size="large">Explore
+                                size="large">
+                                <Translate id='home.button'/>
                             </Button>
                             </Grid.Column>
                         </Grid.Row>

@@ -76,5 +76,19 @@
         ]
       }
     }
+  },
+  "footer" : {
+    "leftColumn" : [
+      "Developed by:",
+      "Sviluppato da:"
+    ],
+    "middleColumn" : [
+      "With the support of:",
+      "Con il supporto di:"
+    ],
+    "rightColumn" : [
+      "Links",
+      "Links"
+    ]
   }
 }
