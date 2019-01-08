@@ -13,6 +13,10 @@ import {
 import _ from 'lodash';
 import Preloader from '../presentation/preloader/Preloader';
 import FilterTagsContainer from '../containers/FilterTagsContainer';
+import { 
+    withLocalize,
+    Translate 
+} from 'react-localize-redux';
 
 class Tenders extends Component {
 
@@ -107,19 +111,25 @@ class Tenders extends Component {
                         <Grid.Column textAlign="center">
                             <Statistic size={statisticSize} color={statisticColor}>
                                 <Statistic.Value>{this.props.stats.numberOfTenders}</Statistic.Value>
-                                <Statistic.Label>public tenders</Statistic.Label>
+                                <Statistic.Label>
+                                    <Translate id='tenders.stats.tenders'/>
+                                </Statistic.Label>
                             </Statistic>
                         </Grid.Column>
                         <Grid.Column textAlign="center">
                             <Statistic size={statisticSize} color={statisticColor}>
                                 <Statistic.Value>{Utils.formatCurrency(Math.round(this.props.stats.spending))}</Statistic.Value>
-                                <Statistic.Label>spent in public contracts</Statistic.Label>
+                                <Statistic.Label>
+                                    <Translate id='tenders.stats.spending'/>
+                                </Statistic.Label>
                             </Statistic>
                         </Grid.Column>
                         <Grid.Column textAlign="center">
                             <Statistic size={statisticSize} color={statisticColor}>
                                 <Statistic.Value>{this.props.stats.numberOfProviders}</Statistic.Value>
-                                <Statistic.Label>providers</Statistic.Label>
+                                <Statistic.Label>
+                                    <Translate id='tenders.stats.providers'/>
+                                </Statistic.Label>
                             </Statistic>
                         </Grid.Column>
                     </Grid.Row>
@@ -127,7 +137,9 @@ class Tenders extends Component {
                 </Segment>
                 <Grid columns={2}>
                     <Grid.Column width={3}>
-                        <p>Search for a specific tender:</p>
+                        <p>
+                            <Translate id='tenders.search'/>
+                        </p>
                         <Divider/>
                         <Search loading={isLoading}
                                 minCharacters={3}
@@ -138,7 +150,9 @@ class Tenders extends Component {
                                 onResultSelect={this.handleSearchResultClick}/>
                     </Grid.Column>
                     <Grid.Column width={13}>
-                        <p>Search by filterin by properties:</p>
+                        <p>
+                            <Translate id='tenders.searchByFilter'/>
+                        </p>
                         <Divider/>
                         <Grid columns={4} style={{marginTop: '1rem'}}>
                             <Grid.Column>
@@ -178,4 +192,4 @@ class Tenders extends Component {
     }
 }
 
-export default Tenders;
+export default withLocalize(Tenders);

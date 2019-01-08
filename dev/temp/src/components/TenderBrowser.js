@@ -10,13 +10,19 @@ import {
   Icon
 } from 'semantic-ui-react';
 import ChartsContainer from './charts/ChartsContainer';
+import { 
+  withLocalize,
+  Translate 
+} from 'react-localize-redux';
 
 const panes = [
   {
     menuItem: (
       <Menu.Item key='tenders'>
         <Button primary >
-          <Icon name='file'/>List of tenders
+          <Icon name='file'>
+            <Translate id='tenders.buttons.list'/>
+          </Icon>
         </Button>
       </Menu.Item>
     ), 
@@ -26,7 +32,9 @@ const panes = [
     menuItem: (
       <Menu.Item key='charts'>
           <Button primary>
-            <Icon name='chart bar outline'/>Visualizations            
+            <Icon name='chart bar outline'>
+              <Translate id='tenders.buttons.viz'/>
+            </Icon>            
           </Button>
       </Menu.Item>
     ),
@@ -45,4 +53,4 @@ const TenderBrowser  = () => (
     </Container>
   </div>
 )
-export default TenderBrowser;
+export default withLocalize(TenderBrowser);

@@ -4,6 +4,10 @@ import {
     Header,
     Icon 
 } from 'semantic-ui-react';
+import { 
+    withLocalize,
+    Translate 
+} from 'react-localize-redux';
 
 class TenderDimensionBars extends Component {
     constructor(props) {
@@ -19,18 +23,18 @@ class TenderDimensionBars extends Component {
 
     render() {
         const data = this.props.data.sort((a, b) => (b.value - a.value));
+        const translationId = this.props.category ===               
+            'tipo_appalto_dimension' ? 
+                'tenders.filters.contractType' : 
+            this.props.category === 'tipo_intervento_dimension' ? 
+                'tenders.filters.category' : 
+            this.props.category === 'anno_dimension' ? 
+                'tenders.filters.year' : 'tenders.filters.municipality';
         return (
             <div>
                 <Header as='h5'>
                     <Header.Content>
-                        {
-                            this.props.category === 'tipo_appalto_dimension' ? 
-                                'Contract type ' : 
-                            this.props.category === 'tipo_intervento_dimension' ? 
-                                'Category ' : 
-                            this.props.category === 'anno_dimension' ? 
-                                'Starting year ' : 'Municipality '
-                        }
+                        <Translate id={translationId}/>
                         <Icon name='search' size='small' color='grey'/>
                     </Header.Content>                        
                 </Header>
@@ -46,4 +50,4 @@ class TenderDimensionBars extends Component {
     }
 }
 
-export default TenderDimensionBars
+export default withLocalize(TenderDimensionBars)

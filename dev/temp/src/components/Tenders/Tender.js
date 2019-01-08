@@ -10,11 +10,14 @@ import {
     Icon,
     Statistic
 } from 'semantic-ui-react';
-
 import Utils from '../../Utils';
 import * as d3 from 'd3';
 import _ from 'lodash';
 import Preloader from '../../presentation/preloader/Preloader';
+import { 
+    withLocalize,
+    Translate 
+} from 'react-localize-redux';
 
 
 class Tender extends Component {
@@ -52,7 +55,7 @@ class Tender extends Component {
         let cellRendererCost = (party) => {
             var p = d3.format(".0%")(party.percentage/100); 
             return (party.winner)?
-                <Table.Cell><Label color='teal' ribbon>Winner</Label><strong>{p}</strong></Table.Cell> : 
+                <Table.Cell><Label color='teal' ribbon><Translate id='tender.table.winner'/></Label><strong>{p}</strong></Table.Cell> : 
                 <Table.Cell>{p}</Table.Cell>
         };
         let cellRendererName = (party) => (
@@ -67,7 +70,7 @@ class Tender extends Component {
                     {tender.description}
                 </Header>
                 <Label as='a' color='grey' image>
-                    Tender ID
+                    <Translate id='tender.labels.id'/>
                     <Label.Detail>{tender.id}</Label.Detail>
                 </Label>
                 <Divider/>
@@ -84,7 +87,7 @@ class Tender extends Component {
                                 </Feed.Label>
                                 <Feed.Content>
                                     <Feed.Date>
-                                        Awarded company:
+                                        <Translate id='tender.labels.company'/>
                                     </Feed.Date>
                                     <Feed.Summary>
                                         <a href={'/company/' + tender.supplier.legalName}>
@@ -99,21 +102,38 @@ class Tender extends Component {
                                     </Feed.Summary>
                                 </Feed.Content>
                             </Feed.Event>                            
-                            <Feed.Event 
-                                icon='map marker alternate' 
-                                date='Tender municipality:' 
-                                summary={tender.municipality} />
-                            <Feed.Event 
-                                icon='calendar outline' 
-                                date='Starting date:' 
-                                summary={
-                                    tenderDate.getDate() + 
-                                    '/' + 
-                                    tenderDate.getMonth() + 1 + 
-                                    '/' + 
-                                    tenderDate.getFullYear() + 
-                                    ' (' + tender.contractPeriod.duration + ' days)'} />
-                        </Feed>
+                            <Feed.Event>
+                                <Feed.Label>
+                                    <Icon name='map marker alternate'/>
+                                </Feed.Label>
+                                <Feed.Content>
+                                    <Feed.Date>
+                                        <Translate id='tender.labels.municipality'/>
+                                    </Feed.Date>
+                                    <Feed.Summary>
+                                        {tender.municipality}
+                                    </Feed.Summary>
+                                </Feed.Content>
+                            </Feed.Event>
+                            <Feed.Event>
+                                <Feed.Label>
+                                    <Icon name='calendar outline'/>
+                                </Feed.Label>
+                                <Feed.Content>
+                                    <Feed.Date>
+                                        <Translate id='tender.labels.date'/>
+                                    </Feed.Date>
+                                    <Feed.Summary>                                        
+                                        {tenderDate.getDate() + 
+                                        '/' + 
+                                        tenderDate.getMonth() + 1 + 
+                                        '/' + 
+                                        tenderDate.getFullYear() + 
+                                        ' (' + tender.contractPeriod.duration + ' days)'}
+                                    </Feed.Summary>
+                                </Feed.Content>
+                            </Feed.Event>        
+                        </Feed>                    
                     </Grid.Column>
 
                     <Grid.Column>
@@ -121,8 +141,12 @@ class Tender extends Component {
                             tender.candidates.length > 1 && <Table celled>
                             <Table.Header>
                                 <Table.Row>
-                                <Table.HeaderCell width={4}>Saving Rate</Table.HeaderCell>
-                                <Table.HeaderCell width={12}>Company</Table.HeaderCell>
+                                <Table.HeaderCell width={4}>
+                                    <Translate id='tender.table.savingRate'/>
+                                </Table.HeaderCell>
+                                <Table.HeaderCell width={12}>
+                                    <Translate id='tender.table.company'/>
+                                </Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
                             <Table.Body>
@@ -147,4 +171,4 @@ class Tender extends Component {
     }
 }
 
-export default Tender;
+export default withLocalize(Tender);

@@ -77,6 +77,114 @@
       }
     }
   },
+  "tenders" : {
+    "stats" : {
+      "tenders" : [
+        "public tenders",
+        "pubblici gare"
+      ],
+      "spending" : [
+        "spent in public contracts",
+        "spesa in pubblici gare"
+      ],
+      "providers" : [
+        "providers",
+        "imprese"
+      ]
+    },
+    "search" : [
+      "Search for a specific tender:",
+      "Cerca una gara specifica:"
+    ],
+    "searchByFilter" : [
+      "Search by filtering properties:",
+      "[italian version]"
+    ],
+    "filters" : {
+      "contractType" : [
+        "Contract type ",
+        "Tipo appalto "
+      ],
+      "category" : [
+        "Category ",
+        "Tipo intervento "
+      ],
+      "year" : [
+        "Starting year ",
+        "Anno "
+      ],
+      "municipality" : [
+        "Municipality ",
+        "Comuni "
+      ]
+    },
+    "buttons" : {
+      "list" : [
+        "List of tenders",
+        "[italian version]"
+      ],
+      "viz" : [
+        "Visualizations",
+        "Visualizzazioni"
+      ]
+    }
+  },
+  "tender" : {
+    "labels" : {
+      "id" : [
+        "Tender ID",
+        "Gara ID"
+      ],
+      "company" : [
+        "Awarded company",
+        "[italian version]"
+      ],
+      "municipality" : [
+        "Tender municipality",
+        "[italian version]"
+      ],
+      "date" : [
+        "Starting date",
+        "[italian version]"
+      ]
+    },
+    "table" : {
+      "savingRate" : [
+        "Saving rate",
+        "Tasso risparmio"
+      ],
+      "company" : [
+        "Company",
+        "Impresa"
+      ],
+      "winner" : [
+        "Winner",
+        "Vincitore"
+      ]
+    }
+  },
+  "company" : {
+    "labels" : {
+      "municipality" : [
+        "Tender municipality",
+        "[italian version]"
+      ]
+    },
+    "stats" : {
+      "tenders" : [
+        "public tenders",
+        "pubblici gare"
+      ],
+      "spending" : [
+        "total amount",
+        "spesa totale"
+      ],
+      "averageSaving" : [
+        "Avergage of tender saving",
+        "[italian version]"
+      ]
+    }
+  },
   "footer" : {
     "leftColumn" : [
       "Developed by:",
