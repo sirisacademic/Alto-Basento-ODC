@@ -11,23 +11,42 @@ import {
     specFlowOrgMunicipality
 } from './VegaSpecifications';
 import { Constants } from '../../constants/constants';
-import { withRouter} from 'react-router-dom';
+import _ from 'lodash';
+import { 
+    withLocalize
+} from 'react-localize-redux';
 
 class Charts extends Component {
 
     render() {
 
         // get stats from the data
-        let { tenders, stats } = this.props;
-
+        let { tenders, stats, translate } = this.props;
+                
         if(tenders.length === 0)
             return <div></div>
+        console.log("specSavingByCategory, ", specSavingByCategory);
+        // add locales to titles of the vega specifications
+        _.find(specSavingByCategory.axes, ['scale', 'x'])
+            .title = translate('charts.specSavingByCategory.axes.x.title');
+
+        _.find(specSavingByCategory.axes, ['scale', 'y'])
+            .title = translate('charts.specSavingByCategory.axes.y.title');
+
+        _.find(specRankByAmount.axes, ['scale', 'x'])
+            .title = translate('charts.specRankByAmount.axes.x.title');
+
+        _.head(specOrgsByMunicipality.legends)
+            .title = translate('charts.specOrgsByMunicipality.legend.title');    
+
+        _.head(specTendersTimeline.legends)
+            .title = translate('charts.specTendersTimeline.legend.title');    
         
         return (
             <Container>
                 <Segment>
                         <VegaChart
-                            title='Flows Organizations and municipalities'
+                            title={translate('charts.specFlowOrgMunicipality.title')}
                             data={stats.flowOrgMunicipality}
                             spec={specFlowOrgMunicipality}
                             height={1000}>
@@ -38,14 +57,14 @@ class Charts extends Component {
                         <Grid.Row>
                             <Grid.Column>
                                 <VegaChart
-                                    title='Percentage of saving per category'
+                                    title={translate('charts.specSavingByCategory.title')}
                                     data={stats.savingByCategory}
                                     spec={specSavingByCategory}>
                                 </VegaChart>
                             </Grid.Column>
                             <Grid.Column>
                                 <VegaChart
-                                    title='Rank by total amount'
+                                    title={translate('charts.specRankByAmount.title')}
                                     data={stats.rankByAmount}
                                     spec={specRankByAmount}
                                     clickListener={(event, item) => {
@@ -66,14 +85,14 @@ class Charts extends Component {
                         <Grid.Row>
                             <Grid.Column>
                                 <VegaChart
-                                    title='Geographical origin of the companies'
+                                    title={translate('charts.specOrgsByMunicipality.title')}
                                     data={stats.orgsByMunicipality}
                                     spec={specOrgsByMunicipality}>
                                 </VegaChart>
                             </Grid.Column>
                             <Grid.Column>
                                     <VegaChart
-                                        title='Timeline of tenders'
+                                        title={translate('charts.specTendersTimeline.title')}
                                         data={stats.tendersTimeline}
                                         spec={specTendersTimeline}
                                         clickListener={(event, item) => {
@@ -91,4 +110,4 @@ class Charts extends Component {
 }
 
 
-export default withRouter(Charts);
+export default withLocalize(Charts);

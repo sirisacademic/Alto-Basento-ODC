@@ -302,5 +302,71 @@
       "Links",
       "Links"
     ]
+  },
+  "charts" : {
+    "specSavingByCategory" : {
+      "title" : [
+        "Percentage of saving per category",
+        "[italian version]"
+      ],
+      "axes" : {
+        "x" : {
+          "title" : [
+            "% of tender cost saving",
+            "Average ribasso"
+          ]
+        },
+        "y" : {
+          "title" : [
+            "Average amount",
+            "[italian version]"
+          ]
+        }
+      }
+    },
+    "specRankByAmount" : {
+      "title" : [
+        "Rank by total amount",
+        "[italian version]"
+      ],
+      "axes" : {
+        "x" : {
+          "title" : [
+            "Total amount",
+            "[italian version]"
+          ]
+        }
+      }
+    },
+    "specOrgsByMunicipality" : {
+      "title" : [
+        "Geographical origin of the companies",
+        "[italian version]"
+      ],
+      "legend" : {
+        "title" : [
+          "Number of orgs.",
+          "[italian vrsion"
+        ]
+      }
+    },
+    "specTendersTimeline" : {
+      "title" : [
+        "Timeline of tenders",
+        "[italian version]"
+      ],
+      "legend" : {
+        "title" : [
+          "% of saving",
+          "Tassa di ribasso"
+        ]
+      }
+    },
+    "specFlowOrgMunicipality" : {
+      "title" : [
+        "Flows Organizations and municipalities",
+        "[italian version]"
+      ]
+    }
   }
 }

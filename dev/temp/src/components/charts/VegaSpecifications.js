@@ -50,7 +50,7 @@ export const specSavingByCategory = {
         "domain": false,
         "orient": "bottom",
         "tickCount": 5,
-        "title": "Average ribasaso",
+        "title": "",
         "titlePadding" : 15,
         "format" : "%"
       },
@@ -61,7 +61,7 @@ export const specSavingByCategory = {
         "domain": false,
         "orient": "left",
         "titlePadding": 15,
-        "title": "Average amount"
+        "title": ""
       }
     ],
   
@@ -153,7 +153,7 @@ export const specRankByAmount = {
         "tickExtra" : false,
         "grid": true,
         "gridDash" : [2, 2],
-        "title": "Total amount",
+        "title": "",
         "titlePadding" : 15,
       },
       {
@@ -293,12 +293,12 @@ export const specOrgsByMunicipality = {
         "scheme" : "blues",
         "count" : 9
     }
-    }],
+  }],
     "legends": [
     {
       "fill": "color",
       "orient": "bottom-left",
-      "title": "Number of Orgs."
+      "title": ""
     }],
   "marks": [   
     {
@@ -400,7 +400,7 @@ export const specTendersTimeline = {
     {
       "fill": "color",
       "orient": "top-right",
-      "title": "Tassa di ribasso",
+      "title": "",
       "direction" : "horizontal"
     }],
   "axes": [
