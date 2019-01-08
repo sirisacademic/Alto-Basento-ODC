@@ -16,7 +16,11 @@ import {
     API_RESPONSE_COMPANY
  } from './DataApiResponses.js';
 import Iframe from 'react-iframe';
- 
+import { 
+    withLocalize,
+    Translate 
+} from 'react-localize-redux';
+
 class DataHome extends Component {
 
     render() {
@@ -25,51 +29,56 @@ class DataHome extends Component {
             {   menuItem: 'Overview', 
                 render: () => 
                     <Tab.Pane basic attached={false}>
-                        Explain the use of semantic web, we offer an ontology on top of the Open Contracting Standard Explain the endpoint, ontology documentation and so on. Explain the use of semantic web, we offer an ontology on top of the Open Contracting Standard Explain the endpoint, ontology documentation and so on
+                        <p><Translate id="data.overview1"/></p>
+                        <Header as='h5'>API</Header>
+                        <p><Translate id="data.overview2"/></p>
+                        <p><Translate id="data.overview3"/></p>
+                        <Header as='h5'>SPARQL endpoint</Header>
+                        <p><Translate id='data.overview4'/></p>
                     </Tab.Pane> 
             },
             {   menuItem: 'API',
                 render: () => 
                     <Tab.Pane basic attached={false}>
                         <Header as='h3'>
-                            Overview
+                            <Translate id='data.api.overview.title'/>
                         </Header>
                         <p>
-                            The API for Alto Basento is a publicly available interface to allow developers accessing the dataset containing all the registered tenders of the Centrale Unica di Committenza. The API is designed for developers, engineers, or anyone else who’s comfortable creating custom-coded solutions or integrating with RESTful APIs.
+                        <Translate id='data.api.overview.content'/>
                         </p>
                         <Header as='h3'>
-                            HTTP Methods
+                            <Translate id='data.api.httpMethods.title'/>
                         </Header>
                         <p>
-                            The API is read-only, so only the GET HTTP method is supported in order to retrieve data. GET requests will never cause an update or change to the data.
+                            <Translate id='data.api.httpMethods.content'/>
                         </p>
                         <Header as='h3'>
-                            Open Contracting Data Standard
+                            <Translate id='data.api.OCDS.title'/>
                         </Header>
                         <p>
-                            The response of the API follows the <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank' rel="noopener noreferrer"><strong>Open Contracting Data Standard</strong></a> (OCDS), which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users. 
+                            <Translate id='data.api.OCDS.content'/>
                         </p>
                         <Header as='h3'>
-                            Available Resources for Alto Basento API
+                            <Translate id='data.api.resources.title'/>
                         </Header>
                         <Segment raised>
                             <Header as='h2'>
                                 GET /tenders/all
                             </Header>
                             <p>
-                                Returns all the available tenders. The response is a JSON array, containing a collection of tenders instances. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank' rel="noopener noreferrer">tender section's JSON schema.</a>
+                                <Translate id='data.api.resources.all'/>
                             </p>
                             <Segment.Group>
                                 <Segment>
-                                    <strong>Resource URL</strong>
+                                    <strong><Translate id='data.api.resources.labels.resourceURL'/></strong>
                                     <p>http://api.opendatabasento.com/all</p>
                                 </Segment>
                                 <Segment>
-                                    <strong>Example request</strong>
+                                    <strong><Translate id='data.api.resources.labels.exampleRequest'/></strong>
                                     <p color='grey'><i>GET http://api.opendatabasento.com/all</i></p>
                                 </Segment>
                                 <Segment>
-                                    <strong>Example response</strong>
+                                    <strong><Translate id='data.api.resources.labels.exampleResponse'/></strong>
                                     <SyntaxHighlighter language='javascript' style={docco}>{API_RESPONSE_ALL}</SyntaxHighlighter>
                                 </Segment>
                             </Segment.Group>                            
@@ -80,26 +89,26 @@ class DataHome extends Component {
                                 {"GET /tender/{tender_id}"}
                             </Header>
                             <p>
-                                Get information about a specific tender. The response is a JSON array, containing a tender instance. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank' rel="noopener noreferrer">tender section's JSON schema.</a>
+                                <Translate id='data.api.resources.tender'/>
                             </p>
                             <Segment.Group>
                                 <Segment>
-                                    <strong>Resource URL</strong>
+                                    <strong><Translate id='data.api.resources.labels.resourceURL'/></strong>
                                     <p>{"http://api.opendatabasento.com/tender/{tender_id}"}</p>
                                 </Segment>
                                 <Segment>
-                                    <strong>Path parameters</strong>
+                                    <strong><Translate id='data.api.resources.labels.pathParams'/></strong>
                                     <Grid columns={2}>
                                         <Grid.Column width={4} textAlign='left'><strong>tender_id</strong></Grid.Column>
-                                        <Grid.Column textAlign='left'>The unique id of the tender</Grid.Column>
+                                        <Grid.Column textAlign='left'><Translate id='data.api.resources.labels.tender'/></Grid.Column>
                                     </Grid>
                                 </Segment>
                                 <Segment>
-                                    <strong>Example request</strong>
+                                    <strong><Translate id='data.api.resources.labels.exampleRequest'/></strong>
                                     <p color='grey'><i>GET http://api.opendatabasento.com/tender/6767364D6D</i></p>
                                 </Segment>
                                 <Segment>
-                                    <strong>Example response</strong>
+                                    <strong><Translate id='data.api.resources.labels.exampleResponse'/></strong>
                                     <SyntaxHighlighter language='javascript' style={docco}>{API_RESPONSE_TENDER}</SyntaxHighlighter>
                                 </Segment>
                             </Segment.Group>                            
@@ -110,26 +119,26 @@ class DataHome extends Component {
                                 {"GET /company/{company_id}"}
                             </Header>
                             <p>
-                                Get information about a specific company. The response is a JSON array, containing a Company instance. The data structure of a Company instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank' rel="noopener noreferrer">tender section's JSON schema.</a>
+                                <Translate id='data.api.resources.company'/>
                             </p>
                             <Segment.Group>
                                 <Segment>
-                                    <strong>Resource URL</strong>
+                                    <strong><Translate id='data.api.resources.labels.resourceURL'/></strong>
                                     <p>{"http://api.opendatabasento.com/company/{company_id}"}</p>
                                 </Segment>
                                 <Segment>
-                                    <strong>Path parameters</strong>
+                                    <strong><Translate id='data.api.resources.labels.pathParams'/></strong>
                                     <Grid columns={2}>
                                         <Grid.Column width={4} textAlign='left'><strong>company_id</strong></Grid.Column>
-                                        <Grid.Column textAlign='left'>The unique id of the company</Grid.Column>
+                                        <Grid.Column textAlign='left'><Translate id='data.api.resources.labels.company'/></Grid.Column>
                                     </Grid>
                                 </Segment>
                                 <Segment>
-                                    <strong>Example request</strong>
+                                    <strong><Translate id='data.api.resources.labels.exampleRequest'/></strong>
                                     <p color='grey'><i>GET http://localhost:8080/company/Autolinee%20Caivano</i></p>
                                 </Segment>
                                 <Segment>
-                                    <strong>Example response</strong>
+                                    <strong><Translate id='data.api.resources.labels.exampleResponse'/></strong>
                                     <SyntaxHighlighter language='javascript' style={docco}>{API_RESPONSE_COMPANY}</SyntaxHighlighter>
                                 </Segment>
                             </Segment.Group>                            
@@ -140,7 +149,7 @@ class DataHome extends Component {
             {   menuItem: 'SPARQL',
                 render: () => 
                     <Tab.Pane basic attached={false} style={{height: '200vh'}}>
-                        <p>Get information on whatever. Get information on whatever. Get information on whatever. Get information on whatever Get information on whatever. Get information on whatever. Get information on whatever. Get information on whatever</p>
+                        <p><Translate id='data.sparql.intro'/></p>
                         <Button target="_blank" href="https://s3-eu-west-1.amazonaws.com/openbasento-ontology/doc/index.html">Ontology Documentation</Button>
                         <Segment style={{height: '200vh'}}>
                             <Iframe url="http://sirislab.com/lab/cuc/endpoint/index.html"
@@ -160,4 +169,4 @@ class DataHome extends Component {
     }
 }
 
-export default DataHome;
+export default withLocalize(DataHome);

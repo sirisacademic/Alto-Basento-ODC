@@ -24,7 +24,8 @@ class Main extends React.Component {
             translation: translations,
             options: { 
                 renderToStaticMarkup,
-                defaultLanguage : 'it'
+                renderInnerHtml : true,
+                defaultLanguage : 'en'
             }
         });
     }

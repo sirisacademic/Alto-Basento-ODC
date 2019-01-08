@@ -185,6 +185,110 @@
       ]
     }
   },
+  "data" : {
+    "overview1" : [
+      "The OpenDataBasento API is an application interface that allows any external developer or third-party software component to access OpenDataBasnto data on tenders and companies involved in the public procurement activity of the Centrale Unica Di Committenza. Data are published under CC BY-SA 3.0 license.",
+      "[italian version]"
+    ],
+    "overview2" : [
+      "The API is read-only, freely accessible to all through HTTP requests at <a href='http://openbasento.unics.cloud/api' target='_blank'>http://openbasento.unics.cloud/api</a>. For further details, in the <u>API section of this page are listed all the public available API resources</u> in order to fetch the data.",
+      "[italian version]"
+    ],
+    "overview3" : [
+      "The data avilable from the API is available in JSON format, following the schema of the <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard (OCDS)</a>, which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users.",
+      "[italian version]"
+    ],
+    "overview4" : [
+      "The SPARQL endpoint of OpenDataBasento, available in the SPARQL section of this page, is a web service to query data integrated into the platform using the <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>SPARQL language</a>. The SPARQL endpoint  also provides a set of tools that allows an immediate visual processing of the data obtained through the queries (among these, in particular, the 'Pivot Table' and 'Google Chart' tools).",
+      "Lo SPARQL endpoint dell'OpenDataBasento è un web service per interrogare i dati usando il <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>linguaggio SPARQL</a>. Lo SPARQL endpoint si compone altresì di un insieme basilare di strumenti che permettono l'elaborazione visuale immediata dei dati ottenuti tramite l'esecuzione delle query (fra questi, in particolare, gli strumenti 'Pivot Table' e 'Google Chart')."
+    ],
+    "api" : {
+      "overview" : {
+        "title" : [
+          "Overview",
+          "[italian version]"
+        ],
+        "content" : [
+          "The API for Alto Basento is a publicly available interface to allow developers accessing the dataset containing all the registered tenders of the Centrale Unica di Committenza. The API is designed for developers, engineers, or anyone else who’s comfortable creating custom-coded solutions or integrating with RESTful APIs.",
+          "[italian version]"
+        ]
+      },
+      "httpMethods" : {
+        "title" : [
+          "HTTP Methods",
+          "[italian version]"
+        ],
+        "content" : [
+          "The API is read-only, so only the GET HTTP method is supported in order to retrieve data. GET requests will never cause an update or change to the data.",
+          "[italian version]"
+        ]
+      },
+      "OCDS" : {
+        "title" : [
+          "Open Contracting Data Standard",
+          "[italian version]"
+        ],
+        "content" : [
+          "The response of the API follows the <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank'><strong>Open Contracting Data Standard</strong></a> (OCDS), which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users.",
+          "[italian version]"
+        ]
+      },
+      "resources" : {
+        "title" : [
+          "Available Resources for Alto Basento API",
+          "[italian version]"
+        ],
+        "labels" : {
+          "resourceURL" : [
+            "Resource URL",
+            "Resource URL"
+          ],
+          "exampleRequest" : [
+            "Example request",
+            "[italian version"
+          ],
+          "exampleResponse" : [
+            "Example response",
+            "[italian version"
+          ],
+          "pathParams" : [
+            "Path parameters",
+            "[italian version]"
+          ],
+          "tender" : [
+            "The unique id of the tender",
+            "[italian version"
+          ],
+          "company" : [
+            "The unique id of the company",
+            "[italian version]"
+          ]
+        },
+        "all" : [
+          "Returns all the available tenders. The response is a JSON array, containing a collection of tenders instances. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
+          "[italian version]"
+        ],
+        "tender" : [
+          "Get information about a specific tender. The response is a JSON array, containing a tender instance. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
+          "[italian version]"
+        ],
+        "company" : [
+          "Get information about a specific company. The response is a JSON array, containing a Company instance. The data structure of a Company instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
+          "[italian version]"
+        ]
+      }
+    },
+    "sparql" : {
+      "intro" : [
+        "<p>The OpenDataBasento data also can be accessed by the machine readable SPARQL endpoint. SPARQL is a RDF query language, a semantic query language for databases. SPARQL endpoint is a conformant SPARQL protocol service. SPARQL endpoint enables users (human or other) to query a knowledge base via the SPARQL language. Results are typically returned in one or more machine-processable formats.</p><p>The models used to describe the public procurement data of Alto Basento relies mostly on the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'> eProcurement Ontology</a>, an standard specification developed by the European Comission</p>",
+        "[italian version"
+      ],
+      "button" : [
+        "Ontology documentation",
+        ""
+      ]
+    }
+  },
   "footer" : {
     "leftColumn" : [
       "Developed by:",
