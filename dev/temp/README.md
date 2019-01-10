@@ -25,7 +25,7 @@ To build the application itself, execute the build command
 ```
 npm build
 ```
-Both commands ```start``` and ```build``` create the environment variable REACT_APP_API_ENDPOINT, which get different values whether we create the development or the production version of the app.
+Both commands ```start``` and ```build``` create the environment variable REACT_APP_API_ENDPOINT which points to the URL of the API and gets different values whether we create the development or the production version of the app.
 
 
 
@@ -45,7 +45,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Xavi Gimenez** - *FrontEnd development and Data Visualization* - [Xavi Gimenez](https://github.com/XavierGimenez)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
