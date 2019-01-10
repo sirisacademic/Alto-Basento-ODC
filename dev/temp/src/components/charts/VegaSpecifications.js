@@ -978,24 +978,7 @@ export const specFlowOrgMunicipality = {
     {
       "name": "groupSelector",
       "value": false,
-      "on": [
-        {
-          "events": "@groupMark:click!",
-          "update": "{stack:datum.stack, stk1:datum.stack=='stk1' && datum.grpId, stk2:datum.stack=='stk2' && datum.grpId}"
-        },
-        {
-          "events": [
-            {
-              "type": "click",
-              "markname": "groupReset"
-            },
-            {
-              "type": "dblclick"
-            }
-          ],
-          "update": "false"
-        }
-      ]
+      "on": []
     }
   ]
 };
