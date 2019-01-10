@@ -301,6 +301,10 @@
     "rightColumn" : [
       "Links",
       "Links"
+    ],
+    "techColumn" : [
+      "Powered by:",
+      "[italian version]:"
     ]
   },
   "charts" : {
