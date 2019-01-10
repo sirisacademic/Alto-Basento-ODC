@@ -36,10 +36,14 @@ class TenderDimensionBar extends Component {
 
         d3.select(node)
             .on('click', function(d) {
-                that.props.onClickTender({
-                    category: that.props.category,
-                    key : that.props.data.key
-                });
+                // prevent from clicking a value
+                // without occurrences due to the 
+                // filtering
+                if(that.props.data.value > 0)
+                    that.props.onClickTender({
+                        category: that.props.category,
+                        key : that.props.data.key
+                    });
             })
             .append('rect')
             .data([this.props.data.value])
