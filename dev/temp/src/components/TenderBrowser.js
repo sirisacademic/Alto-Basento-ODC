@@ -20,9 +20,7 @@ const panes = [
     menuItem: (
       <Menu.Item key='tenders'>
         <Button primary >
-          <Icon name='file'>
-            <Translate id='tenders.buttons.list'/>
-          </Icon>
+          <Icon name='file'/><Translate id='tenders.buttons.list'/>
         </Button>
       </Menu.Item>
     ), 
@@ -32,9 +30,7 @@ const panes = [
     menuItem: (
       <Menu.Item key='charts'>
           <Button primary>
-            <Icon name='chart bar outline'>
-              <Translate id='tenders.buttons.viz'/>
-            </Icon>            
+            <Icon name='chart bar outline'/><Translate id='tenders.buttons.viz'/>
           </Button>
       </Menu.Item>
     ),
