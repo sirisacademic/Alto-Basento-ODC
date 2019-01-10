@@ -41,8 +41,8 @@
       "Or browse through all the data"
     ],
     "button" : [
-      "Explore",
-      "Splora"
+      "Explore tenders",
+      "Splora appalti"
     ],
     "introContent" : {
       "openGov" : {
@@ -51,17 +51,17 @@
           "Contractto aperto. Governo aperto"
         ],
         "content" : [
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.",
+          "<p>OpenDataBasento offers open access to public procurement of the Comunità montana Alto Basento, in the region of Basilicate. All the data in the website is available to the general public without the need to register. OpenDataBasento aim is to promotore in a transparent and efficient way the spending of public funds, embracing the open competition among stackedholders that want to become suppliers for the Comunità.</p><p> Disclosing contracting information leads to improvements in competition and ensure a fair playing field for future government contractors.</p>",
           "[italian version]"
         ]
       },
       "semanticWeb" : {
         "title" : [
-          "Open data 5-star through semantic web",
+          "Linked Open Data 5-star through semantic web",
           "Il web semantico...."
         ],
         "content" : [
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.",
+          "<p>The commitment to release data in an open access to be used by stackedholders and citizenships leads to adopt best practises for such openness and interoperability. Therefore, Linked Open Data provides the best practices to share data in an structured, interoperable way.</p><p> To do so, the procurement data of the Comunità montana Alto Basento is available through the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target='_blank'>eProcurement ontology</a>, an information model standard developed by the Europen Comission which  can be queried through our SPARQL endpoint on this website.</p>",
           "[italian version]"
         ]
       },
@@ -71,7 +71,7 @@
           "I dati API"
         ],
         "content" : [
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.",
+          "<p>All the public procurement data is also structured in line with the <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard</a>, an initiative that enables disclosure of data by defining a common data model. It was created to support organizations to increase contracting transparency.</p><p> Based on this standard, we offer an API to provide third parties to reuse the data or build other application based on this service.</p>",
           "[italian version]"
         ]
       }
