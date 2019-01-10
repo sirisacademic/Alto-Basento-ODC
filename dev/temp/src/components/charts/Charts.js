@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import VegaChart from './VegaChart';
 import { 
-    Grid, Container, Segment
+    Grid, 
+    Container, 
+    Segment
   } from 'semantic-ui-react';
 import {
     specSavingByCategory,
@@ -15,6 +17,7 @@ import _ from 'lodash';
 import { 
     withLocalize
 } from 'react-localize-redux';
+import FilterTagsContainer from '../../containers/FilterTagsContainer';
 
 class Charts extends Component {
 
@@ -44,14 +47,47 @@ class Charts extends Component {
         
         return (
             <Container>
+
                 <Segment>
-                        <VegaChart
-                            title={translate('charts.specFlowOrgMunicipality.title')}
-                            data={stats.flowOrgMunicipality}
-                            spec={specFlowOrgMunicipality}
-                            height={1000}>
-                        </VegaChart>               
+                    <Grid columns={2}>
+                        <Grid.Row>
+                            <Grid.Column>
+                                <VegaChart
+                                    title={translate('charts.specOrgsByMunicipality.title')}
+                                    data={stats.orgsByMunicipality}
+                                    spec={specOrgsByMunicipality}>
+                                </VegaChart>
+                            </Grid.Column>
+                            <Grid.Column>
+                                    <VegaChart
+                                        title={translate('charts.specTendersTimeline.title')}
+                                        data={stats.tendersTimeline}
+                                        spec={specTendersTimeline}
+                                        clickListener={(event, item) => {
+                                            if(item && item.datum)
+                                                this.props.history.push('/tender/' + item.datum.tenderId);
+                                        }}>
+                                    </VegaChart>     
+                            </Grid.Column>
+                        </Grid.Row>             
+                    </Grid> 
+                    <FilterTagsContainer/>
+                </Segment>  
+
+                <Segment>
+                    <Grid columns={1}>
+                        <Grid.Column>
+                            <VegaChart
+                                title={translate('charts.specFlowOrgMunicipality.title')}
+                                data={stats.flowOrgMunicipality}
+                                spec={specFlowOrgMunicipality}
+                                height={1000}>
+                            </VegaChart>    
+                        </Grid.Column>
+                    </Grid>     
+                    <FilterTagsContainer/>      
                 </Segment>
+
                 <Segment>
                     <Grid columns={2}>
                         <Grid.Row>
@@ -79,31 +115,9 @@ class Charts extends Component {
                             </Grid.Column>
                         </Grid.Row>       
                     </Grid>
+                    <FilterTagsContainer/>
                 </Segment>
-                <Segment>
-                    <Grid columns={2}>
-                        <Grid.Row>
-                            <Grid.Column>
-                                <VegaChart
-                                    title={translate('charts.specOrgsByMunicipality.title')}
-                                    data={stats.orgsByMunicipality}
-                                    spec={specOrgsByMunicipality}>
-                                </VegaChart>
-                            </Grid.Column>
-                            <Grid.Column>
-                                    <VegaChart
-                                        title={translate('charts.specTendersTimeline.title')}
-                                        data={stats.tendersTimeline}
-                                        spec={specTendersTimeline}
-                                        clickListener={(event, item) => {
-                                            if(item && item.datum)
-                                                this.props.history.push('/tender/' + item.datum.tenderId);
-                                        }}>
-                                    </VegaChart>     
-                            </Grid.Column>
-                        </Grid.Row>             
-                    </Grid> 
-                </Segment>                          
+                                        
             </Container>
         );
     }

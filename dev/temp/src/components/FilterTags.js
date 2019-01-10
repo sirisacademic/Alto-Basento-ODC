@@ -9,7 +9,13 @@ class FilterTags extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={{
+                    marginTop: this.props.filters.length > 0 ? '15px' : '0',
+                    paddingTop: this.props.filters.length > 0 ? '15px' : '0'
+                }}>
+                {(this.props.filters.length > 0) &&
+                    <span style={{padding:'15px'}}>Applied filters:</span>
+                }
                 {
                     this.props.filters.map(
                         (d, index) =>      
@@ -23,7 +29,7 @@ class FilterTags extends Component {
                             </Button>
                     )
                 }
-                {(this.props.filters.length > 0) &&
+                {(this.props.filters.length > 1) &&
                     <Button 
                         size='mini'
                         onClick={()=> this.props.onClearTags()}>
