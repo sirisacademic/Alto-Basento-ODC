@@ -187,11 +187,11 @@
   },
   "data" : {
     "overview1" : [
-      "The OpenDataBasento API is an application interface that allows any external developer or third-party software component to access OpenDataBasnto data on tenders and companies involved in the public procurement activity of the Centrale Unica Di Committenza. Data are published under CC BY-SA 3.0 license.",
+      "In order offer several ways to access the information, the dataset of the public procurement of the Comunità Alto Basento can be fetched through two different access, either using an API or through an SPARQL endpoint.",
       "[italian version]"
     ],
     "overview2" : [
-      "The API is read-only, freely accessible to all through HTTP requests at <a href='http://openbasento.unics.cloud/api' target='_blank'>http://openbasento.unics.cloud/api</a>. For further details, in the <u>API section of this page are listed all the public available API resources</u> in order to fetch the data.",
+      "The OpenDataBasento API is an application interface that allows any external developer or third-party software component to access OpenDataBasnto data on tenders and companies involved in the public procurement activity of the Centrale Unica Di Committenza. Data are published under CC BY-SA 3.0 license. The API is read-only, freely accessible to all through HTTP requests at <a href='http://openbasento.unics.cloud/api' target='_blank'>http://openbasento.unics.cloud/api</a>. For further details, in the <u>API section of this page are listed all the public available API resources</u> in order to fetch the data.",
       "[italian version]"
     ],
     "overview3" : [
@@ -199,8 +199,8 @@
       "[italian version]"
     ],
     "overview4" : [
-      "The SPARQL endpoint of OpenDataBasento, available in the SPARQL section of this page, is a web service to query data integrated into the platform using the <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>SPARQL language</a>. The SPARQL endpoint  also provides a set of tools that allows an immediate visual processing of the data obtained through the queries (among these, in particular, the 'Pivot Table' and 'Google Chart' tools).",
-      "Lo SPARQL endpoint dell'OpenDataBasento è un web service per interrogare i dati usando il <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>linguaggio SPARQL</a>. Lo SPARQL endpoint si compone altresì di un insieme basilare di strumenti che permettono l'elaborazione visuale immediata dei dati ottenuti tramite l'esecuzione delle query (fra questi, in particolare, gli strumenti 'Pivot Table' e 'Google Chart')."
+      "The SPARQL endpoint of OpenDataBasento, available in the SPARQL section of this page, is a web service to query data integrated into the platform using the <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>SPARQL language</a>. The information model used in the queries is based on the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'>eProcurement Ontology</a>, an LOD standard by the European Comission.<br><br> The SPARQL endpoint  also provides a set of tools that allows an immediate visual processing of the data obtained through the queries (among these, in particular, the 'Pivot Table' and 'Google Chart' tools).",
+      "[italian version]"
     ],
     "api" : {
       "overview" : {
