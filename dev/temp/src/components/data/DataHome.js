@@ -150,7 +150,11 @@ class DataHome extends Component {
                 render: () => 
                     <Tab.Pane basic attached={false} style={{height: '200vh'}}>
                         <p><Translate id='data.sparql.intro'/></p>
-                        <Button target="_blank" href="https://s3-eu-west-1.amazonaws.com/openbasento-ontology/doc/index.html">Ontology Documentation</Button>
+                        <Button
+                            target="_blank"
+                            href="https://s3-eu-west-1.amazonaws.com/openbasento-ontology/doc/index.html">
+                                <Translate id='data.sparql.button'/>
+                        </Button>
                         <Segment style={{height: '200vh'}}>
                             <Iframe url="http://sirislab.com/lab/cuc/endpoint/index.html"
                                 width="98%"
