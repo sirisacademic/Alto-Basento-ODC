@@ -1,376 +1,376 @@
 {
-  "header" : {
-    "home" : [
-      "Home",
-      "Home"
-    ],
-    "explore" : [
-      "Explore",
-      "Splora"
-    ],
-    "data" : [
-      "The data",
-      "I dati"
-    ]
-  },
-  "home" : {
-    "stats" : {
-      "tenders" : [
-        "public tenders",
-        "pubblici gare"
-      ],
-      "spending" : [
-        "spent in public contracts",
-        "spesa in pubblici gare"
-      ],
-      "providers" : [
-        "providers",
-        "imprese"
-      ]
-    },
-    "claim" : [
-      "Search and explore all the public tenders from the Centrale Unica di Commitenza through this portal",
-      "Ricerca ed esplora tutti gli appalti pubblici della centrale unica di committenza attraverso questo portale open"
-    ],
-    "search" : [
-      "Search public tenders or providers:",
-      "Splora pubblici appalti e imprese"
-    ],
-    "explore" : [
-      "Or browse through all the data",
-      "Or browse through all the data"
-    ],
-    "button" : [
-      "Explore tenders",
-      "Splora appalti"
-    ],
-    "introContent" : {
-      "openGov" : {
-        "title" : [
-          "Open Contracting. Open Government",
-          "Contractto aperto. Governo aperto"
-        ],
-        "content" : [
-          "<p>OpenDataBasento offers open access to public procurement of the Comunità montana Alto Basento, in the region of Basilicate. All the data in the website is available to the general public without the need to register. OpenDataBasento aim is to promotore in a transparent and efficient way the spending of public funds, embracing the open competition among stackedholders that want to become suppliers for the Comunità.</p><p> Disclosing contracting information leads to improvements in competition and ensure a fair playing field for future government contractors.</p>",
-          "[italian version]"
-        ]
-      },
-      "semanticWeb" : {
-        "title" : [
-          "Linked Open Data 5-star through semantic web",
-          "Il web semantico...."
-        ],
-        "content" : [
-          "<p>The commitment to release data in an open access to be used by stackedholders and citizenships leads to adopt best practises for such openness and interoperability. Therefore, Linked Open Data provides the best practices to share data in an structured, interoperable way.</p><p> To do so, the procurement data of the Comunità montana Alto Basento is available through the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target='_blank'>eProcurement ontology</a>, an information model standard developed by the Europen Comission which  can be queried through our SPARQL endpoint on this website.</p>",
-          "[italian version]"
-        ]
-      },
-      "api" : {
-        "title" : [
-          "The data API",
-          "I dati API"
-        ],
-        "content" : [
-          "<p>All the public procurement data is also structured in line with the <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard</a>, an initiative that enables disclosure of data by defining a common data model. It was created to support organizations to increase contracting transparency.</p><p> Based on this standard, we offer an API to provide third parties to reuse the data or build other application based on this service.</p>",
-          "[italian version]"
-        ]
-      }
-    }
-  },
-  "tenders" : {
-    "stats" : {
-      "tenders" : [
-        "public tenders",
-        "pubblici gare"
-      ],
-      "spending" : [
-        "spent in public contracts",
-        "spesa in pubblici gare"
-      ],
-      "providers" : [
-        "providers",
-        "imprese"
-      ]
-    },
-    "search" : [
-      "Search for a specific tender:",
-      "Cerca una gara specifica:"
-    ],
-    "searchByFilter" : [
-      "Search by filtering properties:",
-      "[italian version]"
-    ],
-    "filters" : {
-      "contractType" : [
-        "Contract type ",
-        "Tipo appalto "
-      ],
-      "category" : [
-        "Category ",
-        "Tipo intervento "
-      ],
-      "year" : [
-        "Starting year ",
-        "Anno "
-      ],
-      "municipality" : [
-        "Municipality ",
-        "Comuni "
-      ]
-    },
-    "buttons" : {
-      "list" : [
-        "List of tenders",
-        "[italian version]"
-      ],
-      "viz" : [
-        "Analytics",
-        "Analytics"
-      ]
-    }
-  },
-  "tender" : {
-    "labels" : {
-      "id" : [
-        "Tender ID",
-        "Gara ID"
-      ],
-      "company" : [
-        "Awarded company",
-        "[italian version]"
-      ],
-      "municipality" : [
-        "Tender municipality",
-        "[italian version]"
-      ],
-      "date" : [
-        "Starting date",
-        "[italian version]"
-      ]
-    },
-    "table" : {
-      "savingRate" : [
-        "Saving rate",
-        "Tasso risparmio"
-      ],
-      "company" : [
-        "Company",
-        "Impresa"
-      ],
-      "winner" : [
-        "Winner",
-        "Vincitore"
-      ]
-    }
-  },
-  "company" : {
-    "labels" : {
-      "municipality" : [
-        "Tender municipality",
-        "[italian version]"
-      ]
-    },
-    "stats" : {
-      "tenders" : [
-        "public tenders",
-        "pubblici gare"
-      ],
-      "spending" : [
-        "total amount",
-        "spesa totale"
-      ],
-      "averageSaving" : [
-        "Avergage of tender saving",
-        "[italian version]"
-      ]
-    }
-  },
-  "data" : {
-    "overview1" : [
-      "In order offer several ways to access the information, the dataset of the public procurement of the Comunità Alto Basento can be fetched through two different access, either using an API or through an SPARQL endpoint.",
-      "[italian version]"
-    ],
-    "overview2" : [
-      "The OpenDataBasento API is an application interface that allows any external developer or third-party software component to access OpenDataBasnto data on tenders and companies involved in the public procurement activity of the Centrale Unica Di Committenza. Data are published under CC BY-SA 3.0 license. The API is read-only, freely accessible to all through HTTP requests at <a href='http://openbasento.unics.cloud/api' target='_blank'>http://openbasento.unics.cloud/api</a>. For further details, in the <u>API section of this page are listed all the public available API resources</u> in order to fetch the data.",
-      "[italian version]"
-    ],
-    "overview3" : [
-      "The data avilable from the API is available in JSON format, following the schema of the <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard (OCDS)</a>, which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users.",
-      "[italian version]"
-    ],
-    "overview4" : [
-      "The SPARQL endpoint of OpenDataBasento, available in the SPARQL section of this page, is a web service to query data integrated into the platform using the <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>SPARQL language</a>. The information model used in the queries is based on the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'>eProcurement Ontology</a>, an LOD standard by the European Comission.<br><br> The SPARQL endpoint  also provides a set of tools that allows an immediate visual processing of the data obtained through the queries (among these, in particular, the 'Pivot Table' and 'Google Chart' tools).",
-      "[italian version]"
-    ],
-    "api" : {
-      "overview" : {
-        "title" : [
-          "Overview",
-          "[italian version]"
-        ],
-        "content" : [
-          "The API for Alto Basento is a publicly available interface to allow developers accessing the dataset containing all the registered tenders of the Centrale Unica di Committenza. The API is designed for developers, engineers, or anyone else who’s comfortable creating custom-coded solutions or integrating with RESTful APIs.",
-          "[italian version]"
-        ]
-      },
-      "httpMethods" : {
-        "title" : [
-          "HTTP Methods",
-          "[italian version]"
-        ],
-        "content" : [
-          "The API is read-only, so only the GET HTTP method is supported in order to retrieve data. GET requests will never cause an update or change to the data.",
-          "[italian version]"
-        ]
-      },
-      "OCDS" : {
-        "title" : [
-          "Open Contracting Data Standard",
-          "[italian version]"
-        ],
-        "content" : [
-          "The response of the API follows the <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank'><strong>Open Contracting Data Standard</strong></a> (OCDS), which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users.",
-          "[italian version]"
-        ]
-      },
-      "resources" : {
-        "title" : [
-          "Available Resources for Alto Basento API",
-          "[italian version]"
-        ],
-        "labels" : {
-          "resourceURL" : [
-            "Resource URL",
-            "Resource URL"
-          ],
-          "exampleRequest" : [
-            "Example request",
-            "[italian version"
-          ],
-          "exampleResponse" : [
-            "Example response",
-            "[italian version"
-          ],
-          "pathParams" : [
-            "Path parameters",
-            "[italian version]"
-          ],
-          "tender" : [
-            "The unique id of the tender",
-            "[italian version"
-          ],
-          "company" : [
-            "The unique id of the company",
-            "[italian version]"
-          ]
-        },
-        "all" : [
-          "Returns all the available tenders. The response is a JSON array, containing a collection of tenders instances. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
-          "[italian version]"
-        ],
-        "tender" : [
-          "Get information about a specific tender. The response is a JSON array, containing a tender instance. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
-          "[italian version]"
-        ],
-        "company" : [
-          "Get information about a specific company. The response is a JSON array, containing a Company instance. The data structure of a Company instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
-          "[italian version]"
-        ]
-      }
-    },
-    "sparql" : {
-      "intro" : [
-        "<p>The OpenDataBasento data also can be accessed by the machine readable SPARQL endpoint. SPARQL is a RDF query language, a semantic query language for databases. SPARQL endpoint is a conformant SPARQL protocol service. SPARQL endpoint enables users (human or other) to query a knowledge base via the SPARQL language. Results are typically returned in one or more machine-processable formats.</p><p>The models used to describe the public procurement data of Alto Basento relies mostly on the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'> eProcurement Ontology</a>, an standard specification developed by the European Comission</p>",
-        "[italian version"
-      ],
-      "button" : [
-        "Ontology documentation",
-        ""
-      ]
-    }
-  },
-  "footer" : {
-    "leftColumn" : [
-      "Developed by:",
-      "Sviluppato da:"
-    ],
-    "middleColumn" : [
-      "With the support of:",
-      "Con il supporto di:"
-    ],
-    "rightColumn" : [
-      "Links",
-      "Links"
-    ],
-    "techColumn" : [
-      "Powered by:",
-      "[italian version]:"
-    ]
-  },
-  "charts" : {
-    "specSavingByCategory" : {
-      "title" : [
-        "Percentage of saving per category",
-        "[italian version]"
-      ],
-      "axes" : {
-        "x" : {
-          "title" : [
-            "% of tender cost saving",
-            "Average ribasso"
-          ]
-        },
-        "y" : {
-          "title" : [
-            "Average amount",
-            "[italian version]"
-          ]
-        }
-      }
-    },
-    "specRankByAmount" : {
-      "title" : [
-        "Rank by total amount",
-        "[italian version]"
-      ],
-      "axes" : {
-        "x" : {
-          "title" : [
-            "Total amount",
-            "[italian version]"
-          ]
-        }
-      }
-    },
-    "specOrgsByMunicipality" : {
-      "title" : [
-        "Geographical origin of the companies",
-        "[italian version]"
-      ],
-      "legend" : {
-        "title" : [
-          "Number of orgs.",
-          "[italian vrsion"
-        ]
-      }
-    },
-    "specTendersTimeline" : {
-      "title" : [
-        "Timeline of tenders",
-        "[italian version]"
-      ],
-      "legend" : {
-        "title" : [
-          "% of saving",
-          "Tassa di ribasso"
-        ]
-      }
-    },
-    "specFlowOrgMunicipality" : {
-      "title" : [
-        "Flows Organizations and municipalities",
-        "[italian version]"
-      ]
-    }
-  }
+	"header": {
+		"home": [
+			"Home",
+			"Home"
+		],
+		"explore": [
+			"Explore",
+			"esplora"
+		],
+		"data": [
+			"The data",
+			"dati"
+		]
+	},
+	"home": {
+		"stats": {
+			"tenders": [
+				"public tenders",
+				"gare di appalto"
+			],
+			"spending": [
+				"spent in public contracts",
+				"spesa per le gare di appalto"
+			],
+			"providers": [
+				"providers",
+				"fornitori"
+			]
+		},
+		"claim": [
+			"Search and explore all the public tenders from the Centrale Unica di Committenza through this portal",
+			"Ricerca ed esplora attraverso questo portale open tutte le gare di appalto gestite dalla centrale unica di committenza"
+		],
+		"search": [
+			"Search public tenders or providers:",
+			"Esplora le gare di appalto e i fornitori"
+		],
+		"explore": [
+			"Or browse through all the data",
+			"Oppure consulta tutti i dati"
+		],
+		"button": [
+			"Explore tenders",
+			"Esplora le gare di appalto"
+		],
+		"introContent": {
+			"openGov": {
+				"title": [
+					"Open Contracting. Open Government",
+					"Open Contracting. Open Government"
+				],
+				"content": [
+					"<p>Open Data Basento offers open access to public procurement of the Comunità montana Alto Basento, in the region of Basilicate. All the data in the website is available to the general public without the need to register. Open Data Basento aim is to promotore in a transparent and efficient way the spending of public funds, embracing the open competition among stakeholders that want to become suppliers for the Comunità.</p><p> Disclosing contracting information leads to improvements in competition and ensure a fair playing field for future government contractors.</p>",
+					"Open Data Basento offre l’accesso ai dati in formato open sulle gare di appalto gestite dalla Comunità Montana Alto Basento della Basilicata. Tutti i dati presenti sul sito web sono disponibili con <a href='https://www.dati.gov.it/content/italian-open-data-license-v20' target='_blank'>Italian Open Data License (IODL)</a> senza la necessità di registrarsi. L'obiettivo di Open Data Basento è quello di promuovere in modo trasparente ed efficiente la spesa pubblica, incentivando la concorrenza tra i soggetti che intendono partecipare alle gare di appalto, garantendo così la qualità dei processi di contrattazione pubblica. </p> <p> La divulgazione delle informazioni contrattuali porta a miglioramenti nella concorrenza e garantisce le condizioni eque per i futuri organi governativi che intendono aprire nuove gare attraverso la CUC. </p>"
+				]
+			},
+			"semanticWeb": {
+				"title": [
+					"Linked Open Data 5-star through semantic web",
+					"Il raggiungimento delle 5-stars dell’open data attraverso il web semantico"
+				],
+				"content": [
+					"<p>The commitment to release data in an open access to be used by stakeholders and citizenships leads to adopt the best practises for such openness and interoperability. Therefore, Linked Open Data provides the best practices to share data in an structured, interoperable way.</p><p> To do so, the procurement data of the Comunità montana Alto Basento is available through the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target='_blank'>eProcurement ontology</a>, an information model standard developed by the European Commission which  can be queried through our SPARQL endpoint on this website.</p>",
+					"<p> L'impegno a pubblicare i dati attraverso formati open che ne permettono l’uso da parte degli stakeholder e dei cittadini, con l’obiettivo di raggiungere la massima apertura attraverso i criteri di interoperabilità. Pertanto, i Linked Open Data offrono le migliori pratiche per condividere i dati in modo strutturato e interoperabile. </P> <p> Per fare ciò, i dati di approvvigionamento della Comunità Montana Alto Basento sono disponibili tramite <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target='_blank'> ontologia eProcurement </a>, un modello standard di informazione sviluppato dalla Commissione Europea, che può essere interrogato da questa web tramite l’endpoint SPARQL.</p>"
+				]
+			},
+			"api": {
+				"title": [
+					"The data API",
+					"Dati API"
+				],
+				"content": [
+					"<p>All the public procurement data is also structured in line with the <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard</a>, an initiative that enables disclosure of data by defining a common data model. It was created to support organizations to increase contracting transparency.</p><p> Based on this standard, we offer an API to provide third parties to reuse the data or build other application based on this service.</p>",
+					"<p>Tutti i dati sugli appalti pubblici sono inoltre strutturati in linea con <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard</a>, un'iniziativa che consente la divulgazione dei dati definendo un modello comune per l’organizzazione dei dati. È stato creato per supportare le organizzazioni ad aumentare la trasparenza contrattuale. </p><p> In base a questo standard, offriamo un accesso API per fornire a terze parti il ​​riutilizzo dei dati o la creazione di altre applicazioni basate su questo servizio. </p>"
+				]
+			}
+		}
+	},
+	"tenders": {
+		"stats": {
+			"tenders": [
+				"public tenders",
+				"gare di appalto"
+			],
+			"spending": [
+				"spent in public contracts",
+				"spesa per le gare di appalto"
+			],
+			"providers": [
+				"providers",
+				"fornitori"
+			]
+		},
+		"search": [
+			"Search for a specific tender:",
+			"Cerca una gara specifica:"
+		],
+		"searchByFilter": [
+			"Search by filtering properties:",
+			"Cerca utilizzando i filtri"
+		],
+		"filters": {
+			"contractType": [
+				"Contract type ",
+				"Tipo di gara "
+			],
+			"category": [
+				"Category ",
+				"Tipo intervento"
+			],
+			"year": [
+				"Starting year ",
+				"Anno di inizio"
+			],
+			"municipality": [
+				"Municipality ",
+				"Comune"
+			]
+		},
+		"buttons": {
+			"list": [
+				"List of tenders",
+				"Lista delle gare"
+			],
+			"viz": [
+				"Analytics",
+				"Visualizzazioni analitiche"
+			]
+		}
+	},
+	"tender": {
+		"labels": {
+			"id": [
+				"Tender ID",
+				"Codice Identificativo di Gara (CIG)"
+			],
+			"company": [
+				"Awarded company",
+				"Impresa aggiudicataria"
+			],
+			"municipality": [
+				"Tender municipality",
+				"Comune appaltatore"
+			],
+			"date": [
+				"Starting date",
+				"Data di inizio"
+			]
+		},
+		"table": {
+			"savingRate": [
+				"Saving rate",
+				"Percentuale di ribasso"
+			],
+			"company": [
+				"Company",
+				"Impresa"
+			],
+			"winner": [
+				"Winner",
+				"Aggiudicatario"
+			]
+		}
+	},
+	"company": {
+		"labels": {
+			"municipality": [
+				"Tender municipality",
+				"Comune appaltatore"
+			]
+		},
+		"stats": {
+			"tenders": [
+				"public tenders",
+				"Gare di appalto"
+			],
+			"spending": [
+				"total amount",
+				"spesa totale"
+			],
+			"averageSaving": [
+				"Average of tender saving",
+				"Media di ribasso"
+			]
+		}
+	},
+	"data": {
+		"overview1": [
+			"In order offer several ways to access the information, the dataset of the public procurement of the Comunità Montana Alto Basento can be fetched through two different access, either using an API or through an SPARQL endpoint.",
+			"Per consentire l’accesso ai dati attraverso diverse modalità, il dataset delle gare di appalto gestite dalla Comunità Montana Alto Basento può essere recuperato attraverso l’accesso API e/o utilizzando l’endpoint SPARQL."
+		],
+		"overview2": [
+			"The Open Data Basento API is an application interface that allows any external developer or third-party software component to access Open Data Basento data on tenders and companies involved in the public procurement activity of the Centrale Unica Di Committenza. Data are published under CC BY-SA 3.0 license. The API is read-only, freely accessible to all through HTTP requests at <a href='http://openbasento.unics.cloud/api' target='_blank'>http://openbasento.unics.cloud/api</a>. For further details, in the <u>API section of this page are listed all the public available API resources</u> in order to fetch the data.",
+			"L'API Open Data Basento è un'interfaccia dell'applicazione che consente a qualsiasi esterno di accedere ai dati open di Open Data Basento. I dati sono pubblicati sotto licenza CC BY-SA 3.0. L'API è di sola lettura, liberamente accessibile a tutte le richieste HTTP all'indirizzo: <a href='http://openbasento.unics.cloud/api' target='_blank'>http://openbasento.unics.cloud/api</a>;. Per ulteriori dettagli, nella sezione <u> API di questa pagina sono elencate tutte le risorse API disponibili pubblicamente </u> per scaricare i dati. "
+		],
+		"overview3": [
+			"The data available from the API is available in JSON format, following the schema of the <a href='http://standard.open-contracting.org/latest/en/' target='_blank'>Open Contracting Data Standard (OCDS)</a>, which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users.",
+			"I dati disponibili dall'API sono accessibili in formato JSON, seguendo lo schema: <a href='http://standard.open-contracting.org/latest/en/' target='_blank'> Open Contracting Data Standard ( OCDS) </a>, che consente la divulgazione dei dati sulle gare di appalto in tutte le fasi del processo. L’accesso API è stato creato per supportare le organizzazioni ad aumentare la trasparenza e consentire un'analisi più approfondita dei dati sulle gare di appalta da parte di un'ampia gamma di utenti"
+		],
+		"overview4": [
+			"The SPARQL endpoint of Open Data Basento, available in the SPARQL section of this page, is a web service to query data integrated into the platform using the <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'>SPARQL language</a>. The information model used in the queries is based on the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'>eProcurement Ontology</a>, an LOD standard by the European Comission.<br><br> The SPARQL endpoint  also provides a set of tools that allows an immediate visual processing of the data obtained through the queries (among these, in particular, the 'Pivot Table' and 'Google Chart' tools).",
+			"L'endpoint SPARQL di Open Data Basento, disponibile nella sezione SPARQL di questa pagina, è un servizio Web per interrogare i dati integrati nella piattaforma utilizzando <a href='https://www.w3.org/TR/rdf-sparql-query/' target='_blank'> linguaggio SPARQL </a>. Il modello concettuale utilizzato nelle query si basa sul <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'> ontologia eProcurement </a>, uno standard LOD realizzato dalla Commissione Europea.<br> <br>L'endpoint SPARQL fornisce anche una serie di strumenti che consentono un'elaborazione visiva immediata dei dati ottenuti attraverso le query (tra questi, in particolare, gli strumenti 'Tabella pivot' e 'Grafico Google' )."
+		],
+		"api": {
+			"overview": {
+				"title": [
+					"Overview",
+					"Panoramica"
+				],
+				"content": [
+					"The API for Alto Basento is a publicly available interface to allow developers accessing the dataset containing all the registered tenders of the Centrale Unica di Committenza. The API is designed for developers, engineers, or anyone else who’s comfortable creating custom-coded solutions or integrating with RESTful APIs.",
+					"L'accesso “API” di Alto Basento è un'interfaccia accessibile al pubblico che consente agli sviluppatori di accedere al dataset contenente tutte le gare registrate della Centrale Unica di Committenza. L'API è progettata per sviluppatori, ingegneri o chiunque sia interessato a ri-utilizzare i dati.."
+				]
+			},
+			"httpMethods": {
+				"title": [
+					"HTTP Methods",
+					"Metodi HTTP"
+				],
+				"content": [
+					"The API is read-only, so only the GET HTTP method is supported in order to retrieve data. GET requests will never cause an update or change to the data.",
+					"L'API è di sola lettura, ciò significa che il recupero dei dati è supportato dal metodo 'GET HTTP'. Le richieste “GET” non produrranno mai un aggiornamento o eventuali modifiche ai dati."
+				]
+			},
+			"OCDS": {
+				"title": [
+					"Open Contracting Data Standard",
+					"Open Contracting Data Standard"
+				],
+				"content": [
+					"The response of the API follows the <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank'><strong>Open Contracting Data Standard</strong></a> (OCDS), which enables disclosure of data and documents at all stages of the contracting process by defining a common data model. It was created to support organizations to increase contracting transparency, and allow deeper analysis of contracting data by a wide range of users.",
+					"Il risultato generato dall'API segue <a href='http://standard.open-contracting.org/latest/en/getting_started/' target='_blank'> <strong> Open Contracting Data Standard </strong> </a> (OCDS), uno standard che consente la divulgazione dei dati e dei documenti in tutte le fasi del processo di aggiudicazione definendo una struttura comune dei dati. È stato creato per supportare le organizzazioni ad aumentare la trasparenza e consentire un'analisi più approfondita dei dati sugli appalti da parte di un'ampia gamma di utenti."
+				]
+			},
+			"resources": {
+				"title": [
+					"Available Resources for Alto Basento API",
+					"Risorse disponibili per l'API di Alto Basento"
+				],
+				"labels": {
+					"resourceURL": [
+						"Resource URL",
+						"Risorsa URL"
+					],
+					"exampleRequest": [
+						"Example request",
+						"Esempio di richiesta"
+					],
+					"exampleResponse": [
+						"Example response",
+						"Esempio di risposta"
+					],
+					"pathParams": [
+						"Path parameters",
+						"Parametri"
+					],
+					"tender": [
+						"The unique id of the tender",
+						"Codice Identificativo di Gara (CIG)"
+					],
+					"company": [
+						"The unique id of the company",
+						"Codice identificativo del fornitore"
+					]
+				},
+				"all": [
+					"Returns all the available tenders. The response is a JSON array, containing a collection of tenders instances. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
+					"Restituisce tutte le gare disponibili. La risposta ottenuta è un 'JSON array', contenente la raccolta delle informazioni sulle gare di appalto. La struttura dei dati sulle gare segue lo schema rappresentato al <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>link</a>"
+				],
+				"tender": [
+					"Get information about a specific tender. The response is a JSON array, containing a tender instance. The data structure of a Tender instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
+					"Ottieni informazioni su una gara di appalto specifica. La risposta ottenuta è un 'JSON array', contenente un'istanza di gara. La struttura dei dati sulle gare segue lo schema rappresentato al <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>link</a>."
+				],
+				"company": [
+					"Get information about a specific company. The response is a JSON array, containing a Company instance. The data structure of a Company instance follows the definition of the <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>tender section's JSON schema.</a>",
+					"Ottieni le informazioni di uno specifico fornitore. La risposta è un 'JSON array', contenente una istanza dell'azienda. La struttura dei dati sui fornitori segue lo schema rappresentato al <a href='http://standard.open-contracting.org/latest/en/schema/reference/#tender' target='_blank'>link</a>."
+				]
+			}
+		},
+		"sparql": {
+			"intro": [
+				"<p>The Open Data Basento data also can be accessed by the machine readable SPARQL endpoint. SPARQL is a RDF query language, a semantic query language for databases. SPARQL endpoint is a conformant SPARQL protocol service. SPARQL endpoint enables users (human or other) to query a knowledge base via the SPARQL language. Results are typically returned in one or more machine-processable formats.</p><p>The models used to describe the public procurement data of Alto Basento relies mostly on the <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology' target=_blank'> eProcurement Ontology</a>, an standard specification developed by the European Commission</p>",
+				"<p>È possibile accedere ai dati di Open Data Basento anche tramite l'endpoint SPARQL. SPARQL è un linguaggio di query RDF. L'endpoint SPARQL consente agli utenti (umani o macchine) di interrogare un dataset tramite il linguaggio SPARQL. I risultati vengono generalmente restituiti in uno o più formati. </P> <p> I modelli utilizzati per descrivere i dati sulle gare di appalto della Comunità Montana Alto Basento si basano principalmente su <a href='https://joinup.ec.europa.eu/solution/eprocurement-ontology 'target=_blank'> l’ontologia eProcurement </a>, uno standard sviluppato dalla Commissione Europea</p> "
+			],
+			"button": [
+				"Ontology documentation",
+				"Documentazione sull’ontologia"
+			]
+		}
+	},
+	"footer": {
+		"leftColumn": [
+			"Developed by:",
+			"Sviluppato da:"
+		],
+		"middleColumn": [
+			"With the support of:",
+			"Con il supporto di:"
+		],
+		"rightColumn": [
+			"Links",
+			"Link"
+		],
+		"techColumn": [
+			"Powered by:",
+			"Finanziato da:"
+		]
+	},
+	"charts": {
+		"specSavingByCategory": {
+			"title": [
+				"Percentage of saving per category",
+				"Percentuale di risparmio per tipo di intervento"
+			],
+			"axes": {
+				"x": {
+					"title": [
+						"% of tender cost saving",
+						"Percentuale di ribasso"
+					]
+				},
+				"y": {
+					"title": [
+						"Average amount",
+						"Media dell’importo totale"
+					]
+				}
+			}
+		},
+		"specRankByAmount": {
+			"title": [
+				"Rank by total amount",
+				"Classifica per importo totale"
+			],
+			"axes": {
+				"x": {
+					"title": [
+						"Total amount",
+						"Importo totale"
+					]
+				}
+			}
+		},
+		"specOrgsByMunicipality": {
+			"title": [
+				"Geographical origin of the companies",
+				"Geo-localizzazione dei fornitori"
+			],
+			"legend": {
+				"title": [
+					"Number of orgs.",
+					"Numero di fornitori "
+				]
+			}
+		},
+		"specTendersTimeline": {
+			"title": [
+				"Timeline of tenders",
+				"Cronologia delle gare"
+			],
+			"legend": {
+				"title": [
+					"% of saving",
+					"Percentuale di ribasso"
+				]
+			}
+		},
+		"specFlowOrgMunicipality": {
+			"title": [
+				"Flows Organizations and municipalities",
+				"Relazione tra fornitori e comuni appaltatori"
+			]
+		}
+	}
 }
