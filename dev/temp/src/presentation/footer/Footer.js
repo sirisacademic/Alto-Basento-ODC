@@ -11,6 +11,9 @@ import {
   withLocalize,
   Translate 
 } from 'react-localize-redux';
+import { 
+  Link 
+} from 'react-router-dom';
 
 const Footer = () => (
     <Segment inverted vertical style={{ padding: '5em 0em', marginTop: '4rem' }}>
@@ -53,13 +56,13 @@ const Footer = () => (
                 <Translate id='footer.rightColumn'/>
               </Header>
               <List link inverted>
-                <List.Item as='a' href='/'>
+                <List.Item as={Link} to='/'>
                   <Translate id='header.home'/>
                 </List.Item>
-                <List.Item as='a' href='/tenders'>
+                <List.Item as={Link} to='/tenders'>
                   <Translate id='header.explore'/>
                 </List.Item>
-                <List.Item as='a' href='/data'>
+                <List.Item as={Link} to='/data'>
                   <Translate id='header.data'/>
                 </List.Item>
               </List>
