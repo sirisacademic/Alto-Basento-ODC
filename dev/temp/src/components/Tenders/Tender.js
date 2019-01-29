@@ -18,7 +18,9 @@ import {
     withLocalize,
     Translate 
 } from 'react-localize-redux';
-
+import { 
+    Link 
+} from 'react-router-dom';
 
 class Tender extends Component {
 
@@ -90,9 +92,9 @@ class Tender extends Component {
                                         <Translate id='tender.labels.company'/>
                                     </Feed.Date>
                                     <Feed.Summary>
-                                        <a href={'/company/' + tender.supplier.legalName}>
+                                        <Link to={'/company/' + tender.supplier.legalName}>
                                             {tender.supplier.legalName }
-                                        </a> {
+                                        </Link> {
                                             ' - ' + 
                                             tender.supplier.address.municipality + 
                                             ', ' + tender.supplier.address.province + 
