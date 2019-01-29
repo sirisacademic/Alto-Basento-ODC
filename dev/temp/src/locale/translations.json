@@ -1,4 +1,7 @@
 {
+	"general" : {
+		"loading" : ["Loading...", "Caricamento in corso..."]
+	},
 	"header": {
 		"home": [
 			"Home",
