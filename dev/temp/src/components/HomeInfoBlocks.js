@@ -7,6 +7,9 @@ import {
     withLocalize,
     Translate 
 } from 'react-localize-redux';
+import { 
+    Link 
+} from 'react-router-dom';
 
 class HomeInfoBlocks extends Component {
     constructor(props) {        
@@ -27,7 +30,7 @@ class HomeInfoBlocks extends Component {
                     <p>
                         <Translate id='home.introContent.openGov.content'/>
                     </p>
-                    <Button content='Info' icon='plus' labelPosition='left' size='small'/>
+                    <Button as={Link} to='/data' content='Info' icon='plus' labelPosition='left' size='small'/>
                 </Container>
                 <Container style={{ marginBottom: this.state.marginBottom }}>
                     <h2>
@@ -36,7 +39,7 @@ class HomeInfoBlocks extends Component {
                     <p>
                         <Translate id='home.introContent.semanticWeb.content'/>
                     </p>
-                    <Button content='Info' icon='plus' labelPosition='left' size='small'/>
+                    <Button as={Link} to='/data' content='Info' icon='plus' labelPosition='left' size='small'/>
                 </Container>
                 <Container style={{ marginBottom: this.state.marginBottom }}>
                     <h2>
@@ -45,7 +48,7 @@ class HomeInfoBlocks extends Component {
                     <p>
                         <Translate id='home.introContent.api.content'/>
                     </p>
-                    <Button content='Info' icon='plus' labelPosition='left' size='small'/>
+                    <Button as={Link} to='/data' content='Info' icon='plus' labelPosition='left' size='small'/>
                 </Container> 
             </Container>                       
         )
