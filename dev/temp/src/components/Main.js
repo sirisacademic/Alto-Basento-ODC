@@ -25,7 +25,7 @@ class Main extends React.Component {
             options: { 
                 renderToStaticMarkup,
                 renderInnerHtml : true,
-                defaultLanguage : 'en'
+                defaultLanguage : 'it'
             }
         });
     }
@@ -33,7 +33,6 @@ class Main extends React.Component {
     componentDidUpdate(prevProps) {
         const prevLangCode = prevProps.activeLanguage && prevProps.activeLanguage.code;
         const curLangCode = this.props.activeLanguage && this.props.activeLanguage.code;
-        const hasLanguageChanged = prevLangCode !== curLangCode;
         console.log('test', prevLangCode, curLangCode);
     }
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   Container,
-  Menu
+  Menu,
+  Flag
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { 
@@ -40,7 +41,11 @@ class HeaderMenu extends React.Component {
             <Menu.Menu position='right'>
             {
               this.props.languages.map( lang =>
-                <Menu.Item key={lang.code} onClick={(e) => this.onClick(lang.code)}>
+                <Menu.Item 
+                  active={this.props.activeLanguage.code === lang.code}
+                  key={lang.code} 
+                  onClick={(e) => this.onClick(lang.code)}>
+                  <Flag name={(lang.code=='it')? lang.code : 'uk'}/>
                   {lang.code }
                 </Menu.Item>
               )
