@@ -100,7 +100,7 @@
 			"Cerca una gara specifica:"
 		],
 		"searchByFilter": [
-			"Search by filtering properties:",
+			"Search by <filtering properties:",
 			"Cerca utilizzando i filtri"
 		],
 		"filters": {
@@ -119,6 +119,10 @@
 			"municipality": [
 				"Municipality ",
 				"Comune"
+			],
+			"contractCategory" : [
+				"Procurement category",
+				"gara"
 			]
 		},
 		"buttons": {

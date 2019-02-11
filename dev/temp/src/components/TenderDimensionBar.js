@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
+import _ from 'lodash';
 
 class TenderDimensionBar extends Component {
     constructor(props) {
@@ -59,7 +60,10 @@ class TenderDimensionBar extends Component {
             .append('text')
             .attr('alignment-baseline', 'middle')
             .attr('class', 'key')
-            .text(this.props.data.key)
+            .text(
+                (this.props.category === 'category_appalto_dimension')?
+                    _.truncate(this.props.data.key) : this.props.data.key
+            )
             .attr('x', 5)
             .attr('y', (this.props.height / 2) + 1)
             .classed('selected', this.props.data.selected);

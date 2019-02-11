@@ -155,7 +155,7 @@ class Tenders extends Component {
                         </p>
                         <Divider/>
                         <Grid columns={4} style={{marginTop: '1rem'}}>
-                            <Grid.Column>
+                            <Grid.Column width={3}>
                                 <TenderDimensionBars
                                     category={'tipo_appalto_dimension'}
                                     data={this.props.tendersByDimension[Constants.TIPO_APPALTO]} 
@@ -164,19 +164,26 @@ class Tenders extends Component {
                             </Grid.Column>
                             <Grid.Column>
                                 <TenderDimensionBars
+                                    category={'category_appalto_dimension'}
+                                    data={this.props.tendersByDimension[Constants.CATEGORY_APPALTO]} 
+                                    onClickTender={this.props.onClickTender}>
+                                </TenderDimensionBars>
+                            </Grid.Column>                            
+                            <Grid.Column>
+                                <TenderDimensionBars
                                     category={'tipo_intervento_dimension'}
                                     data={this.props.tendersByDimension[Constants.TIPO_INTERVENTO]} 
                                     onClickTender={this.props.onClickTender}>
                                 </TenderDimensionBars>
                             </Grid.Column>
-                            <Grid.Column>
+                            <Grid.Column width={3}>
                                 <TenderDimensionBars
                                     category={'comune_gara_dimension'}
                                     data={this.props.tendersByDimension[Constants.COMUNE_GARE]}
                                     onClickTender={this.props.onClickTender}>
                                 </TenderDimensionBars>
                             </Grid.Column>
-                            <Grid.Column>
+                            <Grid.Column width={2}>
                                 <TenderDimensionBars
                                     category={'anno_dimension'}
                                     data={this.props.tendersByDimension[Constants.ANNO]}

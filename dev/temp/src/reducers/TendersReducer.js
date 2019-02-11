@@ -49,6 +49,10 @@ const tenders = (state = INITIAL_STATE, action) => {
                 }
             };
         case FETCH_ALL_TENDERS_SUCCESS:
+            action.payload.forEach((o) => {
+                if(_.get(o, Constants.CATEGORY_APPALTO) === undefined)
+                    _.set(o, Constants.CATEGORY_APPALTO, 'N/A');
+            });
             // create the crossfilter object with all
             // the tenders and set the dimensions that
             // will act as filters in the UI
@@ -63,6 +67,7 @@ const tenders = (state = INITIAL_STATE, action) => {
                 }
             };
             newState.tendersList.dimensions.tipo_appalto_dimension = newState.tendersList.cf.dimension(d => d[Constants.TIPO_APPALTO]);
+            newState.tendersList.dimensions.category_appalto_dimension = newState.tendersList.cf.dimension(d => _.get(d, Constants.CATEGORY_APPALTO));
             newState.tendersList.dimensions.tipo_intervento_dimension = newState.tendersList.cf.dimension(d => d[Constants.TIPO_INTERVENTO]);
             newState.tendersList.dimensions.comune_gara_dimension = newState.tendersList.cf.dimension(d => d[Constants.COMUNE_GARE]);
             newState.tendersList.dimensions.anno_dimension = newState.tendersList.cf.dimension(d => new Date(_.get(d, Constants.ANNO)).getFullYear());

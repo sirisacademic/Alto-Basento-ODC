@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
             .execute(props.tenders);
 
         // data to populate scatterplot average saving / average amount, per categories
-        props.stats.savingByCategory = dl.groupby(Constants.TIPO_INTERVENTO)
+        props.stats.savingByCategory = dl.groupby(Constants.CATEGORY_APPALTO)
                             .summarize([
                                 {  
                                     name: 'percentageRibasso',

@@ -26,10 +26,13 @@ class TenderDimensionBars extends Component {
         const translationId = this.props.category ===               
             'tipo_appalto_dimension' ? 
                 'tenders.filters.contractType' : 
+            this.props.category === 'category_appalto_dimension' ?   
+                'tenders.filters.contractCategory' :
             this.props.category === 'tipo_intervento_dimension' ? 
                 'tenders.filters.category' : 
             this.props.category === 'anno_dimension' ? 
                 'tenders.filters.year' : 'tenders.filters.municipality';
+
         return (
             <div>
                 <Header as='h5'>
@@ -41,7 +44,13 @@ class TenderDimensionBars extends Component {
                 <div className='TenderDimensionBars'>
                     {
                         data.map(
-                            (d, index) => <TenderDimensionBar category={this.props.category} key={index} data={d} height={30} onClickTender={this.props.onClickTender}></TenderDimensionBar>
+                            (d, index) => <TenderDimensionBar 
+                                category={this.props.category} 
+                                key={index} 
+                                data={d} 
+                                height={30} 
+                                onClickTender={this.props.onClickTender}>
+                            </TenderDimensionBar>
                         )
                     }
                 </div>                
