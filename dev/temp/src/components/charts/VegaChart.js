@@ -52,6 +52,7 @@ class VegaChartSavingByCategory extends Component {
                 labelFont : font
             }
         }
+
         // create the Vega view
         let view = new vega.View(vega.parse(spec))
                 .renderer('svg')

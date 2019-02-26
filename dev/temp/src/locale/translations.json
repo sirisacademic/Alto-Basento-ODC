@@ -110,19 +110,19 @@
 			],
 			"category": [
 				"Category ",
-				"Tipo intervento"
+				"Tipo intervento "
 			],
 			"year": [
 				"Starting year ",
-				"Anno di inizio"
+				"Anno di inizio "
 			],
 			"municipality": [
 				"Municipality ",
-				"Comune"
+				"Comune "
 			],
 			"contractCategory" : [
-				"Procurement category",
-				"gara"
+				"Procurement category ",
+				"Categoria di gara "
 			]
 		},
 		"buttons": {
@@ -318,19 +318,19 @@
 		"specSavingByCategory": {
 			"title": [
 				"Percentage of saving per category",
-				"Percentuale di risparmio per tipo di intervento"
+				"Percentuale di risparmio per tipo di categoria"
 			],
 			"axes": {
 				"x": {
 					"title": [
 						"% of tender cost saving",
-						"Percentuale di ribasso"
+						"Percentuale di ribasso (%)"
 					]
 				},
 				"y": {
 					"title": [
 						"Average amount",
-						"Media dell’importo totale"
+						"Media dell’importo totale (€)"
 					]
 				}
 			}

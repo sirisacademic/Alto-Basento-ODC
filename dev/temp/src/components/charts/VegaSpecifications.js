@@ -5,86 +5,153 @@ import topojson from '../../static/basilicata_map.topo.json'
 // by the React Component rendering the vega
 // specification
 export const specSavingByCategory = {
-    "$schema": "https://vega.github.io/schema/vega/v4.json",
-    "data": [
-      {
-        "name": "source",
-        "values" : []
-      }
-    ],
-    "scales": [
-      {
-        "name": "x",
-        "type": "linear",
-        "round": true,
-        "nice": true,
-        "zero": true,
-        "domain": {"data": "source", "field": "average_ribasso"},
-        "range": "width"
+  "$schema": "https://vega.github.io/schema/vega/v4.json",
+  "data": [
+    {
+      "name": "source",
+      "values": []
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "round": true,
+      "nice": true,
+      "zero": true,
+      "domain": {
+        "data": "source",
+        "field": "average_ribasso"
       },
-      {
-        "name": "y",
-        "type": "linear",
-        "round": true,
-        "nice": true,
-        "zero": true,
-        "domain": {"data": "source", "field": "average_amount"},
-        "range": "height"
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "round": true,
+      "nice": true,
+      "zero": true,
+      "domain": {
+        "data": "source",
+        "field": "average_amount"
       },
-      {
-        "name": "size",
-        "type": "linear",
-        "round": true,
-        "nice": false,
-        "zero": true,
-        "domain": {"data": "source", "field": "sum_amount"},
-        "range": [4,361]
-      }
-    ],
-  
-    "axes": [
-      {
-        "scale": "x",
-        "grid": true,
-        "gridDash" : [2, 2],
-        "domain": false,
-        "orient": "bottom",
-        "tickCount": 5,
-        "title": "",
-        "titlePadding" : 15,
-        "format" : "%"
+      "range": "height"
+    },
+    {
+      "name": "size",
+      "type": "linear",
+      "round": true,
+      "nice": false,
+      "zero": true,
+      "domain": {
+        "data": "source",
+        "field": "sum_amount"
       },
-      {
-        "scale": "y",
-        "grid": true,
-        "gridDash" : [2, 2],
-        "domain": false,
-        "orient": "left",
-        "titlePadding": 15,
-        "title": ""
-      }
-    ],
-  
-    "marks": [
-      {
-        "name": "marks",
-        "type": "symbol",
-        "from": {"data": "source"},
-        "encode": {
-          "update": {
-            "x": {"scale": "x", "field": "average_ribasso"},
-            "y": {"scale": "y", "field": "average_amount"},
-            "size": {"scale": "size", "field": "sum_amount"},
-            "shape": {"value": "circle"},
-            "strokeWidth": {"value": 2},
-            "opacity": {"value": 0.5},
-            "stroke": {"value": "#4682b4"},
-            "fill": {"value": "transparent"}
+      "range": [
+        4,
+        361
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "grid": true,
+      "gridDash": [
+        2,
+        2
+      ],
+      "domain": false,
+      "orient": "bottom",
+      "tickCount": 5,
+      "title": "Percentuale di ribasso (%)",
+      "titlePadding": 15,
+      "format": ",.0f"
+    },
+    {
+      "scale": "y",
+      "grid": true,
+      "gridDash": [
+        2,
+        2
+      ],
+      "domain": false,
+      "orient": "left",
+      "titlePadding": 15,
+      "title": "Media dell’importo totale (€)"
+    }
+  ],
+  "marks": [
+    {
+      "name": "marks",
+      "type": "symbol",
+      "from": {
+        "data": "source"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "average_ribasso"
+          },
+          "y": {
+            "scale": "y",
+            "field": "average_amount"
+          },
+          "size": {
+            "scale": "size",
+            "field": "sum_amount"
+          },
+          "shape": {
+            "value": "circle"
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "opacity": {
+            "value": 0.5
+          },
+          "stroke": {
+            "value": "#4682b4"
+          },
+          "fill": {
+            "value": "transparent"
+          },
+          "tooltip": {
+            "signal": "{'Tender category': datum['mainProcurementCategory.name'], 'Total amount' : format(datum.sum_amount, '$,.0f'), 'Average amount': format(datum.average_amount, '$,.0f'),'Average ribasso': format(datum.average_ribasso, ',.0f') + '%' }"
           }
         }
       }
-    ]
-  };
+    }
+  ],
+  "title": {
+    "text": "Percentuale di risparmio per tipo di intervento",
+    "offset": 20
+  },
+  "width": 534.5,
+  "autosize": "fit",
+  "height": 400,
+  "padding": {
+    "top": 20,
+    "left": 0,
+    "right": 0,
+    "bottom": 20
+  },
+  "config": {
+    "title": {
+      "font": "'IBM+Plex+Sans','Helvetica Neue',Arial,Helvetica,sans-serif",
+      "fontSize": 22,
+      "fontWeight": 300
+    },
+    "text": {
+      "font": "'IBM+Plex+Sans','Helvetica Neue',Arial,Helvetica,sans-serif"
+    },
+    "axis": {
+      "titleFont": "'IBM+Plex+Sans','Helvetica Neue',Arial,Helvetica,sans-serif",
+      "labelFont": "'IBM+Plex+Sans','Helvetica Neue',Arial,Helvetica,sans-serif"
+    }
+  }
+};
 
 
 export const specRankByAmount = {
@@ -664,9 +731,7 @@ export const specFlowOrgMunicipality = {
         "labels": {
           "update": {
             "text": {
-              "scale": "stackNames",
-              "field": "value",
-              "fontWeight" : "bold"
+              "value" : ""
             }
           }
         }
@@ -683,9 +748,7 @@ export const specFlowOrgMunicipality = {
         "labels": {
           "update": {
             "text": {
-              "scale": "stackNames",
-              "field": "value",
-              "fontWeight" : "bold"
+              "value" : ""
             }
           }
         }

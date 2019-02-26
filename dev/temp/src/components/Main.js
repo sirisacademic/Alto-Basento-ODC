@@ -33,7 +33,6 @@ class Main extends React.Component {
     componentDidUpdate(prevProps) {
         const prevLangCode = prevProps.activeLanguage && prevProps.activeLanguage.code;
         const curLangCode = this.props.activeLanguage && this.props.activeLanguage.code;
-        console.log('test', prevLangCode, curLangCode);
     }
 
     render() {

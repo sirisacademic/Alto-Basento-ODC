@@ -28,7 +28,7 @@ class Charts extends Component {
                 
         if(tenders.length === 0)
             return <div></div>
-        console.log("specSavingByCategory, ", specSavingByCategory);
+
         // add locales to titles of the vega specifications
         _.find(specSavingByCategory.axes, ['scale', 'x'])
             .title = translate('charts.specSavingByCategory.axes.x.title');
@@ -108,8 +108,8 @@ class Charts extends Component {
                                             this.props.history.push('/company/' + item.datum[Constants.NOME_IMPRESA]);
                                     }}
                                     hoverListener={(event, item) => {
-                                        if(item && item.datum)
-                                            console.log("hover: ", item);
+                                        //if(item && item.datum)
+                                        //    console.log("hover: ", item);
                                     }}>                                
                                 </VegaChart>
                             </Grid.Column>

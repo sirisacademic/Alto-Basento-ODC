@@ -36,8 +36,6 @@ export const fetchAllTenders = () => {
         .then(
             function(response) {
                 response.data.forEach(fixCandidates);
-                console.log("// Fetch all tenders: /////////");
-                console.log(response.data);
                 return response.data;
             },
             function(error) {
