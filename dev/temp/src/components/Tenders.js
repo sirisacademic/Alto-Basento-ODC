@@ -17,6 +17,7 @@ import {
     withLocalize,
     Translate 
 } from 'react-localize-redux';
+import { withRouter} from 'react-router-dom';
 
 class Tenders extends Component {
 
@@ -31,7 +32,7 @@ class Tenders extends Component {
             results: []
         };   
 
-        this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.handleSearchChange      = this.handleSearchChange.bind(this);
     }
 
 
@@ -199,4 +200,4 @@ class Tenders extends Component {
     }
 }
 
-export default withLocalize(Tenders);
+export default withRouter(withLocalize(Tenders));
