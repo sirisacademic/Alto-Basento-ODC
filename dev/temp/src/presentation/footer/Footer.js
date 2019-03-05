@@ -24,7 +24,7 @@ const Footer = () => (
               <Header inverted as='h4'>
                 <Translate id='footer.leftColumn'/>
               </Header>
-              <Image src='/images/logo-siris.png' size='small' href='http://www.sirisacademic.com' target='_blank' />
+              <Image src='./images/logo-siris.png' size='small' href='http://www.sirisacademic.com' target='_blank' />
             </Grid.Column>
             <Grid.Column>
               <Header inverted as='h4'>
@@ -32,7 +32,7 @@ const Footer = () => (
               </Header>
               <List link inverted>
                 <List.Item as='a' href='http://www.areaprogrammabasento.it/' target='_blank'>
-                    <Image src='/images/logo-areaprogrammabasento.png' size='small'/>
+                    <Image src='./images/logo-areaprogrammabasento.png' size='small'/>
                 </List.Item>
               </List>
             </Grid.Column>
@@ -42,10 +42,10 @@ const Footer = () => (
                 </Header>
                 <List link inverted>
                   <List.Item as='a' href='https://www.open-contracting.org/' target='_blank'>
-                      <Image src='/images/logo-open-contracting.png' size='small'/>
+                      <Image src='./images/logo-open-contracting.png' size='small'/>
                   </List.Item>      
                   <List.Item as='a' href='https://joinup.ec.europa.eu/solution/eprocurement-ontology/' target='_blank'>
-                      <Image src='/images/eprocurement.png' size='mini' style={{marginLeft:'15px', marginRight:'15px'}}/>
+                      <Image src='./images/eprocurement.png' size='mini' style={{marginLeft:'15px', marginRight:'15px'}}/>
                       <span>eProcurement Ontology</span>
                   </List.Item>            
                 </List>
