@@ -37,7 +37,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <Router>
+            <Router basename='/openbasento'>
                 <div>
                     <HeaderMenu/>
                     <Container>
